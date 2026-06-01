@@ -24,17 +24,17 @@ const DOUBLED = [...REVIEWS, ...REVIEWS];
 
 function ReviewCard({ review }) {
   return (
-    <div className="flex-shrink-0 w-72 md:w-80 bg-[#111113] border border-white/5 hover:border-[#F97316]/20 transition-all duration-500 p-6 flex flex-col">
-      <div className="flex gap-1 mb-4">
+    <div className="flex-shrink-0 w-64 md:w-80 bg-[#111113] border border-white/5 hover:border-[#F97316]/20 transition-all duration-500 p-4 md:p-6 flex flex-col">
+      <div className="flex gap-1 mb-3 md:mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className="w-3.5 h-3.5 fill-[#F97316] text-[#F97316]" />
+          <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-[#F97316] text-[#F97316]" />
         ))}
       </div>
-      <p className="text-[#F3F4F6]/85 text-sm leading-relaxed flex-1 mb-5">
+      <p className="text-[#F3F4F6]/85 text-xs md:text-sm leading-relaxed flex-1 mb-4 md:mb-5">
         "{review.review}"
       </p>
       <div className="pt-3 border-t border-white/5">
-        <span className="font-display text-xs text-[#F97316] uppercase tracking-wide">
+        <span className="font-display text-[10px] md:text-xs text-[#F97316] uppercase tracking-wide">
           {review.name}
         </span>
       </div>

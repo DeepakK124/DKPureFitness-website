@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Dumbbell } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Dumbbell, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 // Edit this list to update the equipment displayed on the site
 const EQUIPMENT = [
@@ -40,6 +41,23 @@ const categoryColor = {
 };
 
 export default function EquipmentSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mobile: 5 items (5 rows of 1 column)
+  // Desktop: 12 items (3 rows of 4 columns)
+  const initialLimit = isMobile ? 5 : 12;
+  
+  const displayedEquipment = isExpanded ? EQUIPMENT : EQUIPMENT.slice(0, initialLimit);
+  const hasMore = EQUIPMENT.length > initialLimit;
+
   return (
     <section id="equipment" className="relative py-24 md:py-32 bg-[#0A0A0B]">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
@@ -59,33 +77,52 @@ export default function EquipmentSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {EQUIPMENT.map((item, idx) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: (idx % 8) * 0.05 }}
-              className="group flex items-start gap-3 bg-[#111113] border border-white/5 hover:border-[#F97316]/25 transition-all duration-300 p-4"
+        <motion.div layout className="flex flex-wrap justify-center gap-3">
+          <AnimatePresence>
+            {displayedEquipment.map((item, idx) => (
+              <motion.div
+                layout
+                key={item.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-[#111113] border border-white/5 hover:border-[#F97316]/25 transition-colors duration-300 p-4"
+              >
+                <div
+                  className="w-1 self-stretch flex-shrink-0 mt-0.5 rounded-full"
+                  style={{ backgroundColor: categoryColor[item.category] || '#F97316' }}
+                />
+                <div className="min-w-0">
+                  <p className="text-[#F3F4F6] text-sm font-medium leading-snug">{item.name}</p>
+                  <span
+                    className="font-mono text-[9px] tracking-widest mt-1 inline-block"
+                    style={{ color: categoryColor[item.category] || '#9CA3AF' }}
+                  >
+                    {item.category.toUpperCase()}
+                  </span>
+                </div>
+                <Dumbbell className="w-3.5 h-3.5 text-[#9CA3AF]/30 group-hover:text-[#F97316]/50 transition-colors flex-shrink-0 ml-auto mt-0.5" />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {hasMore && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-[#F97316]/50 text-[#9CA3AF] hover:text-[#F3F4F6] font-mono text-xs tracking-widest transition-all duration-300 group"
             >
-              <div
-                className="w-1 self-stretch flex-shrink-0 mt-0.5 rounded-full"
-                style={{ backgroundColor: categoryColor[item.category] || '#F97316' }}
-              />
-              <div className="min-w-0">
-                <p className="text-[#F3F4F6] text-sm font-medium leading-snug">{item.name}</p>
-                <span
-                  className="font-mono text-[9px] tracking-widest mt-1 inline-block"
-                  style={{ color: categoryColor[item.category] || '#9CA3AF' }}
-                >
-                  {item.category.toUpperCase()}
-                </span>
-              </div>
-              <Dumbbell className="w-3.5 h-3.5 text-[#9CA3AF]/30 group-hover:text-[#F97316]/50 transition-colors flex-shrink-0 ml-auto mt-0.5" />
-            </motion.div>
-          ))}
-        </div>
+              {isExpanded ? 'VIEW LESS' : 'VIEW MORE'}
+              {isExpanded ? (
+                <ChevronUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+              ) : (
+                <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

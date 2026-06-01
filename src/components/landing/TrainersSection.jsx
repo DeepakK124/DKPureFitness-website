@@ -44,7 +44,7 @@ export default function TrainersSection() {
           
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 gap-4 md:gap-6">
           {TRAINERS.map((trainer, idx) =>
           <motion.div
             key={trainer.id}
@@ -52,7 +52,7 @@ export default function TrainersSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="group relative bg-[#111113] border border-white/5 hover:border-[#F97316]/30 transition-all duration-500 overflow-hidden">
+            className="w-[calc(50%-0.5rem)] md:w-auto group relative bg-[#111113] border border-white/5 hover:border-[#F97316]/30 transition-all duration-500 overflow-hidden">
             
               {/* Image */}
               <div className="relative aspect-[3/4] overflow-hidden">
@@ -78,21 +78,21 @@ export default function TrainersSection() {
               </div>
 
               {/* Info */}
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="font-display text-lg text-[#F3F4F6] uppercase">
+              <div className="p-3 md:p-6">
+                <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-2">
+                  <h3 className="font-display text-sm md:text-lg text-[#F3F4F6] uppercase">
                     {trainer.name}
                   </h3>
                   {idx === 0 && (
-                    <span className="font-mono text-[10px] tracking-widest text-white bg-blue-600 px-2 py-0.5 flex-shrink-0">
+                    <span className="font-mono text-[8px] md:text-[10px] tracking-widest text-white bg-blue-600 px-1.5 py-0.5 flex-shrink-0">
                       OWNER
                     </span>
                   )}
                 </div>
-                <p className="font-mono text-xs tracking-widest text-[#F97316] mb-3">
+                <p className="font-mono text-[8px] md:text-xs tracking-widest text-[#F97316] mb-2 md:mb-3 leading-tight">
                   {trainer.specialty?.toUpperCase()}
                 </p>
-                <p className="text-[#9CA3AF] text-sm leading-relaxed line-clamp-3">
+                <p className="text-[#9CA3AF] text-[10px] md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
                   {trainer.bio}
                 </p>
               </div>

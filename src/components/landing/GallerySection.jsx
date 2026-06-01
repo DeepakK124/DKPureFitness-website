@@ -7,7 +7,7 @@ const GALLERY_ITEMS = [
     type: 'wide',
     src: '/DKPF Pics/outside lawn.webp',
     alt: 'Outside Lawn',
-    width: 'w-[450px] md:w-[650px]',
+    width: 'w-[280px] md:w-[650px]',
   },
   {
     type: 'stacked',
@@ -15,13 +15,13 @@ const GALLERY_ITEMS = [
       { src: '/DKPF Pics/yoga session.webp', alt: 'Yoga Session' },
       { src: '/DKPF Pics/outside lawn 1.webp', alt: 'Outside Lawn 1' },
     ],
-    width: 'w-[280px] md:w-[380px]',
+    width: 'w-[200px] md:w-[380px]',
   },
   {
     type: 'wide',
     src: '/DKPF Pics/DKPF banner.webp',
     alt: 'DKPF Banner',
-    width: 'w-[550px] md:w-[800px]',
+    width: 'w-[320px] md:w-[800px]',
   },
   {
     type: 'stacked',
@@ -29,19 +29,19 @@ const GALLERY_ITEMS = [
       { src: '/DKPF Pics/trophy.webp', alt: 'Trophy' },
       { src: '/DKPF Pics/flag.webp', alt: 'Flag' },
     ],
-    width: 'w-[220px] md:w-[320px]',
+    width: 'w-[160px] md:w-[320px]',
   },
   {
     type: 'wide',
     src: '/DKPF Pics/unnamed.webp',
     alt: 'Wide Angle Gym View',
-    width: 'w-[650px] md:w-[950px]',
+    width: 'w-[350px] md:w-[950px]',
   },
   {
     type: 'wide',
     src: '/DKPF Pics/Squat Rack.jpeg',
     alt: 'Squat Rack',
-    width: 'w-[450px] md:w-[650px]',
+    width: 'w-[280px] md:w-[650px]',
   },
 ];
 
@@ -75,7 +75,7 @@ export default function GallerySection() {
       <div className="relative group">
         <div className="flex overflow-x-auto pb-12 gap-4 px-6 md:px-12 scrollbar-thin scrollbar-thumb-[#F97316] scrollbar-track-white/5">
           {GALLERY_ITEMS.map((column, colIdx) => (
-            <div key={colIdx} className={`flex-none h-[450px] md:h-[600px] ${column.width}`}>
+            <div key={colIdx} className={`flex-none h-[300px] md:h-[600px] ${column.width}`}>
               {column.type === 'wide' ? (
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
