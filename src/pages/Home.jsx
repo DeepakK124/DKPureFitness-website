@@ -8,6 +8,7 @@ import GallerySection from '../components/landing/GallerySection';
 import ReviewsSection from '../components/landing/ReviewsSection';
 import ContactSection from '../components/landing/ContactSection';
 import Footer from '../components/landing/Footer';
+import CookieBanner from '../components/CookieBanner';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <ReviewsSection />
       <ContactSection />
       <Footer />
+      <CookieBanner />
     </div>
   );
 }

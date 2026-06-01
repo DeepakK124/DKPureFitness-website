@@ -5,12 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+import { PrivacyDialog } from '../LegalDialogs';
 
 const MAPS_URL = 'https://maps.google.com/?q=8JCG%2BF7V,+Laxma+Reddy+Palem+Colony,+Hyderabad,+Telangana+501513';
 const INSTAGRAM_URL = 'https://www.instagram.com/dk_purefitness/';
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', interest: 'general' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', interest: 'general', marketingConsent: false });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -195,12 +196,34 @@ export default function ContactSection() {
                   rows={4}
                   className="bg-[#0A0A0B] border-white/10 text-[#F3F4F6] font-mono text-sm focus:border-[#F97316] rounded-none resize-none"
                   placeholder="Tell us about your goals..." />
-                
                 </div>
+                
+                {/* Legal / Consent Checkbox */}
+                <div className="space-y-3 pt-2">
+                  <div className="flex items-start gap-3">
+                    <input 
+                      type="checkbox" 
+                      id="marketing-consent" 
+                      checked={form.marketingConsent}
+                      onChange={(e) => setForm({ ...form, marketingConsent: e.target.checked })}
+                      className="mt-1 w-4 h-4 rounded-sm border-white/20 bg-transparent text-[#F97316] focus:ring-[#F97316] focus:ring-offset-[#111113]"
+                    />
+                    <label htmlFor="marketing-consent" className="text-xs text-[#9CA3AF] leading-relaxed cursor-pointer">
+                      I agree to receive promotional updates, offers, and fitness content from DK Pure Fitness. (Optional)
+                    </label>
+                  </div>
+                  <p className="text-[10px] text-[#9CA3AF]/60 leading-relaxed">
+                    By submitting this form, you acknowledge that your personal data will be processed to handle your inquiry in accordance with our{' '}
+                    <PrivacyDialog>
+                      <button type="button" className="text-[#F97316] hover:underline underline-offset-2">Privacy Policy</button>
+                    </PrivacyDialog>.
+                  </p>
+                </div>
+
                 <button
                 type="submit"
                 disabled={sending}
-                className="w-full flex items-center justify-center gap-2 py-4 bg-[#F97316] text-white font-mono text-xs tracking-widest hover:bg-[#F97316]/80 disabled:opacity-50 transition-all duration-300">
+                className="w-full flex items-center justify-center gap-2 py-4 bg-[#F97316] text-white font-mono text-xs tracking-widest hover:bg-[#F97316]/80 disabled:opacity-50 transition-all duration-300 mt-2">
                 
                   {sending ? 'SENDING...' : 'SEND EMAIL'}
                   <ArrowUpRight className="w-3.5 h-3.5" />
