@@ -42,7 +42,7 @@ export function TermsDialog({ children }) {
           <section>
             <h2 className="text-[#F3F4F6] text-base md:text-lg font-semibold mb-3 md:mb-4 uppercase tracking-wider border-b border-white/5 pb-1">2. Membership & Registration</h2>
             <div className="space-y-3">
-              <p><strong>2.1 Eligibility:</strong> Membership is open to individuals aged 16 and above. Members under 18 require written parental/guardian consent.</p>
+              <p><strong>2.1 Eligibility:</strong> Membership is open to individuals aged 16 and above.</p>
               <p><strong>2.2 Acceptance:</strong> {gymName} reserves the right to refuse membership to anyone violating these terms or gym policies.</p>
             </div>
           </section>
