@@ -110,8 +110,8 @@ html {
 
 /* Selection color */
 ::selection {
-  background: rgba(45, 91, 255, 0.3);
-  color: #F3F4F6;
+  background: #F97316;
+  color: #0A0A0B;
 }
 
 /* Custom thin scrollbar (for gallery) */

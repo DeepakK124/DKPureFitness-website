@@ -3,22 +3,43 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
-{ label: 'TRANSFORMATIONS', href: '#transformations' },
-{ label: 'TRAINERS', href: '#trainers' },
-{ label: 'EQUIPMENT', href: '#equipment' },
-{ label: 'GALLERY', href: '#gallery' },
-{ label: 'REVIEWS', href: '#reviews' },
-{ label: 'CONTACT', href: '#contact' }];
+{ label: 'TRANSFORMATIONS', href: '#transformations', id: 'transformations' },
+{ label: 'TRAINERS', href: '#trainers', id: 'trainers' },
+{ label: 'EQUIPMENT', href: '#equipment', id: 'equipment' },
+{ label: 'GALLERY', href: '#gallery', id: 'gallery' },
+{ label: 'REVIEWS', href: '#reviews', id: 'reviews' },
+{ label: 'CONTACT', href: '#contact', id: 'contact' }];
 
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Scrollspy logic
+      const sections = NAV_LINKS.map(link => document.getElementById(link.id));
+      const scrollPosition = window.scrollY + 100; // Offset for navbar
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(section.id);
+          break;
+        }
+      }
+      
+      // Clear active section if at the very top
+      if (window.scrollY < 100) {
+        setActiveSection('');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -35,16 +56,29 @@ export default function Navbar() {
             />
           </a>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) =>
-            <a
-              key={link.label}
-              href={link.href}
-              className="font-mono text-xs tracking-widest text-[#9CA3AF] hover:text-[#F97316] transition-colors duration-300">
+          <div className="hidden lg:flex items-center gap-8 relative">
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.id;
               
-                {link.label}
-              </a>
-            )}
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`relative font-mono text-xs tracking-widest transition-colors duration-300 py-2 ${isActive ? 'text-[#F97316]' : 'text-[#9CA3AF] hover:text-[#F3F4F6]'}`}
+                >
+                  {link.label}
+                  
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-nav-underline"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#F97316]"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-4">
