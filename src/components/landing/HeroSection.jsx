@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
-const HERO_IMG = 'https://media.base44.com/images/public/6a1c84fb5207dc3bbf07d439/98573d8ee_generated_2ee4f0a7.png';
+const HERO_IMG = '/DKPF Pics/Squat Rack.jpeg';
 
 const stats = [
 { icon: Zap, value: "6K+", label: 'SESSIONS' },
