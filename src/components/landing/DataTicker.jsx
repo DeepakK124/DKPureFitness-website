@@ -4,7 +4,8 @@ import { Activity, Users, Flame, Clock } from 'lucide-react';
 const TICKER_ITEMS = [
   { icon: Activity, text: 'GYM STATUS: OPERATIONAL' },
   { icon: Users, text: 'CURRENT CAPACITY: 47%' },
-  { icon: Clock, text: 'OPEN NOW — CLOSES 23:00' },
+  { icon: Clock, text: 'OPENS 6:00AM — CLOSES 11:00PM' },
+  { icon: Clock, text: 'OPENS 4:30AM — CLOSES 9:00PM' },
   { icon: Activity, text: 'TODAY\'S SESSIONS: 12 COMPLETED' },
   { icon: Users, text: 'MEMBERS ACTIVE: 127' },
 ];
