@@ -138,12 +138,12 @@ export default function ContactSection() {
                     SEND EMAIL
                   </h3>
                   <p className="font-mono text-[10px] text-[#9CA3AF] tracking-widest">
-                    ALL FIELDS REQUIRED
+                    REQUIRED FIELDS MARKED WITH <span className="text-red-500">*</span>
                   </p>
                 </div>
 
                 <div>
-                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">NAME</label>
+                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">NAME <span className="text-red-500">*</span></label>
                   <Input
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -154,7 +154,7 @@ export default function ContactSection() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">EMAIL</label>
+                    <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">EMAIL <span className="text-red-500">*</span></label>
                     <Input
                     type="email"
                     value={form.email}
@@ -175,7 +175,7 @@ export default function ContactSection() {
                   </div>
                 </div>
                 <div>
-                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">INTEREST</label>
+                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">INTEREST <span className="text-red-500">*</span></label>
                   <Select value={form.interest} onValueChange={(v) => setForm({ ...form, interest: v })}>
                     <SelectTrigger className="bg-[#0A0A0B] border-white/10 text-[#F3F4F6] font-mono text-sm rounded-none h-12">
                       <SelectValue />
@@ -188,7 +188,7 @@ export default function ContactSection() {
                   </Select>
                 </div>
                 <div>
-                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">MESSAGE</label>
+                  <label className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-2">MESSAGE <span className="text-red-500">*</span></label>
                   <Textarea
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
