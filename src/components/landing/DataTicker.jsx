@@ -12,7 +12,7 @@ const TICKER_ITEMS = [
 
 export default function DataTicker() {
   return (
-    <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-[#0A0A0B]/90 backdrop-blur-sm border-b border-white/5 overflow-hidden h-8 flex items-center">
+    <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-[#1a1a1c]/60 backdrop-blur-sm border-b border-white/5 overflow-hidden h-8 flex items-center">
       <motion.div
         className="flex gap-12 whitespace-nowrap"
         animate={{ x: [0, -1200] }}

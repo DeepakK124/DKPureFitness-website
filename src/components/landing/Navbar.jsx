@@ -45,7 +45,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? 'bg-[#1a1008]/95 backdrop-blur-md border-b border-[#F97316]/15' : 'bg-[#1a1008]/80 backdrop-blur-sm border-b border-[#F97316]/10'}`
+      scrolled ? 'bg-[#1a1a1c]/80 backdrop-blur-md border-b border-[#F97316]/20' : 'bg-[#1a1a1c]/60 backdrop-blur-sm border-b border-[#F97316]/10'}`
       }>
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center h-full">
@@ -105,7 +105,7 @@ export default function Navbar() {
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'tween', duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed inset-0 z-[60] bg-[#0A0A0B] flex flex-col">
+          className="fixed inset-0 z-[60] bg-[#0c0806] flex flex-col">
           
             <div className="flex items-center justify-between px-6 h-16">
               <img 

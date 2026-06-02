@@ -59,7 +59,7 @@ export default function EquipmentSection() {
   const hasMore = EQUIPMENT.length > initialLimit;
 
   return (
-    <section id="equipment" className="relative py-24 md:py-32 bg-[#0A0A0B]">
+    <section id="equipment" className="relative py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">

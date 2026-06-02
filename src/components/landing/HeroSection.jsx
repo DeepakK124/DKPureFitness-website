@@ -13,7 +13,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMG}
           alt="Athlete performing deadlift in cinematic lighting"

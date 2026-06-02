@@ -46,7 +46,7 @@ export default function ReviewsSection() {
   const trackWidth = REVIEWS.length * (320 + 16); // card width + gap
 
   return (
-    <section id="reviews" className="relative py-24 md:py-32 bg-[#0A0A0B] overflow-hidden">
+    <section id="reviews" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-14">

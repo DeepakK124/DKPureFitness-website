@@ -12,7 +12,7 @@ import CookieBanner from '../components/CookieBanner';
 
 export default function Home() {
   return (
-    <div className="bg-[#0A0A0B] min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
       <DataTicker />
       <HeroSection />

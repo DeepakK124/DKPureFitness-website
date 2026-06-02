@@ -7,8 +7,8 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative bg-[#1a1008] border-t border-[#F97316]/15">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-8 md:py-10">
+    <footer className="relative border-t border-[#F97316]/15 bg-[#120a06]/40 backdrop-blur-sm">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Logo */}
           <div className="flex flex-col items-center md:items-start">
