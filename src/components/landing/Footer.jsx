@@ -10,15 +10,17 @@ export default function Footer() {
     <footer className="relative border-t border-[#F97316]/15 bg-[#120a06]/40 backdrop-blur-sm">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Logo */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start max-w-sm">
             <img 
               src="https://media.base44.com/images/public/6a1c84fb5207dc3bbf07d439/e813b83b9_DK_Pure_Fitness-removebg-preview.png" 
-              alt="DK Pure Fitness" 
+              alt="DK Pure Fitness - Gym in Hyderabad" 
               className="h-28 md:h-36 w-auto object-contain [filter:invert(1)_hue-rotate(180deg)]" 
             />
-            <p className="font-mono text-[10px] tracking-widest text-[#9CA3AF] -mt-2 md:-mt-4">
-              YOUR FITNESS COMPANION
+            <p className="font-mono text-[10px] tracking-widest text-[#9CA3AF] -mt-2 md:-mt-4 mb-4">
+              HYDERABAD'S STRENGTH-FIRST GYM
+            </p>
+            <p className="font-mono text-[9px] text-[#9CA3AF]/60 leading-relaxed text-center md:text-left">
+              📍 8JCG+F7V, Laxma Reddy Palem Colony, near Kuntloor & Peddamberpet, Hyderabad, Telangana 501513
             </p>
           </div>
 

@@ -55,7 +55,7 @@ export default function ReviewsSection() {
             06 — Community Voice
           </span>
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
-            WHAT MEMBERS<br />SAY
+            What Our Members Say<br />— 
           </h2>
         </div>
       </div>

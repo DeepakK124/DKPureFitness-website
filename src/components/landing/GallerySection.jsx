@@ -6,7 +6,7 @@ const GALLERY_ITEMS = [
   {
     type: 'wide',
     src: '/DKPF Pics/outside lawn.webp',
-    alt: 'Outside Lawn',
+    alt: 'Outside lawn and functional training area at DK Pure Fitness gym Hyderabad',
     width: 'w-[280px] md:w-[650px]',
     mWidth: 280,
     dWidth: 650,
@@ -14,8 +14,8 @@ const GALLERY_ITEMS = [
   {
     type: 'stacked',
     images: [
-      { src: '/DKPF Pics/yoga session.webp', alt: 'Yoga Session' },
-      { src: '/DKPF Pics/outside lawn 1.webp', alt: 'Outside Lawn 1' },
+      { src: '/DKPF Pics/yoga session.webp', alt: 'Yoga and stretching session at DK Pure Fitness fitness center Hyderabad' },
+      { src: '/DKPF Pics/outside lawn 1.webp', alt: 'Outdoor training zone at DK Pure Fitness gym near Kuntloor' },
     ],
     width: 'w-[200px] md:w-[380px]',
     mWidth: 200,
@@ -24,7 +24,7 @@ const GALLERY_ITEMS = [
   {
     type: 'wide',
     src: '/DKPF Pics/DKPF banner.webp',
-    alt: 'DKPF Banner',
+    alt: 'DK Pure Fitness gym branding and entrance Hyderabad',
     width: 'w-[320px] md:w-[800px]',
     mWidth: 320,
     dWidth: 800,
@@ -32,8 +32,8 @@ const GALLERY_ITEMS = [
   {
     type: 'stacked',
     images: [
-      { src: '/DKPF Pics/trophy.webp', alt: 'Trophy' },
-      { src: '/DKPF Pics/flag.webp', alt: 'Flag' },
+      { src: '/DKPF Pics/trophy.webp', alt: 'Success and achievements at DK Pure Fitness Hyderabad' },
+      { src: '/DKPF Pics/flag.webp', alt: 'DK Pure Fitness gym flag representing strength and discipline' },
     ],
     width: 'w-[160px] md:w-[320px]',
     mWidth: 160,
@@ -42,7 +42,7 @@ const GALLERY_ITEMS = [
   {
     type: 'wide',
     src: '/DKPF Pics/unnamed.webp',
-    alt: 'Wide Angle Gym View',
+    alt: 'Wide angle view of commercial-grade equipment at DK Pure Fitness gym Hyderabad',
     width: 'w-[350px] md:w-[950px]',
     mWidth: 350,
     dWidth: 950,
@@ -50,7 +50,7 @@ const GALLERY_ITEMS = [
   {
     type: 'wide',
     src: '/DKPF Pics/Squat Rack.jpeg',
-    alt: 'Squat Rack',
+    alt: 'Premium squat rack and weight training area at DK Pure Fitness gym near Peddamberpet',
     width: 'w-[280px] md:w-[650px]',
     mWidth: 280,
     dWidth: 650,
@@ -90,7 +90,7 @@ export default function GallerySection() {
               05 — The Arena
             </span>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
-              INSIDE<br />THE MONolith
+              Inside DK Pure Fitness<br />— Hyderabad
             </h2>
           </div>
           

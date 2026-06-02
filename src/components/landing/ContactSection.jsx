@@ -38,9 +38,15 @@ export default function ContactSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               07 — Control Center
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-8">
-              CONTACT<br />US
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+              Join DK Pure Fitness<br />— Gym Near Kuntloor & Peddamberpet, Hyderabad
             </h2>
+            <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-xl mb-8">
+              Ready to stop waiting and start training? Visit us near Kuntloor 
+              and Peddamberpet in Hyderabad, or drop us a message to book a 
+              free trial session. Our doors open at 4:30 AM — and so does 
+              your potential.
+            </p>
             
 
 
@@ -106,7 +112,7 @@ export default function ContactSection() {
                 <div>
                   <span className="font-mono text-[10px] tracking-widest text-[#9CA3AF] block mb-1">OPERATING HOURS</span>
                   <span className="text-[#F3F4F6] text-sm">
-                    MON–SUN: 6:00 AM – 11:00 AM<br />MON–SAT: 4:30 PM – 9:00 PM
+                    MON–SUN: 5:00 AM – 11:00 AM<br />MON–SAT: 4:30 PM – 9:30 PM
                   </span>
                 </div>
               </div>

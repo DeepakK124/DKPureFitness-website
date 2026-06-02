@@ -39,9 +39,15 @@ export default function TrainersSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               03 — The Architects
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
-              YOUR<br />TRAINERS
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+              Expert Trainers.<br />Personalised Plans.
             </h2>
+            <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-2xl">
+              Our certified personal trainers in Hyderabad don't hand you a PDF 
+              and wish you luck. They assess your baseline, design a program around 
+              your schedule and goals, and coach you rep by rep — whether you're 
+              after fat loss, muscle gain, or sport-specific conditioning.
+            </p>
           </div>
         </div>
 
@@ -65,7 +71,7 @@ export default function TrainersSection() {
                 {trainer.image_url ? (
                   <img
                     src={trainer.image_url}
-                    alt={trainer.name}
+                    alt={`Personal trainer ${trainer.name} at DK Pure Fitness gym Hyderabad`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   />
                 ) : (
@@ -154,7 +160,7 @@ export default function TrainersSection() {
                 {selectedTrainer.image_url ? (
                   <img
                     src={selectedTrainer.image_url}
-                    alt={selectedTrainer.name}
+                    alt={`Personal trainer ${selectedTrainer.name} at DK Pure Fitness gym Hyderabad`}
                     className="w-full h-full object-cover" 
                   />
                 ) : (

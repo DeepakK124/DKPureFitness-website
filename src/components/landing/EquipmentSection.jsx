@@ -68,12 +68,15 @@ export default function EquipmentSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               04 — Arsenal
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
-              THE<br />EQUIPMENT
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+              Commercial-Grade<br />Equipment. Zero Excuses.
             </h2>
           </div>
-          <p className="text-[#9CA3AF] text-sm md:text-base max-w-sm leading-relaxed">
-            State-of-the-art machines and free weights — everything you need to hit every goal.
+          <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-2xl">
+            From Olympic barbells and power racks to cable stations, cardio 
+            machines, and functional training zones — DK Pure Fitness is 
+            equipped for every training style. Strength athletes, bodybuilders, 
+            and weight loss beginners all find what they need under one roof.
           </p>
         </div>
 

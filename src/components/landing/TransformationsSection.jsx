@@ -35,9 +35,15 @@ export default function TransformationsSection() {
           <span className="font-mono text-xs tracking-[0.3em] text-[#2D5BFF] uppercase block mb-3">
             02 — Proof of Performance
           </span>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-4">
-            TRANS-<br />FORMATIONS
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+            Real Results. <br />Real Members.
           </h2>
+          <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-2xl">
+            Every before-and-after at DK Pure Fitness represents weeks of sweat, 
+            consistency, and expert coaching. No filters. No shortcuts. These are 
+            your future neighbors, colleagues, and friends — and they trained 
+            right here.
+          </p>
         </div>
 
         <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 gap-4 md:gap-6">

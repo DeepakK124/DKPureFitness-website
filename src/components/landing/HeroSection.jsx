@@ -4,9 +4,9 @@ import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 const HERO_IMG = '/DKPF Pics/Squat Rack.jpeg';
 
 const stats = [
-{ icon: Zap, value: "6K+", label: 'SESSIONS' },
-{ icon: Users, value: "150+", label: 'MEMBERS' },
-{ icon: Clock, value: "10H", label: 'DAILY ACCESS' }];
+{ icon: Zap, value: "6K+", label: 'SESSIONS COMPLETED' },
+{ icon: Users, value: "150+", label: 'ACTIVE MEMBERS' },
+{ icon: Clock, value: "10H+", label: 'DAILY ACCESS' }];
 
 
 export default function HeroSection() {
@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={HERO_IMG}
-          alt="Athlete performing deadlift in cinematic lighting"
+          alt="Strength training at DK Pure Fitness gym near Kuntloor Hyderabad"
           className="w-full h-full object-cover" />
         
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/70 to-[#0A0A0B]/30" />
@@ -51,7 +51,7 @@ export default function HeroSection() {
             className="mb-4">
             
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase">
-              Your Fitness Companion — Hyderabad
+              Strength Training Gym Near Kuntloor & Peddamberpet, Hyderabad
             </span>
           </motion.div>
 
@@ -74,9 +74,10 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-lg mb-8">
             
-            Step into DK Pure Fitness. A nature-friendly training environment
-            built for those who measure progress in personal records, not
-            participation trophies.
+            Hyderabad's results-driven fitness center near Kuntloor and Peddamberpet. 
+            Whether your goal is strength training, fat loss, or a complete body 
+            transformation — DK Pure Fitness gives you the tools, trainers, and 
+            discipline to earn it.
           </motion.p>
 
           <motion.div
@@ -90,6 +91,12 @@ export default function HeroSection() {
               className="inline-flex items-center justify-center px-8 py-4 bg-[#F97316] text-white font-mono text-sm tracking-widest hover:bg-[#F97316]/80 transition-all duration-300">
               
               CONTACT US
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-8 py-4 border border-[#F97316] text-[#F97316] font-mono text-sm tracking-widest hover:bg-[#F97316] hover:text-white transition-all duration-300">
+              
+              JOIN NOW
             </a>
           </motion.div>
 
