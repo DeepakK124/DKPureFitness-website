@@ -117,7 +117,7 @@ export default function ContactSection() {
           </div>
 
           {/* 3. Booking Embed (Middle on mobile, Right on PC) */}
-          <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 bg-card border border-border p-2 md:p-4 shadow-sm h-[380px] sm:h-[450px] md:h-[650px] flex flex-col relative overflow-hidden">
+          <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2 bg-card border border-border p-2 md:p-4 shadow-sm h-[380px] sm:h-[450px] lg:h-full lg:min-h-[500px] flex flex-col relative overflow-hidden">
             <AnimatePresence mode="wait">
               {!showCalendar ? (
                 <motion.div 
