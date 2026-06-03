@@ -145,14 +145,18 @@ export default function ContactSection() {
                   <div className="flex-1 min-h-0 relative">
                     {/* Skeleton Loader */}
                     {!iframeLoaded && (
-                      <div className="absolute inset-0 p-2 flex flex-col space-y-4 animate-pulse bg-card z-10 pointer-events-none">
-                        <div className="h-10 bg-muted/40 rounded-sm w-1/2 mx-auto mb-2" />
-                        <div className="flex-1 flex flex-col gap-3">
-                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
-                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
-                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
-                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
-                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                      <div className="absolute inset-0 p-4 md:p-8 flex flex-col items-center justify-center bg-card z-10 pointer-events-none">
+                        <div className="flex flex-col items-center justify-center w-full max-w-sm">
+                          <div className="w-10 h-10 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-6" />
+                          <p className="font-mono text-xs tracking-[0.2em] text-primary uppercase text-center mb-8 animate-pulse">
+                            Loading Available Slots...
+                          </p>
+                          <div className="w-full space-y-3 animate-pulse opacity-70">
+                            <div className="h-14 bg-muted/40 rounded-sm w-full" />
+                            <div className="h-14 bg-muted/30 rounded-sm w-full" />
+                            <div className="h-14 bg-muted/20 rounded-sm w-full" />
+                            <div className="h-14 bg-muted/10 rounded-sm w-full" />
+                          </div>
                         </div>
                       </div>
                     )}
