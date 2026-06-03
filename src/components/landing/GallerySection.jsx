@@ -86,16 +86,16 @@ export default function GallerySection() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="flex-1">
-            <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
+            <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
               05 — The Arena
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
               Inside DK Pure Fitness<br />— Hyderabad
             </h2>
           </div>
           
           <div className="flex flex-col gap-4 md:items-end">
-            <p className="text-[#9CA3AF] text-sm md:text-base max-w-sm leading-relaxed md:text-right">
+            <p className="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed md:text-right">
               Precision-engineered spaces designed for maximum performance output.
             </p>
           </div>
@@ -104,10 +104,6 @@ export default function GallerySection() {
 
       {/* Endless Scroll Container */}
       <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-r from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-l from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
-
         <motion.div 
           className="flex gap-4"
           animate={{ x: [-trackWidth, 0] }}
@@ -123,14 +119,13 @@ export default function GallerySection() {
               {column.type === 'wide' ? (
                 <div 
                   onClick={() => setSelectedImage(column)}
-                  className="w-full h-full relative overflow-hidden group/item cursor-pointer border border-white/5 hover:border-[#F97316]/30 transition-colors duration-500"
+                  className="w-full h-full relative overflow-hidden group/item cursor-pointer border border-border hover:border-primary/30 transition-colors duration-500"
                 >
                   <img
                     src={column.src}
                     alt={column.alt}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
                   />
-                  <div className="absolute inset-0 bg-[#0A0A0B]/20 group-hover/item:bg-transparent transition-colors duration-500" />
                 </div>
               ) : (
                 <div className="flex flex-col gap-4 h-full w-full">
@@ -138,14 +133,13 @@ export default function GallerySection() {
                     <div 
                       key={imgIdx}
                       onClick={() => setSelectedImage(img)}
-                      className="flex-1 relative overflow-hidden group/item cursor-pointer border border-white/5 hover:border-[#F97316]/30 transition-colors duration-500"
+                      className="flex-1 relative overflow-hidden group/item cursor-pointer border border-border hover:border-primary/30 transition-colors duration-500"
                     >
                       <img
                         src={img.src}
                         alt={img.alt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
                       />
-                      <div className="absolute inset-0 bg-[#0A0A0B]/20 group-hover/item:bg-transparent transition-colors duration-500" />
                     </div>
                   ))}
                 </div>
@@ -162,7 +156,7 @@ export default function GallerySection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4 md:p-10"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
@@ -175,7 +169,7 @@ export default function GallerySection() {
               {/* Close Button - Top Left Outside */}
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 left-0 md:-left-12 p-2 text-white/50 hover:text-[#F97316] transition-colors bg-white/5 md:bg-transparent rounded-full md:rounded-none"
+                className="absolute -top-12 left-0 md:-left-12 p-2 text-muted-foreground hover:text-primary transition-colors bg-secondary/50 md:bg-transparent rounded-full md:rounded-none"
               >
                 <X className="w-8 h-8" />
               </button>
@@ -183,7 +177,7 @@ export default function GallerySection() {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="w-auto h-auto max-w-full max-h-[85vh] object-contain border border-white/10"
+                className="w-auto h-auto max-w-full max-h-[85vh] object-contain border border-border"
               />
             </motion.div>
           </motion.div>

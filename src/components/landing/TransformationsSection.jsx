@@ -28,17 +28,17 @@ const TESTIMONIALS = [
 export default function TransformationsSection() {
   return (
     <section id="transformations" className="relative py-24 md:py-32">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2D5BFF]/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <div className="mb-16 md:mb-20">
-          <span className="font-mono text-xs tracking-[0.3em] text-[#2D5BFF] uppercase block mb-3">
+          <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
             02 — Proof of Performance
           </span>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
             Real Results. <br />Real Members.
           </h2>
-          <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
             Every before-and-after at DK Pure Fitness represents weeks of sweat, 
             consistency, and expert coaching. No filters. No shortcuts. These are 
             your future neighbors, colleagues, and friends — and they trained 
@@ -54,30 +54,30 @@ export default function TransformationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="w-[calc(50%-0.5rem)] md:w-auto relative bg-[#111113] border border-white/5 p-4 md:p-10 group hover:border-[#2D5BFF]/20 transition-all duration-500"
+              className="w-[calc(50%-0.5rem)] md:w-auto relative bg-card border border-border p-4 md:p-10 group hover:border-primary/20 transition-all duration-500 shadow-sm"
             >
               {/* Quote icon */}
-              <Quote className="w-5 h-5 md:w-8 md:h-8 text-[#2D5BFF]/20 mb-3 md:mb-6" />
+              <Quote className="w-5 h-5 md:w-8 md:h-8 text-primary mb-3 md:mb-6" />
 
               {/* Transformation tag */}
               {t.transformation && (
-                <span className="inline-block font-mono text-[8px] md:text-[10px] tracking-widest text-[#2D5BFF] border border-[#2D5BFF]/20 px-2 py-0.5 md:px-3 md:py-1 mb-3 md:mb-6 leading-tight">
+                <span className="inline-block font-mono text-[8px] md:text-[10px] tracking-widest text-primary border border-primary/20 px-2 py-0.5 md:px-3 md:py-1 mb-3 md:mb-6 leading-tight">
                   {t.transformation.toUpperCase()}
                 </span>
               )}
 
-              <p className="text-[#F3F4F6]/90 text-[10px] md:text-base leading-relaxed mb-4 md:mb-8">
+              <p className="text-foreground/90 text-[10px] md:text-base leading-relaxed mb-4 md:mb-8">
                 "{t.quote}"
               </p>
 
-              <div className="flex flex-wrap items-center justify-between pt-3 md:pt-6 border-t border-white/5 gap-2">
-                <span className="font-display text-[10px] md:text-sm text-[#F3F4F6] uppercase">
+              <div className="flex flex-wrap items-center justify-between pt-3 md:pt-6 border-t border-border gap-2">
+                <span className="font-display text-[10px] md:text-sm text-foreground uppercase">
                   {t.member_name}
                 </span>
                 {t.rating && (
                   <div className="flex gap-0.5 md:gap-1">
                     {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="w-2.5 h-2.5 md:w-3 md:h-3 fill-[#2D5BFF] text-[#2D5BFF]" />
+                      <Star key={i} className="w-2.5 h-2.5 md:w-3 md:h-3 fill-primary text-primary" />
                     ))}
                   </div>
                 )}

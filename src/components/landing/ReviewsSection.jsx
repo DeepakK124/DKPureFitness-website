@@ -24,17 +24,17 @@ const DOUBLED = [...REVIEWS, ...REVIEWS];
 
 function ReviewCard({ review }) {
   return (
-    <div className="flex-shrink-0 w-64 md:w-80 bg-[#111113] border border-white/5 hover:border-[#F97316]/20 transition-all duration-500 p-4 md:p-6 flex flex-col">
+    <div className="flex-shrink-0 w-64 md:w-80 bg-card border border-border hover:border-primary/20 transition-all duration-500 p-4 md:p-6 flex flex-col shadow-sm">
       <div className="flex gap-1 mb-3 md:mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-[#F97316] text-[#F97316]" />
+          <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-primary text-primary" />
         ))}
       </div>
-      <p className="text-[#F3F4F6]/85 text-xs md:text-sm leading-relaxed flex-1 mb-4 md:mb-5">
+      <p className="text-foreground/85 text-xs md:text-sm leading-relaxed flex-1 mb-4 md:mb-5">
         "{review.review}"
       </p>
-      <div className="pt-3 border-t border-white/5">
-        <span className="font-display text-[10px] md:text-xs text-[#F97316] uppercase tracking-wide">
+      <div className="pt-3 border-t border-border">
+        <span className="font-display text-[10px] md:text-xs text-primary uppercase tracking-wide">
           {review.name}
         </span>
       </div>
@@ -47,14 +47,14 @@ export default function ReviewsSection() {
 
   return (
     <section id="reviews" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-14">
         <div>
-          <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
+          <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
             06 — Community Voice
           </span>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95]">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
             What Our Members Say<br />— 
           </h2>
         </div>
@@ -63,8 +63,8 @@ export default function ReviewsSection() {
       {/* Endless scroll track */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#0A0A0B] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-background/80 to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex gap-4"

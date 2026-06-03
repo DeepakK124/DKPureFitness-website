@@ -4,8 +4,8 @@ import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 const HERO_IMG = '/DKPF Pics/Squat Rack.jpeg';
 
 const stats = [
-{ icon: Zap, value: "6K+", label: 'SESSIONS COMPLETED' },
-{ icon: Users, value: "150+", label: 'ACTIVE MEMBERS' },
+{ icon: Zap, value: "12K+", label: 'SESSIONS COMPLETED' },
+{ icon: Users, value: "200+", label: 'ACTIVE MEMBERS' },
 { icon: Clock, value: "10H+", label: 'DAILY ACCESS' }];
 
 
@@ -19,24 +19,24 @@ export default function HeroSection() {
           alt="Strength training at DK Pure Fitness gym near Kuntloor Hyderabad"
           className="w-full h-full object-cover" />
         
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/70 to-[#0A0A0B]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0B]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
       </div>
 
       {/* Split watermark text */}
       <motion.span
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 0.05, y: 0 }}
+        animate={{ opacity: 0.1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-8 left-8 font-display text-[8rem] md:text-[14rem] leading-none text-[#F97316] select-none pointer-events-none">
+        className="absolute top-8 left-8 font-display text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
         DK
       </motion.span>
       <motion.span
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 0.05, y: 0 }}
+        animate={{ opacity: 0.1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute bottom-24 right-8 font-display text-[8rem] md:text-[14rem] leading-none text-[#F97316] select-none pointer-events-none">
+        className="absolute bottom-24 right-8 font-display text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
         FIT
       </motion.span>
@@ -50,7 +50,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-4">
             
-            <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase">
+            <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
               Strength Training Gym Near Kuntloor & Peddamberpet, Hyderabad
             </span>
           </motion.div>
@@ -59,11 +59,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F3F4F6] uppercase leading-[0.9] mb-6">
+            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-6">
             
             WHERE
             <br />
-            <span className="text-[#F97316]">LIMITS</span>
+            <span className="text-primary">LIMITS</span>
             <br />
             DISSOLVE
           </motion.h1>
@@ -72,7 +72,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-lg mb-8">
+            className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg mb-8">
             
             Hyderabad's results-driven fitness center near Kuntloor and Peddamberpet. 
             Whether your goal is strength training, fat loss, or a complete body 
@@ -88,13 +88,13 @@ export default function HeroSection() {
             
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#F97316] text-white font-mono text-sm tracking-widest hover:bg-[#F97316]/80 transition-all duration-300">
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
               CONTACT US
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 border border-[#F97316] text-[#F97316] font-mono text-sm tracking-widest hover:bg-[#F97316] hover:text-white transition-all duration-300">
+              className="inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-mono text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
               JOIN NOW
             </a>
@@ -109,10 +109,10 @@ export default function HeroSection() {
             
             {stats.map((stat) =>
             <div key={stat.label} className="flex items-center gap-3">
-                <stat.icon className="w-4 h-4 text-[#F97316]" />
+                <stat.icon className="w-4 h-4 text-primary" />
                 <div>
-                  <div className="font-display text-xl md:text-2xl text-[#F3F4F6]">{stat.value}</div>
-                  <div className="font-mono text-[10px] tracking-widest text-[#9CA3AF]">{stat.label}</div>
+                  <div className="font-display text-xl md:text-2xl text-foreground">{stat.value}</div>
+                  <div className="font-mono text-[10px] tracking-widest text-muted-foreground">{stat.label}</div>
                 </div>
               </div>
             )}
@@ -126,12 +126,12 @@ export default function HeroSection() {
           transition={{ delay: 1.5, duration: 0.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           
-          <span className="font-mono text-[10px] tracking-widest text-[#9CA3AF]">SCROLL</span>
+          <span className="font-mono text-[10px] tracking-widest text-muted-foreground">SCROLL</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}>
             
-            <ChevronDown className="w-4 h-4 text-[#F97316]" />
+            <ChevronDown className="w-4 h-4 text-primary" />
           </motion.div>
         </motion.div>
       </div>

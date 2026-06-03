@@ -68,11 +68,11 @@ export default function EquipmentSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               04 — Arsenal
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[#F3F4F6] uppercase leading-[0.95] mb-6">
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
               Commercial-Grade<br />Equipment. Zero Excuses.
             </h2>
           </div>
-          <p className="text-[#9CA3AF] text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
             From Olympic barbells and power racks to cable stations, cardio 
             machines, and functional training zones — DK Pure Fitness is 
             equipped for every training style. Strength athletes, bodybuilders, 
@@ -90,22 +90,22 @@ export default function EquipmentSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-[#111113] border border-white/5 hover:border-[#F97316]/25 transition-colors duration-300 p-4"
+                className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-card border border-border hover:border-primary/25 transition-colors duration-300 p-4 shadow-sm"
               >
                 <div
                   className="w-1 self-stretch flex-shrink-0 mt-0.5 rounded-full"
-                  style={{ backgroundColor: categoryColor[item.category] || '#F97316' }}
+                  style={{ backgroundColor: categoryColor[item.category] || 'hsl(var(--primary))' }}
                 />
                 <div className="min-w-0">
-                  <p className="text-[#F3F4F6] text-sm font-medium leading-snug">{item.name}</p>
+                  <p className="text-foreground text-sm font-medium leading-snug">{item.name}</p>
                   <span
                     className="font-mono text-[9px] tracking-widest mt-1 inline-block"
-                    style={{ color: categoryColor[item.category] || '#9CA3AF' }}
+                    style={{ color: categoryColor[item.category] || 'hsl(var(--muted-foreground))' }}
                   >
                     {item.category.toUpperCase()}
                   </span>
                 </div>
-                <Dumbbell className="w-3.5 h-3.5 text-[#9CA3AF]/30 group-hover:text-[#F97316]/50 transition-colors flex-shrink-0 ml-auto mt-0.5" />
+                <Dumbbell className="w-3.5 h-3.5 text-primary/40 group-hover:text-primary transition-colors flex-shrink-0 ml-auto mt-0.5" />
               </motion.div>
             ))}
           </AnimatePresence>
@@ -115,7 +115,7 @@ export default function EquipmentSection() {
           <div className="mt-12 flex justify-center">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-[#F97316]/50 text-[#9CA3AF] hover:text-[#F3F4F6] font-mono text-xs tracking-widest transition-all duration-300 group"
+              className="flex items-center gap-2 px-6 py-3 border border-border hover:border-primary/50 text-muted-foreground hover:text-foreground font-mono text-xs tracking-widest transition-all duration-300 group"
             >
               {isExpanded ? 'VIEW LESS' : 'VIEW MORE'}
               {isExpanded ? (
