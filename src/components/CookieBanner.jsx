@@ -74,7 +74,7 @@ export default function CookieBanner() {
                   </h4>
                 </div>
                 <p className="text-muted-foreground text-xs leading-relaxed mt-2">
-                  We use cookies and similar technologies to enhance your experience, analyze site traffic, and for our marketing efforts. By continuing to use our site, you consent to our data practices as outlined in our{' '}
+                  We use localStorage to remember your preferences and Vercel Analytics to collect anonymized performance metrics. No personal data is stored on our servers. For details, see our{' '}
                   <PrivacyDialog>
                     <button type="button" className="text-primary hover:underline underline-offset-2 pointer-events-auto">Privacy Policy</button>
                   </PrivacyDialog>.
