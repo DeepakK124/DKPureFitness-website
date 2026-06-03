@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 const TRAINER = {
   id: 't1',
@@ -10,6 +12,8 @@ const TRAINER = {
 };
 
 export default function TrainersSection() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section id="trainers" className="relative py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
@@ -37,7 +41,8 @@ export default function TrainersSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full max-w-md group relative bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col shadow-sm"
+            onClick={() => setIsOpen(true)}
+            className="w-[calc(50%-0.5rem)] sm:w-full sm:max-w-xs md:max-w-sm group relative bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col shadow-sm mx-auto md:mx-0 cursor-pointer"
           >
             {/* Image */}
             <div className="relative aspect-[4/5] overflow-hidden flex-shrink-0">
@@ -55,37 +60,51 @@ export default function TrainersSection() {
             </div>
 
             {/* Info */}
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <h3 className="font-display text-lg text-foreground uppercase">
+            <div className="p-4 md:p-6 flex flex-col flex-grow">
+              <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
+                <h3 className="font-display text-xs sm:text-sm md:text-lg text-foreground uppercase">
                   {TRAINER.name}
                 </h3>
-                <span className="font-mono text-[10px] tracking-widest text-primary-foreground bg-primary px-1.5 py-0.5 flex-shrink-0">
+                <span className="font-mono text-[8px] md:text-[10px] tracking-widest text-primary-foreground bg-primary px-1 md:px-1.5 py-0.5 flex-shrink-0">
                   OWNER
                 </span>
               </div>
-              <p className="font-mono text-xs tracking-widest text-primary mb-3 leading-tight">
+              <p className="font-mono text-[9px] md:text-xs tracking-widest text-primary mb-2 md:mb-3 leading-tight">
                 {TRAINER.specialty.toUpperCase()}
               </p>
               
-              <div className="flex flex-col flex-grow justify-between">
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {TRAINER.bio}
+              <div className="flex flex-col flex-grow justify-end">
+                <p className="text-[8px] md:text-[10px] text-muted-foreground/70 mt-1 italic group-hover:text-primary transition-colors">
+                  Click for details
                 </p>
-                
-                <div className="mt-3 pt-3 border-t border-border">
-                  <a 
-                    href={TRAINER.social_url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="font-mono text-[10px] tracking-widest text-primary hover:text-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-foreground transition-all uppercase"
-                  >
-                    Visit Profile
-                  </a>
-                </div>
               </div>
             </div>
           </motion.div>
+
+          {/* Mobile Popup */}
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogContent className="w-[90vw] max-w-sm bg-card border-border p-6 shadow-xl text-left">
+              <DialogTitle className="font-display text-lg text-foreground uppercase mb-1">
+                {TRAINER.name}
+              </DialogTitle>
+              <p className="font-mono text-[10px] tracking-widest text-primary mb-4 leading-tight">
+                {TRAINER.specialty.toUpperCase()}
+              </p>
+              <p className="text-muted-foreground text-xs leading-relaxed mb-6">
+                {TRAINER.bio}
+              </p>
+              <div className="border-t border-border pt-4">
+                <a 
+                  href={TRAINER.social_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="font-mono text-[10px] tracking-widest text-primary hover:text-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-foreground transition-all uppercase inline-block"
+                >
+                  Visit Profile
+                </a>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
