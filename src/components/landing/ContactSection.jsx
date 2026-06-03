@@ -16,6 +16,7 @@ const BOOKING_DIRECT_URL = "https://calendar.app.google/Mr8fB6MGaj42GeUS9";
 
 export default function ContactSection() {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   return (
     <section id="contact" className="relative py-24 md:py-32">
@@ -141,10 +142,25 @@ export default function ContactSection() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   className="w-full h-full flex flex-col z-20 bg-card"
                 >
-                  <div className="flex-1 min-h-0">
+                  <div className="flex-1 min-h-0 relative">
+                    {/* Skeleton Loader */}
+                    {!iframeLoaded && (
+                      <div className="absolute inset-0 p-2 flex flex-col space-y-4 animate-pulse bg-card z-10 pointer-events-none">
+                        <div className="h-10 bg-muted/40 rounded-sm w-1/2 mx-auto mb-2" />
+                        <div className="flex-1 flex flex-col gap-3">
+                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                          <div className="h-12 bg-muted/20 rounded-sm border border-border/50" />
+                        </div>
+                      </div>
+                    )}
+                    
                     <iframe 
                       src={BOOKING_EMBED_URL}
-                      className="w-full h-full border-0 rounded-sm"
+                      onLoad={() => setIframeLoaded(true)}
+                      className={`w-full h-full border-0 rounded-sm relative z-20 transition-opacity duration-700 ${iframeLoaded ? 'opacity-100' : 'opacity-0'}`}
                       title="Book a Free Demo"
                     />
                   </div>
