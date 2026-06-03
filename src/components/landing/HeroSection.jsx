@@ -90,13 +90,13 @@ export default function HeroSection() {
               href="#contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
-              CONTACT US
+              BOOK A FREE DEMO NOW
             </a>
             <a
-              href="#contact"
+              href="#about"
               className="inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-mono text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
-              JOIN NOW
+              LEARN MORE
             </a>
           </motion.div>
 

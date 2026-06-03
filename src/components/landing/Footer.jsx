@@ -1,7 +1,6 @@
 import { ArrowUp } from 'lucide-react';
 import { TermsDialog, PrivacyDialog } from '../LegalDialogs';
-
-const LOGO_URL = 'https://media.base44.com/images/public/user_6a1c84cce3fcc41c73e07a86/a5b999a71_DKPureFitness.jpg';
+import { ADDRESS, LOGO_PATH } from '@/lib/constants';
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -13,7 +12,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start max-w-sm">
             <div className="h-16 md:h-20 flex items-center md:items-start mb-2 md:mb-4">
               <img 
-                src="https://media.base44.com/images/public/6a1c84fb5207dc3bbf07d439/e813b83b9_DK_Pure_Fitness-removebg-preview.png" 
+                src={LOGO_PATH} 
                 alt="DK Pure Fitness - Gym in Hyderabad" 
                 className="h-full w-auto object-contain scale-[1.8] md:scale-[2.2] origin-center md:origin-left" 
               />
@@ -22,7 +21,7 @@ export default function Footer() {
               YOUR FITNESS COMPANION. <br />HYDERABAD'S STRENGTH-FIRST GYM  
             </p>
             <p className="font-mono text-[10px] md:text-xs text-muted-foreground/80 leading-relaxed text-center md:text-left">
-              📍 8JCG+F7V, Laxma Reddy Palem Colony, near Kuntloor & Peddamberpet, Hyderabad, Telangana 501513
+              📍 {ADDRESS}
             </p>
           </div>
 

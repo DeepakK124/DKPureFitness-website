@@ -1,6 +1,7 @@
 import Navbar from '../components/landing/Navbar';
 import DataTicker from '../components/landing/DataTicker';
 import HeroSection from '../components/landing/HeroSection';
+import AboutSection from '../components/landing/AboutSection';
 import TransformationsSection from '../components/landing/TransformationsSection';
 import TrainersSection from '../components/landing/TrainersSection';
 import EquipmentSection from '../components/landing/EquipmentSection';
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <DataTicker />
       <HeroSection />
+      <AboutSection />
       <TransformationsSection />
       <TrainersSection />
       <EquipmentSection />

@@ -1,7 +1,14 @@
 {
   "short_name": "DKPureFitness",
   "name": "DK Pure Fitness - High Performance Gym",
-  "icons": [],
+  "icons": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#0A0A0B",

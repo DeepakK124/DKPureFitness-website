@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
-import { Activity, Users, Flame, Clock } from 'lucide-react';
+import { Dumbbell, Users, Clock, MapPin, Trophy } from 'lucide-react';
+import { HOURS } from '@/lib/constants';
 
 const TICKER_ITEMS = [
-  { icon: Activity, text: 'GYM STATUS: OPERATIONAL' },
-  { icon: Users, text: 'CURRENT CAPACITY: 47%' },
-  { icon: Clock, text: 'OPENS 5:00AM — CLOSES 11:00PM' },
-  { icon: Clock, text: 'OPENS 4:30AM — CLOSES 9:30PM' },
-  { icon: Activity, text: 'TODAY\'S SESSIONS: 12 COMPLETED' },
-  { icon: Users, text: 'MEMBERS ACTIVE: 127' },
+  { icon: Dumbbell, text: 'STRENGTH-FIRST TRAINING' },
+  { icon: Users, text: '200+ ACTIVE MEMBERS' },
+  { icon: Clock, text: `MORNING: ${HOURS.morning.open} – ${HOURS.morning.close}` },
+  { icon: Clock, text: `EVENING: ${HOURS.evening.open} – ${HOURS.evening.close} (${HOURS.evening.days})` },
+  { icon: Trophy, text: 'EXPERT CERTIFIED TRAINERS' },
+  { icon: MapPin, text: 'NEAR KUNTLOOR & PEDDAMBERPET, HYDERABAD' },
 ];
 
 export default function DataTicker() {

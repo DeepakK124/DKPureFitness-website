@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center h-full">
             <img 
-              src="https://media.base44.com/images/public/6a1c84fb5207dc3bbf07d439/e813b83b9_DK_Pure_Fitness-removebg-preview.png" 
+              src="/logo.png" 
               alt="DK Pure Fitness" 
               className="h-full w-auto object-contain scale-[1.8] md:scale-[2.2] origin-left" 
             />
@@ -86,7 +86,7 @@ export default function Navbar() {
               href="#contact"
               className="hidden md:inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs tracking-widest hover:bg-primary/80 transition-all duration-300">
               
-              JOIN NOW
+              BOOK A FREE DEMO NOW
             </a>
             <button
               onClick={() => setMenuOpen(true)}
@@ -109,7 +109,7 @@ export default function Navbar() {
           
             <div className="flex items-center justify-between px-6 h-16">
               <img 
-                src="https://media.base44.com/images/public/6a1c84fb5207dc3bbf07d439/e813b83b9_DK_Pure_Fitness-removebg-preview.png" 
+                src="/logo.png" 
                 alt="DK Pure Fitness" 
                 className="h-20 w-auto object-contain" 
               />
@@ -138,7 +138,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest">
               
-                JOIN NOW
+                BOOK A FREE DEMO NOW
               </a>
             </div>
           </motion.div>

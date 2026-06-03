@@ -124,6 +124,7 @@ export default function GallerySection() {
                   <img
                     src={column.src}
                     alt={column.alt}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
                   />
                 </div>
@@ -138,6 +139,7 @@ export default function GallerySection() {
                       <img
                         src={img.src}
                         alt={img.alt}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
                       />
                     </div>
