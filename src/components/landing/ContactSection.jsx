@@ -1,4 +1,6 @@
-import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
+import { MapPin, Phone, Clock, Instagram, Calendar, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   CONTACT_PHONE,
   CONTACT_PHONE_HREF,
@@ -13,6 +15,8 @@ const BOOKING_EMBED_URL = "https://calendar.google.com/calendar/appointments/sch
 const BOOKING_DIRECT_URL = "https://calendar.app.google/Mr8fB6MGaj42GeUS9";
 
 export default function ContactSection() {
+  const [showCalendar, setShowCalendar] = useState(false);
+
   return (
     <section id="contact" className="relative py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
@@ -102,24 +106,61 @@ export default function ContactSection() {
           </div>
 
           {/* Right - Booking Embed */}
-          <div className="bg-card border border-border p-2 md:p-4 shadow-sm h-[650px] flex flex-col">
-            <div className="flex-1 min-h-0">
-              <iframe 
-                src={BOOKING_EMBED_URL}
-                className="w-full h-full border-0 rounded-sm"
-                title="Book a Free Demo"
-              />
-            </div>
-            <div className="mt-4 pt-2 border-t border-border/50 text-center">
-              <a 
-                href={BOOKING_DIRECT_URL} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-primary/80 transition-colors py-1"
-              >
-                <span>Having trouble loading the calendar? Open in a new tab ↗</span>
-              </a>
-            </div>
+          <div className="bg-card border border-border p-2 md:p-4 shadow-sm h-[650px] flex flex-col relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              {!showCalendar ? (
+                <motion.div 
+                  key="cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-card z-10 text-center border-2 border-transparent hover:border-primary/20 transition-all duration-500 cursor-pointer"
+                  onClick={() => setShowCalendar(true)}
+                >
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <Calendar className="w-10 h-10 text-primary" />
+                  </div>
+                  <h3 className="font-display text-2xl md:text-3xl uppercase mb-3 text-foreground">
+                    Book Your Free Trial
+                  </h3>
+                  <p className="text-muted-foreground text-sm md:text-base max-w-sm mb-8">
+                    Select a convenient time for your 24-hour pass and consultation. No strings attached.
+                  </p>
+                  <button 
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest hover:bg-primary/80 transition-all duration-300"
+                  >
+                    CHECK AVAILABILITY <ArrowRight className="w-4 h-4" />
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.div 
+                  key="calendar"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="w-full h-full flex flex-col z-20 bg-card"
+                >
+                  <div className="flex-1 min-h-0">
+                    <iframe 
+                      src={BOOKING_EMBED_URL}
+                      className="w-full h-full border-0 rounded-sm"
+                      title="Book a Free Demo"
+                    />
+                  </div>
+                  <div className="mt-4 pt-2 border-t border-border/50 text-center flex-shrink-0">
+                    <a 
+                      href={BOOKING_DIRECT_URL} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 text-xs font-mono text-primary hover:text-primary/80 transition-colors py-1"
+                    >
+                      <span>Having trouble loading the calendar? Open in a new tab ↗</span>
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
