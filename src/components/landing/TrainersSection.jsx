@@ -25,12 +25,12 @@ export default function TrainersSection() {
               03 — The Architect
             </span>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
-              Expert Trainer.<br />Personalised Plans.
+              Expert Trainers.<br />Personalised Plans.
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
-              Our certified personal trainer in Hyderabad doesn't hand you a PDF 
-              and wish you luck. He assesses your baseline, designs a program around 
-              your schedule and goals, and coaches you rep by rep — whether you're 
+              Our certified personal trainers in Hyderabad don't hand you a PDF
+              and wish you luck. They assess your baseline, design a program around
+              your schedule and goals, and coach you rep by rep - whether you're
               after fat loss, muscle gain, or sport-specific conditioning.
             </p>
           </div>
@@ -50,9 +50,9 @@ export default function TrainersSection() {
                 src={TRAINER.image_url}
                 alt={`Personal trainer ${TRAINER.name} at DK Pure Fitness gym Hyderabad`}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              
+
               {/* Scanning line effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 <div className="absolute left-0 right-0 h-px bg-primary/60 animate-pulse" style={{ top: '50%' }} />
@@ -72,7 +72,7 @@ export default function TrainersSection() {
               <p className="font-mono text-[9px] md:text-[10px] tracking-widest text-primary mb-2 md:mb-3 leading-tight">
                 {TRAINER.specialty.toUpperCase()}
               </p>
-              
+
               <div className="flex flex-col flex-grow justify-end">
                 <p className="text-[8px] md:text-[10px] text-muted-foreground/70 mt-1 italic group-hover:text-primary transition-colors">
                   Click for details
@@ -94,10 +94,10 @@ export default function TrainersSection() {
                 {TRAINER.bio}
               </p>
               <div className="border-t border-border pt-4">
-                <a 
-                  href={TRAINER.social_url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={TRAINER.social_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono text-[10px] tracking-widest text-primary hover:text-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-foreground transition-all uppercase inline-block"
                 >
                   Visit Profile
