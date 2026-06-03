@@ -42,7 +42,7 @@ export default function HeroSection() {
       </motion.span>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-16 md:pb-24">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-28 md:pb-24 pt-32">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,14 +105,14 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex gap-8 md:gap-16">
+            className="flex flex-wrap gap-6 sm:gap-8 md:gap-16">
             
             {stats.map((stat) =>
-            <div key={stat.label} className="flex items-center gap-3">
-                <stat.icon className="w-4 h-4 text-primary" />
+            <div key={stat.label} className="flex items-center gap-2 sm:gap-3">
+                <stat.icon className="w-4 h-4 text-primary shrink-0" />
                 <div>
-                  <div className="font-display text-xl md:text-2xl text-foreground">{stat.value}</div>
-                  <div className="font-mono text-[10px] tracking-widest text-muted-foreground">{stat.label}</div>
+                  <div className="font-display text-lg sm:text-xl md:text-2xl text-foreground">{stat.value}</div>
+                  <div className="font-mono text-[9px] sm:text-[10px] tracking-widest text-muted-foreground">{stat.label}</div>
                 </div>
               </div>
             )}
