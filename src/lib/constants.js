@@ -2,8 +2,8 @@
 // Update values here and they propagate across every component.
 
 export const GYM_NAME = "DK Pure Fitness";
-export const WEBSITE_URL = "dkpurefitness.com";
-export const CONTACT_EMAIL = "support@dkpurefitness.com";
+export const WEBSITE_URL = "dkpurefitness.in";
+export const CONTACT_EMAIL = "yet to assign an email";
 export const CONTACT_PHONE = "+91 8188827888";
 export const CONTACT_PHONE_HREF = "tel:+918188827888";
 export const ADDRESS = "8JCG+F7V, Laxma Reddy Palem Colony, Hyderabad, Telangana 501513";
