@@ -1,0 +1,6 @@
+/* Fix for huge images in the Decap CMS right-hand preview pane */
+img {
+  max-width: 100% !important;
+  max-height: 400px !important;
+  object-fit: contain !important;
+}
