@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": "tt1",
+      "member_name": "RAHUL R.",
+      "quote": "DK Pure Fitness completely rewired my approach to fitness. The trainers don't just coach—they architect your transformation from the ground up. Down 25kg and stronger than ever.",
+      "transformation": "Lost 25kg in 8 months",
+      "rating": 5
+    },
+    {
+      "id": "tt2",
+      "member_name": "PRIYA K.",
+      "quote": "The precision of the programming here is unmatched. Every session feels purposeful. I went from struggling with bodyweight movements to competing in powerlifting.",
+      "transformation": "Beginner to competitor in 12 months",
+      "rating": 5
+    },
+    {
+      "id": "tt3",
+      "member_name": "ANONYMOUS",
+      "quote": "The environment at DK Pure Fitness is what sets it apart. No egos, just focused athletes pushing each other. The facilities and recovery zone are world-class.",
+      "transformation": "Gained 12kg lean muscle",
+      "rating": 5
+    }
+  ]
+}
