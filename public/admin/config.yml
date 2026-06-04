@@ -2,8 +2,10 @@ backend:
   name: github
   repo: sxm-0410/Gym-Website
   branch: trial-decap-cms
+  base_url: ""
+  auth_endpoint: "api/auth"
 
-local_backend: true
+# local_backend: true
 
 logo_url: "/logo.png"
 
