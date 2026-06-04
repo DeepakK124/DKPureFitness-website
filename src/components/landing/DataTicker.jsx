@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
-import { Dumbbell, Users, Clock, MapPin, Trophy } from 'lucide-react';
-import { HOURS } from '@/lib/constants';
+import * as Icons from 'lucide-react';
+import pageData from '@/content/page-content.json';
 
-const TICKER_ITEMS = [
-  { icon: Dumbbell, text: 'STRENGTH-FIRST TRAINING' },
-  { icon: Users, text: '200+ ACTIVE MEMBERS' },
-  { icon: Clock, text: `MORNING: ${HOURS.morning.open} – ${HOURS.morning.close}` },
-  { icon: Clock, text: `EVENING: ${HOURS.evening.open} – ${HOURS.evening.close} (${HOURS.evening.days})` },
-  { icon: Trophy, text: 'EXPERT CERTIFIED TRAINERS' },
-  { icon: MapPin, text: 'NEAR KUNTLOOR & PEDDAMBERPET, HYDERABAD' },
-];
+const content = pageData.ticker;
+
+const TICKER_ITEMS = content.map(item => ({
+  icon: Icons[item.icon] || Icons.Dumbbell,
+  text: item.text
+}));
 
 export default function DataTicker() {
   return (

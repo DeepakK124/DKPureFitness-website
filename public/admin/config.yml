@@ -66,6 +66,122 @@ collections:
               - {label: "Reviewer Name", name: "name", widget: "string"}
               - {label: "Review Text", name: "review", widget: "text"}
               
+      - name: "landing_page"
+        label: "Landing Page Content"
+        file: "src/content/page-content.json"
+        description: "Manage all text and labels on the main landing page"
+        fields:
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - {label: "Background Image", name: "background_image", widget: "image"}
+              - {label: "Watermark Part 1", name: "watermark1", widget: "string"}
+              - {label: "Watermark Part 2", name: "watermark2", widget: "string"}
+              - {label: "Small Label", name: "label", widget: "string"}
+              - {label: "Title Part 1", name: "title_part1", widget: "string"}
+              - {label: "Title Highlight (Orange)", name: "title_highlight", widget: "string"}
+              - {label: "Title Part 2", name: "title_part2", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Primary Button Text", name: "cta1_text", widget: "string"}
+              - {label: "Secondary Button Text", name: "cta2_text", widget: "string"}
+              - name: "stats"
+                label: "Stats Strip"
+                widget: "list"
+                fields:
+                  - {label: "Value", name: "value", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+                  
+          - name: "about"
+            label: "About Section"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "YouTube Callout Bold text", name: "youtube_callout_strong", widget: "string"}
+              - {label: "YouTube Callout Normal text", name: "youtube_callout_text", widget: "string"}
+              - {label: "YouTube Link Text", name: "youtube_link_text", widget: "string"}
+              - {label: "YouTube URL", name: "youtube_link_url", widget: "string"}
+              - name: "highlights"
+                label: "Highlights (Weight Training, Zumba, etc)"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+
+          - name: "equipment"
+            label: "Equipment Section Headers"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - name: "trainers"
+            label: "Trainers Section Headers"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - name: "transformations"
+            label: "Transformations Section Headers"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - name: "gallery"
+            label: "Gallery Section Headers"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - name: "reviews"
+            label: "Reviews Section Headers"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - name: "contact"
+            label: "Contact Section Details"
+            widget: "object"
+            fields:
+              - {label: "Section Label", name: "label", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Address Title", name: "address_title", widget: "string"}
+              - {label: "Address Text", name: "address_text", widget: "text"}
+              - {label: "Phone Title", name: "phone_title", widget: "string"}
+              - {label: "Phone Text", name: "phone_text", widget: "string"}
+              - {label: "Instagram Title", name: "instagram_title", widget: "string"}
+              - {label: "Instagram Handle", name: "instagram_text", widget: "string"}
+              - {label: "Working Hours Title", name: "working_hours_title", widget: "string"}
+              - {label: "Working Hours Line 1", name: "working_hours_text_1", widget: "string"}
+              - {label: "Working Hours Line 2", name: "working_hours_text_2", widget: "string"}
+
+          - name: "footer"
+            label: "Footer details"
+            widget: "object"
+            fields:
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Contact Email", name: "contact_email", widget: "string"}
+              - {label: "Copyright Text", name: "copyright", widget: "string"}
+              
+          - name: "ticker"
+            label: "Scrolling Ticker Strip"
+            widget: "list"
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Icon (Lucide name)", name: "icon", widget: "string", default: "Dumbbell"}
+              
       - name: "gallery"
         label: "Gallery Images"
         file: "src/content/gallery.json"

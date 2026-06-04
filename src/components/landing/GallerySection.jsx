@@ -3,7 +3,9 @@ import { useRef, useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 import galleryData from '@/content/gallery.json';
+import pageData from '@/content/page-content.json';
 
+const content = pageData.gallery;
 const GALLERY_ITEMS = galleryData.items;
 
 // Double for seamless loop
@@ -36,16 +38,16 @@ export default function GallerySection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
           <div className="flex-1">
             <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
-              05 — The Arena
+              {content.label}
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
-              Inside DK Pure Fitness<br />— Hyderabad
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
+              {content.title}
             </h2>
           </div>
           
           <div className="flex flex-col gap-4 md:items-end">
-            <p className="text-muted-foreground text-sm md:text-base max-w-sm leading-relaxed md:text-right">
-              Precision-engineered spaces designed for maximum performance output.
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+              {content.description}
             </p>
           </div>
         </div>

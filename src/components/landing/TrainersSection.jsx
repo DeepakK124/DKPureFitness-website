@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import trainersData from '@/content/trainers.json';
+import pageData from '@/content/page-content.json';
 
+const content = pageData.trainers;
 const TRAINERS = trainersData.items;
 
 export default function TrainersSection() {
@@ -16,16 +18,13 @@ export default function TrainersSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
           <div>
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
-              03 — The Architect
+              {content.label}
             </span>
             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
-              Expert Trainers.<br />Personalised Plans.
+              {content.title}
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
-              Our certified personal trainers in Hyderabad don't hand you a PDF
-              and wish you luck. They assess your baseline, design a program around
-              your schedule and goals, and coach you rep by rep - whether you're
-              after fat loss, muscle gain, or sport-specific conditioning.
+              {content.description}
             </p>
           </div>
         </div>

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import pageData from '@/content/page-content.json';
+
+const content = pageData.hero;
 
 const NAV_LINKS = [
 { label: 'TRANSFORMATIONS', href: '#transformations', id: 'transformations' },
@@ -86,7 +89,7 @@ export default function Navbar() {
               href="#contact"
               className="hidden md:inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs tracking-widest hover:bg-primary/80 transition-all duration-300">
               
-              BOOK A FREE DEMO NOW
+              {content.cta1_text}
             </a>
             <button
               onClick={() => setMenuOpen(true)}
@@ -138,7 +141,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest">
               
-                BOOK A FREE DEMO NOW
+                {content.cta1_text}
               </a>
             </div>
           </motion.div>

@@ -1,28 +1,22 @@
 import { motion } from 'framer-motion';
 import { Dumbbell, Activity, Music, HeartPulse, Youtube } from 'lucide-react';
 
-const HIGHLIGHTS = [
-  {
-    icon: Dumbbell,
-    title: 'WEIGHT TRAINING',
-    description: 'Build functional strength and power with our extensive range of free weights and modern machines.',
-  },
-  {
-    icon: Activity,
-    title: 'BODYBUILDING',
-    description: 'Sculpt and define your physique with targeted equipment and expert guidance from our trainers.',
-  },
-  {
-    icon: Music,
-    title: 'ZUMBA',
-    description: 'Burn calories and have fun with our high-energy, rhythmic dance workouts led by certified instructors.',
-  },
-  {
-    icon: HeartPulse,
-    title: 'YOGA',
-    description: 'Improve flexibility, balance, and core strength in our calming open-air stretching and yoga sessions.',
-  },
-];
+import pageData from '@/content/page-content.json';
+
+const content = pageData.about;
+
+const iconMap = {
+  "WEIGHT TRAINING": Dumbbell,
+  "BODYBUILDING": Activity,
+  "ZUMBA": Music,
+  "YOGA": HeartPulse
+};
+
+const HIGHLIGHTS = content.highlights.map(h => ({
+  icon: iconMap[h.title] || Dumbbell,
+  title: h.title,
+  description: h.description
+}));
 
 const GALLERY = [
   { src: '/DKPF Pics/outside lawn.webp', alt: 'Open-air lawn training area at DK Pure Fitness gym Hyderabad', span: 'col-span-2 row-span-2' },
@@ -45,7 +39,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3"
           >
-            01 — About Us
+            {content.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +48,7 @@ export default function AboutSection() {
             transition={{ delay: 0.1 }}
             className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6"
           >
-            Not Your Typical<br />Gym.
+            {content.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -63,7 +57,7 @@ export default function AboutSection() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed"
           >
-            Since 2023, we have helped hundreds of members achieve their fitness goals through expert coaching, modern equipment, and a supportive community. Whether you’re a beginner or an experienced athlete, our team is committed to helping you become stronger, healthier, and more confident.
+            {content.description}
           </motion.p>
           <motion.div
              initial={{ opacity: 0, y: 15 }}
@@ -74,7 +68,7 @@ export default function AboutSection() {
           >
             <Youtube className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong>Beyond the gym:</strong> We're also highly active in the local sports community! Watch our gym's team compete in local cricket tournaments on our <a href="https://www.youtube.com/@Sports_ct" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">YouTube channel</a>.
+              <strong>{content.youtube_callout_strong}</strong> {content.youtube_callout_text} <a href={content.youtube_link_url} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">{content.youtube_link_text}</a>.
             </p>
           </motion.div>
         </div>

@@ -3,7 +3,9 @@ import { Dumbbell, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import equipmentData from '@/content/equipment.json';
+import pageData from '@/content/page-content.json';
 
+const content = pageData.equipment;
 const EQUIPMENT = equipmentData.items;
 
 const CATEGORIES = [...new Set(EQUIPMENT.map(e => e.category))];
@@ -46,17 +48,14 @@ export default function EquipmentSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
           <div>
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
-              04 — Arsenal
+              {content.label}
             </span>
             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
-              Commercial-Grade<br />Equipment. Zero Excuses.
+              {content.title}
             </h2>
           </div>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
-            From Olympic barbells and power racks to cable stations, cardio
-            machines, and functional training zones — DK Pure Fitness is
-            equipped for every training style. Strength athletes, bodybuilders,
-            and weight loss beginners all find what they need under one roof.
+            {content.description}
           </p>
         </div>
 

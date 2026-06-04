@@ -1,12 +1,22 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
-const HERO_IMG = '/DKPF Pics/Squat Rack.jpeg';
+import pageData from '@/content/page-content.json';
 
-const stats = [
-{ icon: Zap, value: "12K+", label: 'SESSIONS COMPLETED' },
-{ icon: Users, value: "200+", label: 'ACTIVE MEMBERS' },
-{ icon: Clock, value: "10H+", label: 'DAILY ACCESS' }];
+const content = pageData.hero;
+const HERO_IMG = content.background_image;
+
+const iconMap = {
+  "SESSIONS COMPLETED": Zap,
+  "ACTIVE MEMBERS": Users,
+  "DAILY ACCESS": Clock
+};
+
+const stats = content.stats.map(s => ({
+  icon: iconMap[s.label] || Zap,
+  value: s.value,
+  label: s.label
+}));
 
 
 export default function HeroSection() {
@@ -30,7 +40,7 @@ export default function HeroSection() {
         transition={{ duration: 1.2, delay: 0.3 }}
         className="absolute top-8 left-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
-        DK
+        {content.watermark1}
       </motion.span>
       <motion.span
         initial={{ opacity: 0, y: 30 }}
@@ -38,7 +48,7 @@ export default function HeroSection() {
         transition={{ duration: 1.2, delay: 0.5 }}
         className="absolute bottom-36 sm:bottom-24 right-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
-        FIT
+        {content.watermark2}
       </motion.span>
 
       {/* Content */}
@@ -51,7 +61,7 @@ export default function HeroSection() {
             className="mb-4">
             
             <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
-              Strength Training Gym Near Kuntloor & Peddamberpet, Hyderabad
+              {content.label}
             </span>
           </motion.div>
 
@@ -61,11 +71,11 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.4 }}
             className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
             
-            WHERE
+            {content.title_part1}
             <br />
-            <span className="text-primary">LIMITS</span>
+            <span className="text-primary">{content.title_highlight}</span>
             <br />
-            DISSOLVE
+            {content.title_part2}
           </motion.h1>
 
           <motion.p
@@ -74,10 +84,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mb-6 sm:mb-8">
             
-            Hyderabad's results-driven fitness center near Kuntloor and Peddamberpet. 
-            Whether your goal is strength training, fat loss, or a complete body 
-            transformation — DK Pure Fitness gives you the tools, trainers, and 
-            discipline to earn it.
+            {content.description}
           </motion.p>
 
           <motion.div
@@ -90,13 +97,13 @@ export default function HeroSection() {
               href="#contact"
               className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
-              BOOK A FREE DEMO NOW
+              {content.cta1_text}
             </a>
             <a
               href="#about"
               className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
-              LEARN MORE
+              {content.cta2_text}
             </a>
           </motion.div>
 

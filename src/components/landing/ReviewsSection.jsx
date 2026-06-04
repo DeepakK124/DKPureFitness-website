@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 import reviewsData from '@/content/reviews.json';
+import pageData from '@/content/page-content.json';
 
+const content = pageData.reviews;
 const REVIEWS = reviewsData.items;
 
 // Duplicate for seamless loop
@@ -37,12 +39,15 @@ export default function ReviewsSection() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-14">
         <div>
-          <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
-            06 — Community Voice
+          <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
+            {content.label}
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
-            What Our Members Say<br />— 
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
+            {content.title}
           </h2>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-center">
+            {content.description}
+          </p>
         </div>
       </div>
 
