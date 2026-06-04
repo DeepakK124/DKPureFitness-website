@@ -80,16 +80,16 @@ export default function GallerySection() {
   }, [totalMobileWidth, totalDesktopWidth]);
 
   return (
-    <section id="gallery" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="gallery" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
           <div className="flex-1">
             <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
               05 — The Arena
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
               Inside DK Pure Fitness<br />— Hyderabad
             </h2>
           </div>
@@ -115,7 +115,7 @@ export default function GallerySection() {
           style={{ width: `${trackWidth * 2}px` }}
         >
           {DOUBLED.map((column, colIdx) => (
-            <div key={colIdx} className={`flex-none h-[280px] md:h-[550px] ${column.width}`}>
+            <div key={colIdx} className={`flex-none h-[220px] sm:h-[280px] md:h-[550px] ${column.width}`}>
               {column.type === 'wide' ? (
                 <div 
                   onClick={() => setSelectedImage(column)}

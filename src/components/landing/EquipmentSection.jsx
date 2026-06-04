@@ -59,20 +59,20 @@ export default function EquipmentSection() {
   const hasMore = EQUIPMENT.length > initialLimit;
 
   return (
-    <section id="equipment" className="relative py-24 md:py-32">
+    <section id="equipment" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
           <div>
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               04 — Arsenal
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
               Commercial-Grade<br />Equipment. Zero Excuses.
             </h2>
           </div>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
             From Olympic barbells and power racks to cable stations, cardio 
             machines, and functional training zones — DK Pure Fitness is 
             equipped for every training style. Strength athletes, bodybuilders, 
@@ -80,7 +80,7 @@ export default function EquipmentSection() {
           </p>
         </div>
 
-        <motion.div layout className="flex flex-wrap justify-center gap-3">
+        <motion.div layout className="flex flex-wrap justify-center gap-2 sm:gap-3">
           <AnimatePresence>
             {displayedEquipment.map((item, idx) => (
               <motion.div
@@ -90,7 +90,7 @@ export default function EquipmentSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-card border border-border hover:border-primary/25 transition-colors duration-300 p-4 shadow-sm"
+                className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-card border border-border hover:border-primary/25 transition-colors duration-300 p-3 sm:p-4 shadow-sm"
               >
                 <div
                   className="w-1 self-stretch flex-shrink-0 mt-0.5 rounded-full"

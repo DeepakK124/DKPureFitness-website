@@ -27,18 +27,18 @@ const TESTIMONIALS = [
 
 export default function TransformationsSection() {
   return (
-    <section id="transformations" className="relative py-24 md:py-32">
+    <section id="transformations" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="mb-16 md:mb-20">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
+        <div className="mb-10 sm:mb-16 md:mb-20">
           <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
             02 — Proof of Performance
           </span>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
             Real Results. <br />Real Members.
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
             Every before-and-after at DK Pure Fitness represents weeks of sweat, 
             consistency, and expert coaching. No filters. No shortcuts. These are 
             your future neighbors, colleagues, and friends — and they trained 

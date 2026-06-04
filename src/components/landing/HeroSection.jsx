@@ -28,7 +28,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 0.1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-8 left-8 font-display text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
+        className="absolute top-8 left-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
         DK
       </motion.span>
@@ -36,13 +36,13 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 0.1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute bottom-24 right-8 font-display text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
+        className="absolute bottom-36 sm:bottom-24 right-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
         
         FIT
       </motion.span>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 pb-28 md:pb-24 pt-32">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 pb-20 sm:pb-28 md:pb-24 pt-28 sm:pt-32">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-6">
+            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
             
             WHERE
             <br />
@@ -72,7 +72,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg mb-8">
+            className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mb-6 sm:mb-8">
             
             Hyderabad's results-driven fitness center near Kuntloor and Peddamberpet. 
             Whether your goal is strength training, fat loss, or a complete body 
@@ -84,17 +84,17 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16">
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16">
             
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
               BOOK A FREE DEMO NOW
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-mono text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
               LEARN MORE
             </a>
@@ -124,7 +124,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 hidden sm:flex">
           
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground">SCROLL</span>
           <motion.div

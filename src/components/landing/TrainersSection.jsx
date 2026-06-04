@@ -15,19 +15,19 @@ export default function TrainersSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section id="trainers" className="relative py-24 md:py-32">
+    <section id="trainers" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
           <div>
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               03 — The Architect
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
               Expert Trainers.<br />Personalised Plans.
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
               Our certified personal trainers in Hyderabad don't hand you a PDF
               and wish you luck. They assess your baseline, design a program around
               your schedule and goals, and coach you rep by rep - whether you're

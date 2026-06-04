@@ -24,7 +24,7 @@ const DOUBLED = [...REVIEWS, ...REVIEWS];
 
 function ReviewCard({ review }) {
   return (
-    <div className="flex-shrink-0 w-64 md:w-80 bg-card border border-border hover:border-primary/20 transition-all duration-500 p-4 md:p-6 flex flex-col shadow-sm">
+    <div className="flex-shrink-0 w-56 sm:w-64 md:w-80 bg-card border border-border hover:border-primary/20 transition-all duration-500 p-3 sm:p-4 md:p-6 flex flex-col shadow-sm">
       <div className="flex gap-1 mb-3 md:mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-primary text-primary" />
@@ -46,15 +46,15 @@ export default function ReviewsSection() {
   const trackWidth = REVIEWS.length * (320 + 16); // card width + gap
 
   return (
-    <section id="reviews" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="reviews" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-14">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-14">
         <div>
           <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
             06 — Community Voice
           </span>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
             What Our Members Say<br />— 
           </h2>
         </div>

@@ -33,12 +33,12 @@ const GALLERY = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-24 md:py-32">
+    <section id="about" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
         {/* Header */}
-        <div className="mb-12 md:mb-16 max-w-3xl">
+        <div className="mb-8 sm:mb-12 md:mb-16 max-w-3xl">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6"
+            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6"
           >
             Not Your Typical<br />Gym.
           </motion.h2>
@@ -61,7 +61,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-base md:text-lg leading-relaxed"
+            className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed"
           >
             Since 2023, we have helped hundreds of members achieve their fitness goals through expert coaching, modern equipment, and a supportive community. Whether you’re a beginner or an experienced athlete, our team is committed to helping you become stronger, healthier, and more confident.
           </motion.p>
@@ -70,7 +70,7 @@ export default function AboutSection() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ delay: 0.3 }}
-             className="mt-6 flex items-start gap-3 text-sm text-muted-foreground bg-card border border-border p-4 max-w-2xl shadow-sm"
+             className="mt-4 sm:mt-6 flex items-start gap-3 text-xs sm:text-sm text-muted-foreground bg-card border border-border p-3 sm:p-4 max-w-2xl shadow-sm"
           >
             <Youtube className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
             <p className="leading-relaxed">
@@ -85,14 +85,14 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-16 md:mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 mb-10 sm:mb-16 md:mb-20"
         >
           {GALLERY.map((img, idx) => (
             <div
               key={idx}
               className={`${img.span} relative overflow-hidden border border-border group`}
             >
-              <div className="relative w-full h-full min-h-[180px] md:min-h-[240px]">
+              <div className="relative w-full h-full min-h-[140px] sm:min-h-[180px] md:min-h-[240px]">
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -114,7 +114,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className={`group p-6 md:p-8 border-t border-border ${
+              className={`group p-4 sm:p-6 md:p-8 border-t border-border ${
                 idx < HIGHLIGHTS.length - 1 ? 'lg:border-r' : ''
               } ${idx % 2 === 0 ? 'sm:border-r lg:border-r' : 'sm:border-r-0 lg:border-r'} ${
                 idx === HIGHLIGHTS.length - 1 ? 'lg:border-r-0' : ''
