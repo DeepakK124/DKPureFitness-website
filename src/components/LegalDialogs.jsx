@@ -62,7 +62,7 @@ export function TermsDialog({ children }) {
           <section>
             <h2 className="text-foreground text-base md:text-lg font-semibold mb-3 md:mb-4 uppercase tracking-wider border-b border-border pb-1">6. Free Demo Booking</h2>
             <div className="space-y-3">
-              <p><strong>6.1 Validity:</strong> A free demo pass is valid for a single visit within 24 hours of the booked time slot. Unused passes expire automatically.</p>
+              <p><strong>6.1 Validity:</strong> A free demo booking is valid for a single 1-hour visit during the specific time slot booked. Unused slots expire automatically.</p>
               <p><strong>6.2 Booking Platform:</strong> Demo bookings are processed through Google Calendar Appointment Scheduling. By booking, you acknowledge and agree to Google's Terms of Service and Privacy Policy.</p>
               <p><strong>6.3 Rescheduling &amp; Cancellation:</strong> {GYM_NAME} reserves the right to cancel or reschedule any booking due to operational requirements. You will be notified via the email address provided during booking.</p>
               <p><strong>6.4 Fair Use:</strong> Free demo bookings are limited to one per person per 30-day period. Repeat or fraudulent bookings may be cancelled without notice.</p>

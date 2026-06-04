@@ -1,26 +1,26 @@
 import { motion } from 'framer-motion';
-import { Leaf, Wind, Sun, TreePine } from 'lucide-react';
+import { Dumbbell, Activity, Music, HeartPulse, Youtube } from 'lucide-react';
 
 const HIGHLIGHTS = [
   {
-    icon: Leaf,
-    title: 'NATURE-INTEGRATED',
-    description: 'Surrounded by greenery, our gym blends the intensity of iron with the calm of nature — so every session feels refreshing, not suffocating.',
+    icon: Dumbbell,
+    title: 'WEIGHT TRAINING',
+    description: 'Build functional strength and power with our extensive range of free weights and modern machines.',
   },
   {
-    icon: Wind,
-    title: 'NATURALLY VENTILATED',
-    description: 'No recycled AC air. Our open-air design lets fresh breeze flow through every training zone, keeping you cool and energised through every rep.',
+    icon: Activity,
+    title: 'BODYBUILDING',
+    description: 'Sculpt and define your physique with targeted equipment and expert guidance from our trainers.',
   },
   {
-    icon: Sun,
-    title: 'OPEN-AIR TRAINING',
-    description: 'Step outside into our lawn training area for functional workouts, stretching, and yoga bathed in natural light and open skies.',
+    icon: Music,
+    title: 'ZUMBA',
+    description: 'Burn calories and have fun with our high-energy, rhythmic dance workouts led by certified instructors.',
   },
   {
-    icon: TreePine,
-    title: 'SPACIOUS LAYOUT',
-    description: 'No cramped corners or overcrowded floors. Every piece of equipment has room to breathe — and so do you.',
+    icon: HeartPulse,
+    title: 'YOGA',
+    description: 'Improve flexibility, balance, and core strength in our calming open-air stretching and yoga sessions.',
   },
 ];
 
@@ -63,11 +63,20 @@ export default function AboutSection() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-base md:text-lg leading-relaxed"
           >
-            DK Pure Fitness isn't built behind sealed walls and artificial lighting.
-            We designed our space around an open-air philosophy — where fresh air,
-            natural light, and green surroundings are as much a part of your
-            workout as the iron itself. Train hard, breathe easy.
+            Since 2023, we have helped hundreds of members achieve their fitness goals through expert coaching, modern equipment, and a supportive community. Whether you’re a beginner or an experienced athlete, our team is committed to helping you become stronger, healthier, and more confident.
           </motion.p>
+          <motion.div
+             initial={{ opacity: 0, y: 15 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ delay: 0.3 }}
+             className="mt-6 flex items-start gap-3 text-sm text-muted-foreground bg-card border border-border p-4 max-w-2xl shadow-sm"
+          >
+            <Youtube className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <strong>Beyond the gym:</strong> We're also highly active in the local sports community! Watch our gym's team compete in local cricket tournaments on our <a href="https://www.youtube.com/@Sports_ct" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">YouTube channel</a>.
+            </p>
+          </motion.div>
         </div>
 
         {/* Asymmetric Gallery Mosaic */}
