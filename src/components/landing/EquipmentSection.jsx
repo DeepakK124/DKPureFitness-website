@@ -5,23 +5,24 @@ import { useState, useEffect } from 'react';
 // Edit this list to update the equipment displayed on the site
 const EQUIPMENT = [
   { name: 'Olympic Barbell', category: 'Free Weights' },
+  { name: 'Olympic Curl Barbell', category: 'Free Weights' },
   { name: 'Power Rack / Squat Rack', category: 'Strength' },
-  { name: 'Adjustable Dumbbells (2–50 kg)', category: 'Free Weights' },
+  { name: 'Variable Weight Dumbbells (2.5–35 kg)', category: 'Free Weights' },
   { name: 'Flat / Incline / Decline Bench', category: 'Strength' },
   { name: 'Cable Crossover Machine', category: 'Cable & Pulley' },
   { name: 'Lat Pulldown Machine', category: 'Cable & Pulley' },
   { name: 'Leg Press Machine', category: 'Machines' },
   { name: 'Smith Machine', category: 'Strength' },
   { name: 'Chest Press Machine', category: 'Machines' },
+  { name: 'Pec Deck Fly Machine', category: 'Machines' },
   { name: 'Shoulder Press Machine', category: 'Machines' },
   { name: 'Leg Curl / Leg Extension', category: 'Machines' },
   { name: 'Treadmill', category: 'Cardio' },
   { name: 'Stationary Cycle', category: 'Cardio' },
   { name: 'Rowing Machine', category: 'Cardio' },
   { name: 'Elliptical Trainer', category: 'Cardio' },
-  { name: 'Heavy Punching Bag', category: 'Combat' },
+  { name: 'Standing Punching Bag', category: 'Combat' },
   { name: 'Kettlebells', category: 'Free Weights' },
-  { name: 'Resistance Bands', category: 'Accessories' },
   { name: 'Pull-Up / Dip Station', category: 'Bodyweight' },
   { name: 'Foam Rollers & Mats', category: 'Recovery' },
 ];
@@ -54,7 +55,7 @@ export default function EquipmentSection() {
   // Mobile: 5 items (5 rows of 1 column)
   // Desktop: 12 items (3 rows of 4 columns)
   const initialLimit = isMobile ? 5 : 12;
-  
+
   const displayedEquipment = isExpanded ? EQUIPMENT : EQUIPMENT.slice(0, initialLimit);
   const hasMore = EQUIPMENT.length > initialLimit;
 
@@ -73,9 +74,9 @@ export default function EquipmentSection() {
             </h2>
           </div>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
-            From Olympic barbells and power racks to cable stations, cardio 
-            machines, and functional training zones — DK Pure Fitness is 
-            equipped for every training style. Strength athletes, bodybuilders, 
+            From Olympic barbells and power racks to cable stations, cardio
+            machines, and functional training zones — DK Pure Fitness is
+            equipped for every training style. Strength athletes, bodybuilders,
             and weight loss beginners all find what they need under one roof.
           </p>
         </div>
