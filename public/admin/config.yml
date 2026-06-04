@@ -5,69 +5,17 @@ backend:
 
 local_backend: true
 
+logo_url: "/logo.png"
+
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "site_content"
-    label: "Site Content"
+  - name: "landing_page_config"
+    label: "Landing Page Texts"
     files:
-      - name: "equipment"
-        label: "Equipment List"
-        file: "src/content/equipment.json"
-        description: "Manage the equipment list displayed on the website"
-        fields:
-          - name: "items"
-            label: "Equipment Items"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Category", name: "category", widget: "select", options: ["Free Weights", "Strength", "Cable & Pulley", "Machines", "Cardio", "Combat", "Accessories", "Bodyweight", "Recovery"]}
-      
-      - name: "trainers"
-        label: "Trainers"
-        file: "src/content/trainers.json"
-        description: "Manage the trainers displayed on the website"
-        fields:
-          - name: "items"
-            label: "Trainer List"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Specialty", name: "specialty", widget: "string"}
-              - {label: "Bio", name: "bio", widget: "text"}
-              - {label: "Image", name: "image_url", widget: "image"}
-              - {label: "Social URL", name: "social_url", widget: "string"}
-
-      - name: "testimonials"
-        label: "Testimonials (Transformations)"
-        file: "src/content/testimonials.json"
-        description: "Manage transformation testimonials"
-        fields:
-          - name: "items"
-            label: "Testimonials"
-            widget: "list"
-            fields:
-              - {label: "ID", name: "id", widget: "string"}
-              - {label: "Member Name", name: "member_name", widget: "string"}
-              - {label: "Transformation", name: "transformation", widget: "string"}
-              - {label: "Quote", name: "quote", widget: "text"}
-              - {label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5}
-
-      - name: "reviews"
-        label: "Google Reviews"
-        file: "src/content/reviews.json"
-        description: "Manage Google reviews to display"
-        fields:
-          - name: "items"
-            label: "Reviews"
-            widget: "list"
-            fields:
-              - {label: "Reviewer Name", name: "name", widget: "string"}
-              - {label: "Review Text", name: "review", widget: "text"}
-              
       - name: "landing_page"
-        label: "Landing Page Content"
+        label: "Edit Page Text"
         file: "src/content/page-content.json"
         description: "Manage all text and labels on the main landing page"
         fields:
@@ -181,9 +129,78 @@ collections:
             fields:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "Icon (Lucide name)", name: "icon", widget: "string", default: "Dumbbell"}
-              
+
+  - name: "equipment_config"
+    label: "Equipment List"
+    files:
+      - name: "equipment"
+        label: "Manage Equipment List"
+        file: "src/content/equipment.json"
+        description: "Manage the equipment list displayed on the website"
+        fields:
+          - name: "items"
+            label: "Equipment Items"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["Free Weights", "Strength", "Cable & Pulley", "Machines", "Cardio", "Combat", "Accessories", "Bodyweight", "Recovery"]}
+
+  - name: "trainers_config"
+    label: "Trainers List"
+    files:
+      - name: "trainers"
+        label: "Manage Trainers"
+        file: "src/content/trainers.json"
+        description: "Manage the trainers displayed on the website"
+        fields:
+          - name: "items"
+            label: "Trainer List"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Specialty", name: "specialty", widget: "string"}
+              - {label: "Bio", name: "bio", widget: "text"}
+              - {label: "Image", name: "image_url", widget: "image"}
+              - {label: "Social URL", name: "social_url", widget: "string"}
+
+  - name: "testimonials_config"
+    label: "Transformations"
+    files:
+      - name: "testimonials"
+        label: "Manage Transformations"
+        file: "src/content/testimonials.json"
+        description: "Manage transformation testimonials"
+        fields:
+          - name: "items"
+            label: "Testimonials"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Member Name", name: "member_name", widget: "string"}
+              - {label: "Transformation", name: "transformation", widget: "string"}
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5}
+
+  - name: "reviews_config"
+    label: "Google Reviews"
+    files:
+      - name: "reviews"
+        label: "Manage Google Reviews"
+        file: "src/content/reviews.json"
+        description: "Manage Google reviews to display"
+        fields:
+          - name: "items"
+            label: "Reviews"
+            widget: "list"
+            fields:
+              - {label: "Reviewer Name", name: "name", widget: "string"}
+              - {label: "Review Text", name: "review", widget: "text"}
+
+  - name: "gallery_config"
+    label: "Gallery Layout"
+    files:
       - name: "gallery"
-        label: "Gallery Images"
+        label: "Manage Gallery Images"
         file: "src/content/gallery.json"
         description: "Manage gallery images and layout"
         fields:

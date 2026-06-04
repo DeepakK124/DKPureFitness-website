@@ -5,6 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager - DK Pure Fitness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* --- DK PURE FITNESS CUSTOM CMS THEME --- */
+      
+      /* Global Font */
+      * {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      /* Base Dark Background */
+      body, html {
+        background-color: #0A0A0A !important;
+        color: #E5E5E5 !important;
+      }
+
+      /* Override Decap CMS default white backgrounds */
+      div[class*="AppMainContainer"], 
+      div[class*="CollectionContainer"],
+      div[class*="EditorContainer"] {
+        background-color: #0A0A0A !important;
+      }
+
+      /* Sidebar & Header */
+      div[class*="SidebarContainer"] {
+        background-color: #111111 !important;
+        border-right: 1px solid #222 !important;
+      }
+      
+      div[class*="SidebarHeading"] {
+        color: #F97316 !important;
+      }
+
+      /* Cards & List Items */
+      a[class*="Card"] {
+        background-color: #111111 !important;
+        border: 1px solid #222 !important;
+        box-shadow: none !important;
+        transition: all 0.2s !important;
+      }
+      a[class*="Card"]:hover {
+        border-color: #F97316 !important;
+      }
+      
+      /* Text overrides */
+      h1, h2, h3, h4, h5, h6, span, p {
+        color: #E5E5E5 !important;
+      }
+
+      /* Inputs & Editor Panels */
+      input, textarea, div[role="textbox"] {
+        background-color: #111111 !important;
+        color: #E5E5E5 !important;
+        border: 1px solid #333 !important;
+        border-radius: 4px !important;
+      }
+      input:focus, textarea:focus, div[role="textbox"]:focus {
+        border-color: #F97316 !important;
+        outline: none !important;
+        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2) !important;
+      }
+
+      /* Primary Buttons */
+      button {
+        border-radius: 2px !important;
+      }
+      /* Attempt to target the main "Publish" or "Save" buttons by checking if they have the typical Decap blue */
+      button[class*="Button"] {
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        font-weight: 600 !important;
+      }
+
+      /* Media Library Modal */
+      div[class*="Modal"] {
+        background-color: #111111 !important;
+        border: 1px solid #333 !important;
+      }
+
+      /* Scrollbars */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0A0A0A;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #F97316;
+      }
+    </style>
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
