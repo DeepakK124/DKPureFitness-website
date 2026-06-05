@@ -1,0 +1,49 @@
+{
+  "label": "01 — About Us",
+  "title": "Not Your Typical Gym.",
+  "description": "Since 2023, we have helped hundreds of members achieve their fitness goals through expert coaching, modern equipment, and a supportive community. Whether you’re a beginner or an experienced athlete, our team is committed to helping you become stronger, healthier, and more confident.",
+  "youtube_callout_strong": "Beyond the gym:",
+  "youtube_callout_text": "We're also highly active in the local sports community! Watch our gym's team compete in local cricket tournaments on this",
+  "youtube_link_text": "YouTube channel",
+  "youtube_link_url": "https://www.youtube.com/@Sports_ct",
+  "highlights": [
+    {
+      "title": "WEIGHT TRAINING",
+      "description": "Build functional strength and power with our extensive range of free weights and modern machines."
+    },
+    {
+      "title": "BODYBUILDING",
+      "description": "Sculpt and define your physique with targeted equipment and expert guidance from our trainers."
+    },
+    {
+      "title": "ZUMBA",
+      "description": "Burn calories and have fun with our high-energy, rhythmic dance workouts led by certified instructors."
+    },
+    {
+      "title": "YOGA",
+      "description": "Improve flexibility, balance, and core strength in our calming open-air stretching and yoga sessions."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/DKPF Pics/outside lawn.webp",
+      "alt": "Open-air lawn training area at DK Pure Fitness gym Hyderabad",
+      "span": "col-span-2 row-span-2"
+    },
+    {
+      "src": "/DKPF Pics/outside lawn 1.webp",
+      "alt": "Nature-surrounded outdoor workout space near Kuntloor Hyderabad",
+      "span": "col-span-1 row-span-1"
+    },
+    {
+      "src": "/DKPF Pics/yoga session.webp",
+      "alt": "Yoga session in the open-air area of DK Pure Fitness",
+      "span": "col-span-1 row-span-1"
+    },
+    {
+      "src": "/DKPF Pics/unnamed.webp",
+      "alt": "Spacious gym interior with natural ventilation in Hyderabad",
+      "span": "col-span-2 row-span-1"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "label": "03 — The Architect",
+  "title": "Expert Trainers. Personalised Plans.",
+  "description": "Our certified personal trainers in Hyderabad don't hand you a PDF and wish you luck. They assess your baseline, design a program around your schedule and goals, and coach you rep by rep - whether you're after fat loss, muscle gain, or sport-specific conditioning.",
+  "items": [
+    {
+      "name": "DEEPAK KUMAR",
+      "specialty": "Transformation & Bodybuilding",
+      "bio": "Founder of DK Pure Fitness. As a dedicated athlete and competitive cricketer, Deepak understands the discipline required to excel. He applies this same rigorous mindset to help members transform their bodies and achieve their ultimate fitness goals.",
+      "image_url": "/trainers/deepak-kumar.png",
+      "social_url": "https://www.instagram.com/imdeepakkrr/"
+    }
+  ]
+}

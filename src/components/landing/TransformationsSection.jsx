@@ -1,29 +1,9 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
-const TESTIMONIALS = [
-  {
-    id: 'tt1',
-    member_name: 'RAHUL R.',
-    quote: 'DK Pure Fitness completely rewired my approach to fitness. The trainers don\'t just coach—they architect your transformation from the ground up. Down 25kg and stronger than ever.',
-    transformation: 'Lost 25kg in 8 months',
-    rating: 5,
-  },
-  {
-    id: 'tt2',
-    member_name: 'PRIYA K.',
-    quote: 'The precision of the programming here is unmatched. Every session feels purposeful. I went from struggling with bodyweight movements to competing in powerlifting.',
-    transformation: 'Beginner to competitor in 12 months',
-    rating: 5,
-  },
-  {
-    id: 'tt3',
-    member_name: 'ANONYMOUS',
-    quote: 'The environment at DK Pure Fitness is what sets it apart. No egos, just focused athletes pushing each other. The facilities and recovery zone are world-class.',
-    transformation: 'Gained 12kg lean muscle',
-    rating: 5,
-  },
-];
+import content from '@/content/testimonials.json';
+
+const TESTIMONIALS = content.items;
 
 export default function TransformationsSection() {
   return (
@@ -33,16 +13,13 @@ export default function TransformationsSection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-10 sm:mb-16 md:mb-20">
           <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
-            02 — Proof of Performance
+            {content.label}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
-            Real Results. <br />Real Members.
+            {content.title}
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-center">
-            Every before-and-after at DK Pure Fitness represents weeks of sweat, 
-            consistency, and expert coaching. No filters. No shortcuts. These are 
-            your future neighbors, colleagues, and friends — and they trained 
-            right here.
+            {content.description}
           </p>
         </div>
 

@@ -1,23 +1,9 @@
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-const REVIEWS = [
-  { name: 'GOKU GAMING YT', review: "Awesome gym, I like the air quality in the gym, it's completely built with nature." },
-  { name: 'MAHENDER', review: "The instructors are extremely knowledgeable, highly motivated, and awesome people to be around. I've never been in a gym with a better vibe. Classes are interesting — a must see!" },
-  { name: 'KAMAL TEJA', review: "One of the best gyms I have ever seen, feels like home. Very friendly and humble owner Mr. Deepak. DK Pure Fitness helped me a lot to figure out my body. Best equipment and nature-friendly environment. Thanks Deepak bro! 🤞👍" },
-  { name: 'KARIMELA ABHILASH', review: "Training is like a brotherhood and they take great care — the best choice to improve your body." },
-  { name: 'BHARATHI RAJULAPATI', review: "DK Pure Fitness is a great gym. It has all the state of the art equipment for cardio and weight training, plus all the associated facilities required for a good fitness setup." },
-  { name: 'SUNNY', review: "Awesome gym experience I ever had in my life. Very nice and super place for gym." },
-  { name: 'DHATRIK BANNU', review: "Wow nice gym actually... I'm impressed with those certified trainers ❤️" },
-  { name: 'LAKSHMIKANTH AKULA', review: "Pure Fitness is truly an awesome and pleasant place to work out with the whole family. Welcoming atmosphere, friendly staff, top-notch facilities with a wide range of equipment. Highly recommended!" },
-  { name: 'CHIMALA RAJU', review: "Well maintained gym with professional, well-mannered coaches. Love this place with modern equipment, good and pleasant location." },
-  { name: 'K. PAWANJAYANTH REDDY', review: "Perfect for doing gym — nature embedded with unique features and very friendly vibes." },
-  { name: 'NAGARAJU', review: "Good in all gym machines." },
-  { name: 'SHASHANK', review: "Very excellent gym. Friendly owner 🙌" },
-  { name: 'KIRTHAN REDDY', review: "Nice place to work out, great environment." },
-  { name: 'ADEPU SAI TEJA', review: "Very nice gym." },
-  { name: 'PRAMOD MAHAJAN', review: "Beautiful gym." },
-];
+import content from '@/content/reviews.json';
+
+const REVIEWS = content.items;
 
 // Duplicate for seamless loop
 const DOUBLED = [...REVIEWS, ...REVIEWS];
@@ -52,11 +38,14 @@ export default function ReviewsSection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-14">
         <div>
           <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
-            06 — Community Voice
+            {content.label}
           </span>
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
-            What Our Members Say<br />— 
+            {content.title}
           </h2>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-center">
+            {content.description}
+          </p>
         </div>
       </div>
 

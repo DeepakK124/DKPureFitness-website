@@ -2,17 +2,14 @@ import { MapPin, Phone, Clock, Instagram, Calendar, ArrowRight } from 'lucide-re
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  CONTACT_PHONE,
   CONTACT_PHONE_HREF,
-  ADDRESS,
   MAPS_URL,
   INSTAGRAM_URL,
-  INSTAGRAM_HANDLE,
-  HOURS,
 } from '@/lib/constants';
+import content from '@/content/contact.json';
 
-const BOOKING_EMBED_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ25q1A6wZbNelFWrSDJuBDTJRZ77Cn8zUF1dBBtSwPINIPP7j-KOsMU9d1QKyZjtzbEwb5kXb_v?gv=true";
-const BOOKING_DIRECT_URL = "https://calendar.app.google/Mr8fB6MGaj42GeUS9";
+const BOOKING_EMBED_URL = content.booking_embed_url;
+const BOOKING_DIRECT_URL = content.booking_direct_url;
 
 export default function ContactSection() {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -36,16 +33,13 @@ export default function ContactSection() {
           {/* 1. Header & Text (Top on both) */}
           <div className="order-1 lg:col-start-1 lg:row-start-1">
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
-              07 — Control Center
+              {content.label}
             </span>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
-              Book a Free Demo<br />— Try Before You Commit
+              {content.title}
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
-              Not sure if we're the right fit? Book a free demo and experience 
-              DK Pure Fitness for yourself. Select a convenient 1-hour slot to visit 
-              us — explore the equipment, meet the trainer, 
-              and feel the vibe. No commitment, no pressure.
+              {content.description}
             </p>
           </div>
 
@@ -63,10 +57,10 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">
-                  LOCATION
+                  {content.address_title}
                 </span>
                 <span className="text-foreground text-sm group-hover:text-primary transition-colors underline underline-offset-2 decoration-primary/30">
-                  {ADDRESS}
+                  {content.address_text}
                 </span>
               </div>
             </a>
@@ -77,9 +71,9 @@ export default function ContactSection() {
                 <Phone className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">DIRECT LINE</span>
+                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">{content.phone_title}</span>
                 <a href={CONTACT_PHONE_HREF} className="text-foreground text-sm hover:text-primary transition-colors">
-                  {CONTACT_PHONE}
+                  {content.phone_text}
                 </a>
               </div>
             </div>
@@ -95,9 +89,9 @@ export default function ContactSection() {
                 <Instagram className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">INSTAGRAM</span>
+                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">{content.instagram_title}</span>
                 <span className="text-foreground text-sm group-hover:text-primary transition-colors">
-                  {INSTAGRAM_HANDLE}
+                  {content.instagram_text}
                 </span>
               </div>
             </a>
@@ -108,10 +102,11 @@ export default function ContactSection() {
                 <Clock className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">WORKING HOURS</span>
-                <span className="text-foreground text-sm">
-                  {HOURS.morning.days}: {HOURS.morning.open} – {HOURS.morning.close}<br />{HOURS.evening.days}: {HOURS.evening.open} – {HOURS.evening.close}
-                </span>
+                <span className="font-mono text-[10px] tracking-widest text-muted-foreground block mb-1">{content.working_hours_title}</span>
+                <div className="text-foreground text-sm space-y-1">
+                  <p>{content.working_hours_text_1}</p>
+                  <p>{content.working_hours_text_2}</p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,71 @@
+{
+  "label": "05 — The Facility",
+  "title": "Where Champions Train.",
+  "description": "Take a look inside our state-of-the-art facility featuring dedicated zones for strength, cardio, functional training, and recovery.",
+  "items": [
+    {
+      "type": "wide",
+      "src": "/DKPF Pics/outside lawn.webp",
+      "alt": "Outside lawn and functional training area at DK Pure Fitness gym Hyderabad",
+      "width": "w-[280px] md:w-[650px]",
+      "mWidth": 280,
+      "dWidth": 650
+    },
+    {
+      "type": "stacked",
+      "images": [
+        {
+          "src": "/DKPF Pics/yoga session.webp",
+          "alt": "Yoga and stretching session at DK Pure Fitness fitness center Hyderabad"
+        },
+        {
+          "src": "/DKPF Pics/outside lawn 1.webp",
+          "alt": "Outdoor training zone at DK Pure Fitness gym near Kuntloor"
+        }
+      ],
+      "width": "w-[200px] md:w-[380px]",
+      "mWidth": 200,
+      "dWidth": 380
+    },
+    {
+      "type": "wide",
+      "src": "/DKPF Pics/DKPF banner.webp",
+      "alt": "DK Pure Fitness gym branding and entrance Hyderabad",
+      "width": "w-[320px] md:w-[800px]",
+      "mWidth": 320,
+      "dWidth": 800
+    },
+    {
+      "type": "stacked",
+      "images": [
+        {
+          "src": "/DKPF Pics/trophy.webp",
+          "alt": "Success and achievements at DK Pure Fitness Hyderabad"
+        },
+        {
+          "src": "/DKPF Pics/flag.webp",
+          "alt": "DK Pure Fitness gym flag representing strength and discipline"
+        }
+      ],
+      "width": "w-[160px] md:w-[320px]",
+      "mWidth": 160,
+      "dWidth": 320
+    },
+    {
+      "type": "wide",
+      "src": "/DKPF Pics/unnamed.webp",
+      "alt": "Wide angle view of commercial-grade equipment at DK Pure Fitness gym Hyderabad",
+      "width": "w-[350px] md:w-[950px]",
+      "mWidth": 350,
+      "dWidth": 950
+    },
+    {
+      "type": "wide",
+      "src": "/DKPF Pics/Squat Rack.jpeg",
+      "alt": "Premium squat rack and weight training area at DK Pure Fitness gym near Peddamberpet",
+      "width": "w-[280px] md:w-[650px]",
+      "mWidth": 280,
+      "dWidth": 650
+    }
+  ]
+}

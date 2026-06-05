@@ -1,6 +1,7 @@
 import { ArrowUp } from 'lucide-react';
 import { TermsDialog, PrivacyDialog } from '../LegalDialogs';
 import { ADDRESS, LOGO_PATH } from '@/lib/constants';
+import content from '@/content/footer.json';
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18,7 +19,7 @@ export default function Footer() {
               />
             </div>
             <p className="font-mono text-[10px] tracking-widest text-muted-foreground mb-3 text-center md:text-left">
-              YOUR FITNESS COMPANION. <br />HYDERABAD'S STRENGTH-FIRST GYM  
+              {content.description}
             </p>
             <p className="font-mono text-[10px] md:text-xs text-muted-foreground/80 leading-relaxed text-center md:text-left">
               📍 {ADDRESS}
@@ -53,7 +54,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
             <span className="font-mono text-[10px] tracking-widest text-muted-foreground/60">
-              © 2026 DK PURE FITNESS. ALL RIGHTS RESERVED.
+              {content.copyright}
             </span>
             <span className="text-muted-foreground/40 text-[10px] max-w-xl">
               Disclaimer: Consult a physician before starting any fitness program. The information on this website is for educational purposes only. Individual results may vary.
