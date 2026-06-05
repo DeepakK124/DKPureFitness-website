@@ -32,15 +32,29 @@ export default async function handler(req, res) {
 
     const accessToken = tokenData.access_token;
 
-    // The script sends the token securely back to the parent Decap CMS window using postMessage
+    const protocol = req.headers['x-forwarded-proto'] || 'http';
+    const host = req.headers.host;
+    const targetOrigin = `${protocol}://${host}`;
+
     const script = `
-      <script>
-        (function() {
-          const message = 'authorization:github:success:{"token":"${accessToken}","provider":"github"}';
-          window.opener.postMessage(message, "*");
-          window.close();
-        })();
-      </script>
+      <!DOCTYPE html>
+      <html>
+      <head><title>Authenticating...</title></head>
+      <body>
+        <p>Authentication successful! Returning to CMS...</p>
+        <script>
+          (function() {
+            if (!window.opener) {
+              document.body.innerHTML = '<p>Error: window.opener is blocked or missing. Please ensure popups are allowed and try a different browser.</p>';
+              return;
+            }
+            const message = 'authorization:github:success:{"token":"${accessToken}","provider":"github"}';
+            window.opener.postMessage(message, "${targetOrigin}");
+            window.close();
+          })();
+        </script>
+      </body>
+      </html>
     `;
 
     res.setHeader('Content-Type', 'text/html');

@@ -13,5 +13,17 @@ export default function handler(req, res) {
   // Construct the GitHub OAuth URL
   const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&scope=repo,user&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
-  res.redirect(authUrl);
+  res.setHeader('Content-Type', 'text/html');
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head><title>Redirecting to GitHub...</title></head>
+    <body>
+      <p>Redirecting to GitHub for authentication...</p>
+      <script>
+        window.location.href = "${authUrl}";
+      </script>
+    </body>
+    </html>
+  `);
 }
