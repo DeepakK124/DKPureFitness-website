@@ -6,12 +6,10 @@ import {
   MAPS_URL,
   INSTAGRAM_URL,
 } from '@/lib/constants';
-import pageData from '@/content/page-content.json';
+import content from '@/content/contact.json';
 
-const content = pageData.contact;
-
-const BOOKING_EMBED_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ25q1A6wZbNelFWrSDJuBDTJRZ77Cn8zUF1dBBtSwPINIPP7j-KOsMU9d1QKyZjtzbEwb5kXb_v?gv=true";
-const BOOKING_DIRECT_URL = "https://calendar.app.google/Mr8fB6MGaj42GeUS9";
+const BOOKING_EMBED_URL = content.booking_embed_url;
+const BOOKING_DIRECT_URL = content.booking_direct_url;
 
 export default function ContactSection() {
   const [showCalendar, setShowCalendar] = useState(false);

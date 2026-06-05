@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-import reviewsData from '@/content/reviews.json';
-import pageData from '@/content/page-content.json';
+import content from '@/content/reviews.json';
 
-const content = pageData.reviews;
-const REVIEWS = reviewsData.items;
+const REVIEWS = content.items;
 
 // Duplicate for seamless loop
 const DOUBLED = [...REVIEWS, ...REVIEWS];

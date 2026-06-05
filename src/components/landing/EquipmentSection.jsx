@@ -2,11 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Dumbbell, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-import equipmentData from '@/content/equipment.json';
-import pageData from '@/content/page-content.json';
+import content from '@/content/equipment.json';
 
-const content = pageData.equipment;
-const EQUIPMENT = equipmentData.items;
+const EQUIPMENT = content.items;
 
 const CATEGORIES = [...new Set(EQUIPMENT.map(e => e.category))];
 

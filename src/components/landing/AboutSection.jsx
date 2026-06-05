@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { Dumbbell, Activity, Music, HeartPulse, Youtube } from 'lucide-react';
 
-import pageData from '@/content/page-content.json';
-
-const content = pageData.about;
+import content from '@/content/about.json';
 
 const iconMap = {
   "WEIGHT TRAINING": Dumbbell,
@@ -18,12 +16,7 @@ const HIGHLIGHTS = content.highlights.map(h => ({
   description: h.description
 }));
 
-const GALLERY = [
-  { src: '/DKPF Pics/outside lawn.webp', alt: 'Open-air lawn training area at DK Pure Fitness gym Hyderabad', span: 'col-span-2 row-span-2' },
-  { src: '/DKPF Pics/outside lawn 1.webp', alt: 'Nature-surrounded outdoor workout space near Kuntloor Hyderabad', span: 'col-span-1 row-span-1' },
-  { src: '/DKPF Pics/yoga session.webp', alt: 'Yoga session in the open-air area of DK Pure Fitness', span: 'col-span-1 row-span-1' },
-  { src: '/DKPF Pics/unnamed.webp', alt: 'Spacious gym interior with natural ventilation in Hyderabad', span: 'col-span-2 row-span-1' },
-];
+const GALLERY = content.gallery;
 
 export default function AboutSection() {
   return (

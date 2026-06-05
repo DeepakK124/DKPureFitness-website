@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
-import pageData from '@/content/page-content.json';
+import content from '@/content/hero.json';
 
-const content = pageData.hero;
 const HERO_IMG = content.background_image;
 
 const iconMap = {
@@ -17,7 +16,6 @@ const stats = content.stats.map(s => ({
   value: s.value,
   label: s.label
 }));
-
 
 export default function HeroSection() {
   return (

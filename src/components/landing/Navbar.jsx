@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import pageData from '@/content/page-content.json';
-
-const content = pageData.hero;
+import content from '@/content/hero.json';
 
 const NAV_LINKS = [
 { label: 'TRANSFORMATIONS', href: '#transformations', id: 'transformations' },
@@ -12,7 +10,6 @@ const NAV_LINKS = [
 { label: 'GALLERY', href: '#gallery', id: 'gallery' },
 { label: 'REVIEWS', href: '#reviews', id: 'reviews' },
 { label: 'CONTACT', href: '#contact', id: 'contact' }];
-
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

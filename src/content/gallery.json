@@ -1,4 +1,7 @@
 {
+  "label": "05 — The Facility",
+  "title": "Where Champions Train.",
+  "description": "Take a look inside our state-of-the-art facility featuring dedicated zones for strength, cardio, functional training, and recovery.",
   "items": [
     {
       "type": "wide",
@@ -11,8 +14,14 @@
     {
       "type": "stacked",
       "images": [
-        { "src": "/DKPF Pics/yoga session.webp", "alt": "Yoga and stretching session at DK Pure Fitness fitness center Hyderabad" },
-        { "src": "/DKPF Pics/outside lawn 1.webp", "alt": "Outdoor training zone at DK Pure Fitness gym near Kuntloor" }
+        {
+          "src": "/DKPF Pics/yoga session.webp",
+          "alt": "Yoga and stretching session at DK Pure Fitness fitness center Hyderabad"
+        },
+        {
+          "src": "/DKPF Pics/outside lawn 1.webp",
+          "alt": "Outdoor training zone at DK Pure Fitness gym near Kuntloor"
+        }
       ],
       "width": "w-[200px] md:w-[380px]",
       "mWidth": 200,
@@ -29,8 +38,14 @@
     {
       "type": "stacked",
       "images": [
-        { "src": "/DKPF Pics/trophy.webp", "alt": "Success and achievements at DK Pure Fitness Hyderabad" },
-        { "src": "/DKPF Pics/flag.webp", "alt": "DK Pure Fitness gym flag representing strength and discipline" }
+        {
+          "src": "/DKPF Pics/trophy.webp",
+          "alt": "Success and achievements at DK Pure Fitness Hyderabad"
+        },
+        {
+          "src": "/DKPF Pics/flag.webp",
+          "alt": "DK Pure Fitness gym flag representing strength and discipline"
+        }
       ],
       "width": "w-[160px] md:w-[320px]",
       "mWidth": 160,

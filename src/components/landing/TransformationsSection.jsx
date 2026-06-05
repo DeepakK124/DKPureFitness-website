@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 
-import testimonialsData from '@/content/testimonials.json';
-import pageData from '@/content/page-content.json';
+import content from '@/content/testimonials.json';
 
-const content = pageData.transformations;
-const TESTIMONIALS = testimonialsData.items;
+const TESTIMONIALS = content.items;
 
 export default function TransformationsSection() {
   return (

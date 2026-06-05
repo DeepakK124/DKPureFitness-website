@@ -2,11 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
-import galleryData from '@/content/gallery.json';
-import pageData from '@/content/page-content.json';
 
-const content = pageData.gallery;
-const GALLERY_ITEMS = galleryData.items;
+import content from '@/content/gallery.json';
+
+const GALLERY_ITEMS = content.items;
 
 // Double for seamless loop
 const DOUBLED = [...GALLERY_ITEMS, ...GALLERY_ITEMS];

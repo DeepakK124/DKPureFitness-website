@@ -1,9 +1,7 @@
 import { ArrowUp } from 'lucide-react';
 import { TermsDialog, PrivacyDialog } from '../LegalDialogs';
 import { ADDRESS, LOGO_PATH } from '@/lib/constants';
-import pageData from '@/content/page-content.json';
-
-const content = pageData.footer;
+import content from '@/content/footer.json';
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });

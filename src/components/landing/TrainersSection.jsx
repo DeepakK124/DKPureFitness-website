@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import trainersData from '@/content/trainers.json';
-import pageData from '@/content/page-content.json';
+import content from '@/content/trainers.json';
 
-const content = pageData.trainers;
-const TRAINERS = trainersData.items;
+const TRAINERS = content.items;
 
 export default function TrainersSection() {
   const [selectedTrainer, setSelectedTrainer] = useState(null);
