@@ -1,6 +1,7 @@
 import { MapPin, Phone, Clock, Instagram, Calendar, ArrowRight } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import VariableProximity from '@/components/VariableProximity/VariableProximity';
 import {
   CONTACT_PHONE_HREF,
   MAPS_URL,
@@ -15,6 +16,7 @@ export default function ContactSection() {
   const [showCalendar, setShowCalendar] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -24,7 +26,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section id="contact" className="relative py-24 md:py-32">
+    <section ref={containerRef} id="contact" className="relative py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
@@ -35,8 +37,16 @@ export default function ContactSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               {content.label}
             </span>
-            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-6">
-              {content.title}
+            <h2 className="font-display text-3xl md:text-5xl lg:text-6xl uppercase leading-[0.95] mb-6">
+              <VariableProximity
+                label={content.title}
+                className="text-foreground"
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                containerRef={containerRef}
+                radius={100}
+                falloff='linear'
+              />
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
               {content.description}

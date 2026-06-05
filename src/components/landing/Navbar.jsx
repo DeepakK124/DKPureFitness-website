@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import PillNav from '@/components/PillNav/PillNav';
+import Magnet from '@/components/Magnet/Magnet';
 import content from '@/content/hero.json';
 
 const NAV_LINKS = [
@@ -13,7 +13,6 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
@@ -43,107 +42,31 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled ? 'bg-background/80 backdrop-blur-sm border-b border-primary/20' : 'bg-background/60 backdrop-blur-[2px] border-b border-primary/10'}`
-      }>
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center h-full">
-            <img 
-              src="/logo.png" 
-              alt="DK Pure Fitness" 
-              className="h-full w-auto object-contain scale-[1.8] md:scale-[2.2] origin-left" 
-            />
-          </a>
-
-          <div className="hidden lg:flex items-center gap-8 relative">
-            {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.id;
-              
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`relative font-mono text-xs tracking-widest transition-colors duration-300 py-2 ${isActive ? 'text-[#F97316]' : 'text-muted-foreground hover:text-foreground'}`}
-                >
-                  {link.label}
-                  
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-nav-underline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                </a>
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="#contact"
-              className="hidden md:inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs tracking-widest hover:bg-primary/80 transition-all duration-300">
-              
-              {content.cta1_text}
-            </a>
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="lg:hidden text-foreground p-2">
-              
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {menuOpen &&
-        <motion.div
-          initial={{ x: '100%' }}
-          animate={{ x: 0 }}
-          exit={{ x: '100%' }}
-          transition={{ type: 'tween', duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed inset-0 z-[60] bg-background flex flex-col">
-          
-            <div className="flex items-center justify-between px-6 h-16">
-              <img 
-                src="/logo.png" 
-                alt="DK Pure Fitness" 
-                className="h-20 w-auto object-contain" 
-              />
-              <button onClick={() => setMenuOpen(false)} className="text-foreground p-2">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <div className="flex-1 flex flex-col justify-center px-12 gap-8">
-              {NAV_LINKS.map((link, i) =>
-            <motion.a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 + i * 0.05 }}
-              className="font-display text-3xl md:text-5xl text-foreground hover:text-primary transition-colors">
-              
-                  {link.label}
-                </motion.a>
-            )}
-            </div>
-            <div className="px-12 pb-12">
+    }>
+      <div className="max-w-[1440px] mx-auto flex items-center justify-center px-4 sm:px-6 md:px-12 py-3">
+        <PillNav
+          logo="/logo.png"
+          logoAlt="DK Pure Fitness"
+          items={NAV_LINKS}
+          activeHref={activeSection ? `#${activeSection}` : ''}
+          baseColor="transparent"
+          pillColor="#F97316"
+          hoveredPillTextColor="#ffffff"
+          pillTextColor="#120F17"
+          className="w-full flex justify-between items-center"
+          rightNode={
+            <Magnet padding={50} disabled={false} magnetStrength={10}>
               <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-center py-4 bg-primary text-primary-foreground font-mono text-sm tracking-widest">
-              
+                href="#contact"
+                className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs tracking-widest hover:bg-primary/80 transition-all duration-300 rounded-full">
                 {content.cta1_text}
               </a>
-            </div>
-          </motion.div>
-        }
-      </AnimatePresence>
-    </>);
-
+            </Magnet>
+          }
+        />
+      </div>
+    </div>
+  );
 }

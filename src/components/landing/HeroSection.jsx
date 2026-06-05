@@ -12,39 +12,8 @@ const iconMap = {
   "DAILY ACCESS": Clock
 };
 
-function ScrambleText({ text }) {
-  const [displayText, setDisplayText] = useState('');
-  const CHARS = '!<>-_\\\\/[]{}—=+*^?#________';
-
-  useEffect(() => {
-    let iteration = 0;
-    const maxIterations = text.length;
-
-    const interval = setInterval(() => {
-      setDisplayText((prev) =>
-        text
-          .split('')
-          .map((char, index) => {
-            if (index < iteration) {
-              return text[index];
-            }
-            return CHARS[Math.floor(Math.random() * CHARS.length)];
-          })
-          .join('')
-      );
-
-      if (iteration >= maxIterations) {
-        clearInterval(interval);
-      }
-
-      iteration += 1 / 3;
-    }, 30);
-
-    return () => clearInterval(interval);
-  }, [text]);
-
-  return <>{displayText}</>;
-}
+import VariableProximity from '@/components/VariableProximity/VariableProximity';
+import Magnet from '@/components/Magnet/Magnet';
 
 const stats = content.stats.map(s => ({
   icon: iconMap[s.label] || Zap,
@@ -79,8 +48,10 @@ function AnimatedCounter({ value }) {
 }
 
 export default function HeroSection() {
+  const containerRef = useRef(null);
+
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
+    <section ref={containerRef} className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -128,13 +99,38 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
+            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] mb-4 sm:mb-6">
             
-            <ScrambleText text={content.title_part1} />
+            <VariableProximity
+              label={content.title_part1}
+              className="text-foreground"
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={100}
+              falloff='linear'
+            />
             <br />
-            <span className="text-primary"><ScrambleText text={content.title_highlight} /></span>
+            <span className="text-primary">
+              <VariableProximity
+                label={content.title_highlight}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                containerRef={containerRef}
+                radius={100}
+                falloff='linear'
+              />
+            </span>
             <br />
-            <ScrambleText text={content.title_part2} />
+            <VariableProximity
+              label={content.title_part2}
+              className="text-foreground"
+              fromFontVariationSettings="'wght' 400, 'opsz' 9"
+              toFontVariationSettings="'wght' 1000, 'opsz' 40"
+              containerRef={containerRef}
+              radius={100}
+              falloff='linear'
+            />
           </motion.h1>
 
           <motion.p
@@ -152,18 +148,22 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16">
             
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
-              
-              {content.cta1_text}
-            </a>
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-              
-              {content.cta2_text}
-            </a>
+            <Magnet padding={50} disabled={false} magnetStrength={10}>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
+                
+                {content.cta1_text}
+              </a>
+            </Magnet>
+            <Magnet padding={50} disabled={false} magnetStrength={10}>
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                
+                {content.cta2_text}
+              </a>
+            </Magnet>
             
             {/* Spinning Badge */}
             <motion.div 
