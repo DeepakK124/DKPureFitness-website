@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: sxm-0410/Gym-Website
-  branch: trial-decap-cms
+  branch: main
 
 local_backend: true
 
