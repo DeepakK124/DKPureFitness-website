@@ -9,19 +9,19 @@ const TICKER_ITEMS = content.items.map(item => ({
 
 export default function DataTicker() {
   return (
-    <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-background/60 backdrop-blur-[2px] border-b border-border overflow-hidden h-8 flex items-center">
+    <div className="w-full bg-primary py-4 sm:py-6 overflow-hidden flex items-center border-y border-border relative z-20">
       <motion.div
-        className="flex gap-12 whitespace-nowrap"
-        animate={{ x: [0, -1200] }}
-        transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
+        className="flex gap-8 sm:gap-16 whitespace-nowrap"
+        animate={{ x: [0, -1000] }}
+        transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
       >
-        {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-          <div key={i} className="flex items-center gap-2 flex-shrink-0">
-            <item.icon className="w-3 h-3 text-primary" />
-            <span className="font-mono text-[10px] tracking-widest text-muted-foreground">
+        {/* We repeat the array more times to ensure it fills the wide screen during scrolling */}
+        {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
+          <div key={i} className="flex items-center gap-4 sm:gap-6 flex-shrink-0">
+            <span className="font-display text-xl sm:text-3xl text-primary-foreground uppercase tracking-wider">
               {item.text}
             </span>
-            <span className="text-primary/50 mx-4">|</span>
+            <span className="text-primary-foreground/30 text-xl sm:text-3xl mx-2">•</span>
           </div>
         ))}
       </motion.div>

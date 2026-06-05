@@ -49,26 +49,34 @@ export default function ReviewsSection() {
         </div>
       </div>
 
-      {/* Endless scroll track */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-r from-background/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-gradient-to-l from-background/80 to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          className="flex gap-4"
-          animate={{ x: [-trackWidth, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: REVIEWS.length * 4,
-            ease: 'linear',
-          }}
-          style={{ width: `${trackWidth * 2}px` }}
-        >
-          {DOUBLED.map((review, i) => (
-            <ReviewCard key={`${review.name}-${i}`} review={review} />
+      {/* Staggered Grid Reveal */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {REVIEWS.map((review, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+              className="w-full sm:w-80 bg-card border border-border hover:border-primary/20 transition-all duration-500 p-6 md:p-8 flex flex-col shadow-sm"
+            >
+              <div className="flex gap-1 mb-4 md:mb-6">
+                {Array.from({ length: 5 }).map((_, idx) => (
+                  <Star key={idx} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="text-foreground/85 text-sm md:text-base leading-relaxed flex-1 mb-6 md:mb-8">
+                "{review.review}"
+              </p>
+              <div className="pt-4 border-t border-border">
+                <span className="font-display text-xs text-primary uppercase tracking-wide">
+                  {review.name}
+                </span>
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
 import content from '@/content/hero.json';
@@ -16,6 +17,32 @@ const stats = content.stats.map(s => ({
   value: s.value,
   label: s.label
 }));
+
+function AnimatedCounter({ value }) {
+  // Extract number and suffix (e.g. "125+" -> 125 and "+")
+  const numericMatch = value.match(/(\d+)(.*)/);
+  if (!numericMatch) return <span>{value}</span>;
+  
+  const target = parseInt(numericMatch[1], 10);
+  const suffix = numericMatch[2];
+  
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView) {
+      animate(count, target, { duration: 2, ease: "easeOut" });
+    }
+  }, [isInView, count, target]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{rounded}</motion.span>{suffix}
+    </span>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -103,6 +130,25 @@ export default function HeroSection() {
               
               {content.cta2_text}
             </a>
+            
+            {/* Spinning Badge */}
+            <motion.div 
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="hidden sm:flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-primary/30 relative ml-8"
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
+                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                <text>
+                  <textPath href="#circlePath" className="text-[10px] font-mono tracking-[0.25em] fill-primary uppercase">
+                    Get Started • Join Now •
+                  </textPath>
+                </text>
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <ChevronDown className="w-4 h-4 text-primary" />
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Stats */}
@@ -116,7 +162,9 @@ export default function HeroSection() {
             <div key={stat.label} className="flex items-center gap-2 sm:gap-3">
                 <stat.icon className="w-4 h-4 text-primary shrink-0" />
                 <div>
-                  <div className="font-display text-lg sm:text-xl md:text-2xl text-foreground">{stat.value}</div>
+                  <div className="font-display text-lg sm:text-xl md:text-2xl text-foreground">
+                    <AnimatedCounter value={stat.value} />
+                  </div>
                   <div className="font-mono text-[9px] sm:text-[10px] tracking-widest text-muted-foreground">{stat.label}</div>
                 </div>
               </div>

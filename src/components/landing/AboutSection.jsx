@@ -66,31 +66,46 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Asymmetric Gallery Mosaic */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+        {/* Asymmetric Gallery Mosaic with Mask Unveil Animation */}
+        <div
           className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 mb-10 sm:mb-16 md:mb-20"
         >
           {GALLERY.map((img, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
               className={`${img.span} relative overflow-hidden border border-border group`}
             >
               <div className="relative w-full h-full min-h-[140px] sm:min-h-[180px] md:min-h-[240px]">
-                <img
+                {/* The Unveil Mask */}
+                <motion.div 
+                  variants={{
+                    hidden: { top: 0 },
+                    visible: { top: "100%" }
+                  }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.15 }}
+                  className="absolute inset-0 bg-primary z-10"
+                />
+                
+                {/* The Image (Scale down to 1) */}
+                <motion.img
+                  variants={{
+                    hidden: { scale: 1.2 },
+                    visible: { scale: 1 }
+                  }}
+                  transition={{ duration: 1.2, ease: "easeOut", delay: idx * 0.15 }}
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
               </div>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Highlights Strip */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
