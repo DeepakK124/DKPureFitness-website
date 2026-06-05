@@ -15,34 +15,49 @@ const iconMap = {
 import Magnet from '@/components/Magnet/Magnet';
 
 function ScrambleText({ text }) {
-  const [displayText, setDisplayText] = useState('');
-  const CHARS = '!<>-_\\\\/[]{}—=+*^?#________';
-
+  const [displayText, setDisplayText] = useState(text);
+  
   useEffect(() => {
-    let iteration = 0;
-    const maxIterations = text.length;
+    let frame;
+    let progress = 0;
+    const durationFrames = 200; // Roughly 3.3 seconds at 60fps
+    const chars = '!<>-_\\\\/[]{}—=+*^?#________';
+    
+    // Each character gets a random threshold between 0.1 and 1.0 for when it settles
+    // This creates a period of pure scramble before characters randomly lock in
+    const settleThresholds = text.split('').map(() => 0.1 + Math.random() * 0.9);
+    
+    // Start with all scrambled (preserve spaces)
+    setDisplayText(text.replace(/./g, (char) => char === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)]));
 
-    const interval = setInterval(() => {
+    const animateScramble = () => {
       setDisplayText((prev) =>
         text
           .split('')
           .map((char, index) => {
-            if (index < iteration) {
+            if (char === ' ') return ' ';
+            
+            // If the current progress has passed this character's random threshold, it settles
+            if (progress >= settleThresholds[index]) {
               return text[index];
             }
-            return CHARS[Math.floor(Math.random() * CHARS.length)];
+            return chars[Math.floor(Math.random() * chars.length)];
           })
           .join('')
       );
 
-      if (iteration >= maxIterations) {
-        clearInterval(interval);
+      if (progress < 1) {
+        progress += 1 / durationFrames;
+        frame = requestAnimationFrame(animateScramble);
+      } else {
+        // Guarantee the final text is correct
+        setDisplayText(text);
       }
+    };
 
-      iteration += 1 / 3;
-    }, 30);
+    frame = requestAnimationFrame(animateScramble);
 
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(frame);
   }, [text]);
 
   return <>{displayText}</>;
@@ -170,25 +185,6 @@ export default function HeroSection() {
                 {content.cta2_text}
               </a>
             </Magnet>
-            
-            {/* Spinning Badge */}
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="hidden sm:flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-primary/30 relative ml-8"
-            >
-              <svg viewBox="0 0 100 100" className="w-full h-full animate-spin-slow">
-                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                <text>
-                  <textPath href="#circlePath" className="text-[10px] font-mono tracking-[0.25em] fill-primary uppercase">
-                    Get Started • Join Now •
-                  </textPath>
-                </text>
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <ChevronDown className="w-4 h-4 text-primary" />
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Stats */}

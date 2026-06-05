@@ -50,15 +50,19 @@ export default function Navbar() {
       scrolled ? 'bg-background/80 backdrop-blur-sm border-b border-primary/20' : 'bg-background/60 backdrop-blur-[2px] border-b border-primary/10'}`
       }>
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center h-full pt-1">
-            <img 
-              src="/logo.png" 
-              alt="DK Pure Fitness" 
-              className="h-full w-auto object-contain scale-[2.5] md:scale-[3] origin-left" 
-            />
-          </a>
+          {/* Left: Logo */}
+          <div className="flex-1 flex justify-start h-full pt-1">
+            <a href="#" className="flex items-center h-full">
+              <img 
+                src="/logo.png" 
+                alt="DK Pure Fitness" 
+                className="h-full w-auto object-contain scale-[2.5] md:scale-[3] origin-left" 
+              />
+            </a>
+          </div>
 
-          <div className="hidden lg:flex items-center gap-8 relative">
+          {/* Center: Links */}
+          <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 relative">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.id;
               
@@ -83,7 +87,8 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* Right: CTA */}
+          <div className="flex-1 flex justify-end items-center gap-4">
             <Magnet padding={50} disabled={false} magnetStrength={10}>
               <a
                 href="#contact"
