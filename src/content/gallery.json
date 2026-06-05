@@ -7,9 +7,7 @@
       "type": "wide",
       "src": "/DKPF Pics/outside lawn.webp",
       "alt": "Outside lawn and functional training area at DK Pure Fitness gym Hyderabad",
-      "width": "w-[280px] md:w-[650px]",
-      "mWidth": 280,
-      "dWidth": 650
+      "shape": "Landscape"
     },
     {
       "type": "stacked",
@@ -23,17 +21,13 @@
           "alt": "Outdoor training zone at DK Pure Fitness gym near Kuntloor"
         }
       ],
-      "width": "w-[200px] md:w-[380px]",
-      "mWidth": 200,
-      "dWidth": 380
+      "shape": "Portrait"
     },
     {
       "type": "wide",
       "src": "/DKPF Pics/DKPF banner.webp",
       "alt": "DK Pure Fitness gym branding and entrance Hyderabad",
-      "width": "w-[320px] md:w-[800px]",
-      "mWidth": 320,
-      "dWidth": 800
+      "shape": "Ultra Wide"
     },
     {
       "type": "stacked",
@@ -47,25 +41,19 @@
           "alt": "DK Pure Fitness gym flag representing strength and discipline"
         }
       ],
-      "width": "w-[160px] md:w-[320px]",
-      "mWidth": 160,
-      "dWidth": 320
+      "shape": "Portrait"
     },
     {
       "type": "wide",
       "src": "/DKPF Pics/unnamed.webp",
       "alt": "Wide angle view of commercial-grade equipment at DK Pure Fitness gym Hyderabad",
-      "width": "w-[350px] md:w-[950px]",
-      "mWidth": 350,
-      "dWidth": 950
+      "shape": "Ultra Wide"
     },
     {
       "type": "wide",
       "src": "/DKPF Pics/Squat Rack.jpeg",
       "alt": "Premium squat rack and weight training area at DK Pure Fitness gym near Peddamberpet",
-      "width": "w-[280px] md:w-[650px]",
-      "mWidth": 280,
-      "dWidth": 650
+      "shape": "Landscape"
     }
   ]
 }

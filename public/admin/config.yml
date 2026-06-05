@@ -126,9 +126,7 @@ collections:
               - {label: "Type", name: "type", widget: "select", options: ["wide", "stacked"]}
               - {label: "Image (if wide)", name: "src", widget: "image", required: false}
               - {label: "Alt Text (if wide)", name: "alt", widget: "string", required: false}
-              - {label: "CSS Width", name: "width", widget: "string"}
-              - {label: "Mobile Width Number", name: "mWidth", widget: "number", value_type: "int"}
-              - {label: "Desktop Width Number", name: "dWidth", widget: "number", value_type: "int"}
+              - {label: "Image Shape/Resolution", name: "shape", widget: "select", options: ["Portrait", "Square", "Landscape", "Ultra Wide"], default: "Landscape"}
               - name: "images"
                 label: "Images (if stacked)"
                 widget: "list"

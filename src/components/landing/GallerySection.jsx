@@ -7,16 +7,23 @@ import content from '@/content/gallery.json';
 
 const GALLERY_ITEMS = content.items;
 
-// Double for seamless loop
-const DOUBLED = [...GALLERY_ITEMS, ...GALLERY_ITEMS];
+const SHAPE_MAP = {
+  'Portrait': { css: 'w-[200px] md:w-[350px]', mWidth: 200, dWidth: 350 },
+  'Square': { css: 'w-[220px] md:w-[550px]', mWidth: 220, dWidth: 550 },
+  'Landscape': { css: 'w-[280px] md:w-[650px]', mWidth: 280, dWidth: 650 },
+  'Ultra Wide': { css: 'w-[320px] md:w-[850px]', mWidth: 320, dWidth: 850 },
+};
+
+const TRIPLED = [...GALLERY_ITEMS, ...GALLERY_ITEMS, ...GALLERY_ITEMS];
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const scrollRef = useRef(null);
 
   // Calculate total track width for one set of items + gaps
   const gap = 16; // gap-4
-  const totalMobileWidth = GALLERY_ITEMS.reduce((acc, item) => acc + item.mWidth + gap, 0);
-  const totalDesktopWidth = GALLERY_ITEMS.reduce((acc, item) => acc + item.dWidth + gap, 0);
+  const totalMobileWidth = GALLERY_ITEMS.reduce((acc, item) => acc + (SHAPE_MAP[item.shape || 'Landscape'].mWidth) + gap, 0);
+  const totalDesktopWidth = GALLERY_ITEMS.reduce((acc, item) => acc + (SHAPE_MAP[item.shape || 'Landscape'].dWidth) + gap, 0);
 
   const [trackWidth, setTrackWidth] = useState(totalDesktopWidth);
 
@@ -29,6 +36,38 @@ export default function GallerySection() {
     return () => window.removeEventListener('resize', handleResize);
   }, [totalMobileWidth, totalDesktopWidth]);
 
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || trackWidth === 0) return;
+
+    // Initialize to middle track to allow scrolling left or right
+    if (el.scrollLeft === 0) {
+      el.scrollLeft = trackWidth;
+    }
+
+    let animationFrameId;
+    let lastTime = performance.now();
+    const speed = 0.05; // Pixels per millisecond
+
+    const animate = (currentTime) => {
+      const delta = currentTime - lastTime;
+      el.scrollLeft -= delta * speed;
+      
+      // Handle bounds for infinite scroll in both directions
+      if (el.scrollLeft <= 0) {
+        el.scrollLeft += trackWidth;
+      } else if (el.scrollLeft >= trackWidth * 2) {
+        el.scrollLeft -= trackWidth;
+      }
+      
+      lastTime = currentTime;
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [trackWidth]);
+
   return (
     <section id="gallery" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
@@ -36,16 +75,16 @@ export default function GallerySection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
           <div className="flex-1">
-            <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
+            <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center md:text-left">
               {content.label}
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center md:text-left">
               {content.title}
             </h2>
           </div>
           
           <div className="flex flex-col gap-4 md:items-end">
-            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl text-center md:text-right">
               {content.description}
             </p>
           </div>
@@ -53,19 +92,16 @@ export default function GallerySection() {
       </div>
 
       {/* Endless Scroll Container */}
-      <div className="relative">
-        <motion.div 
-          className="flex gap-4"
-          animate={{ x: [-trackWidth, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 50,
-            ease: 'linear',
-          }}
-          style={{ width: `${trackWidth * 2}px` }}
+      <div 
+        className="relative overflow-x-auto [&::-webkit-scrollbar]:hidden" 
+        style={{ scrollbarWidth: 'none' }}
+        ref={scrollRef}
+      >
+        <div 
+          className="flex gap-4 w-max"
         >
-          {DOUBLED.map((column, colIdx) => (
-            <div key={colIdx} className={`flex-none h-[220px] sm:h-[280px] md:h-[550px] ${column.width}`}>
+          {TRIPLED.map((column, colIdx) => (
+            <div key={colIdx} className={`flex-none h-[220px] sm:h-[280px] md:h-[550px] ${SHAPE_MAP[column.shape || 'Landscape'].css}`}>
               {column.type === 'wide' ? (
                 <div 
                   onClick={() => setSelectedImage(column)}
@@ -98,7 +134,7 @@ export default function GallerySection() {
               )}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Lightbox Modal */}
