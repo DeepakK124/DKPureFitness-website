@@ -4,115 +4,450 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Content Manager - DK Pure Fitness</title>
+    <title>Content Manager — DK Pure Fitness</title>
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-      /* --- DK PURE FITNESS LIGHT THEME --- */
-      
-      /* Global Font */
-      * {
-        font-family: 'Inter', sans-serif !important;
+      /* ── Tokens ── */
+      :root {
+        --orange:        #F97316;
+        --orange-glow:   rgba(249, 115, 22, 0.18);
+        --orange-border: rgba(249, 115, 22, 0.22);
+        --orange-dim:    rgba(249, 115, 22, 0.08);
+        --bg:            #0a0a0a;
+        --bg-card:       #111111;
+        --bg-elevated:   #161616;
+        --bg-input:      #0e0e0e;
+        --border:        rgba(255, 255, 255, 0.07);
+        --text:          #fafafa;
+        --text-muted:    #737373;
+        --text-dim:      #404040;
       }
 
-      /* Cards hover effect */
-      a[class*="Card"]:hover {
-        border-color: #F97316 !important;
-      }
-      
-      /* Inputs focus effect */
-      input:focus, textarea:focus, div[role="textbox"]:focus {
-        border-color: #F97316 !important;
-        outline: none !important;
-        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2) !important;
+      /* ── Global ── */
+      *, *::before, *::after {
+        font-family: 'Space Mono', 'Courier New', monospace !important;
+        box-sizing: border-box;
       }
 
-      /* Active Sidebar Links & Headers */
-      /* Use strict aria-current matching to avoid highlighting all links */
-      a[aria-current="page"] {
-        color: #F97316 !important;
-        background-color: rgba(249, 115, 22, 0.05) !important;
-        border-left: 4px solid #F97316 !important;
-      }
-      
-      a[aria-current="page"] svg {
-        color: #F97316 !important;
-        fill: #F97316 !important;
+      html, body {
+        background-color: var(--bg) !important;
+        color: var(--text) !important;
+        margin: 0;
+        padding: 0;
       }
 
-      /* Hover Sidebar Links */
-      aside a:hover, div[class*="Sidebar"] a:hover {
-        color: #F97316 !important;
-        background-color: rgba(249, 115, 22, 0.05) !important;
-      }
-      
-      aside a:hover svg, div[class*="Sidebar"] a:hover svg {
-        color: #F97316 !important;
-        fill: #F97316 !important;
+      /* Scrollbars */
+      ::-webkit-scrollbar { width: 4px; height: 4px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: var(--orange-border); }
+      ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+      * { scrollbar-width: thin; scrollbar-color: var(--orange-border) var(--bg); }
+
+      /* ── Layout shells ── */
+      body > div, #nc-root, .cms-wrapper {
+        background-color: var(--bg) !important;
       }
 
-      /* Header Active elements */
-      header a[aria-current="page"] {
-        border-bottom-color: #F97316 !important;
+      div, section, article, nav, main, header, aside, footer {
+        background-color: transparent;
       }
 
-      /* Primary Buttons Style adjustments */
-      button {
-        border-radius: 2px !important;
-      }
-
-      /* Image Previews / Media Constraints */
-      /* Prevent high-res images from blowing up the editor layout */
-      img {
-        max-width: 100% !important;
-        max-height: 400px !important;
-        object-fit: contain !important;
-      }
-
-      /* Inject Gym Logo into the top of the Sidebar */
-      aside, div[class*="SidebarContainer"], div[class*="Sidebar"] {
-        position: relative;
-      }
-      
-      aside::before, div[class*="Sidebar"]::before {
+      /* ── Orange accent line at top ── */
+      body::before {
         content: "";
         display: block;
-        width: 95%;
-        height: 180px;
-        margin: 20px auto 10px auto;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: var(--orange);
+        z-index: 9999;
+      }
+
+      /* ── Header ── */
+      header {
+        background-color: var(--bg) !important;
+        border-bottom: 1px solid var(--orange-border) !important;
+      }
+
+      header h1, header h2, header span[class*="Title"],
+      header [class*="title"], header [class*="Name"] {
+        color: var(--text) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.15em !important;
+        font-size: 0.75rem !important;
+      }
+
+      header button, header a { color: var(--text-muted) !important; }
+      header button:hover, header a:hover { color: var(--orange) !important; }
+
+      /* ── Sidebar ── */
+      aside,
+      div[class*="Sidebar"],
+      nav[class*="Sidebar"],
+      div[class*="sidebar"] {
+        background-color: #0d0d0d !important;
+        border-right: 1px solid var(--orange-border) !important;
+      }
+
+      /* Gym logo above navigation */
+      aside::before,
+      div[class*="Sidebar"] > div:first-child::before {
+        content: "";
+        display: block;
+        width: 80%;
+        height: 120px;
+        margin: 24px auto 16px;
         background-image: url('/logo-cms.jpg');
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        /* Removed the invert filter so the logo displays its natural colors (orange/black) */
-      }
-      
-      div[class*="SidebarHeading"]::before, ul::before, li::before {
-        display: none !important;
       }
 
-      /* Scrollbars */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+      aside ul::before, aside li::before,
+      nav ul::before, nav li::before { display: none !important; }
+
+      aside h2, aside h3, aside [class*="Heading"],
+      div[class*="Sidebar"] h2, div[class*="Sidebar"] h3 {
+        color: var(--text-dim) !important;
+        font-size: 0.6rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.25em !important;
+        padding: 12px 16px 4px !important;
+        border-top: 1px solid var(--border) !important;
+        margin-top: 8px !important;
       }
-      ::-webkit-scrollbar-track {
-        background: #F1F5F9;
+
+      aside a, div[class*="Sidebar"] a {
+        color: var(--text-muted) !important;
+        text-decoration: none !important;
+        font-size: 0.72rem !important;
+        letter-spacing: 0.04em !important;
+        padding: 9px 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        border-left: 2px solid transparent !important;
+        transition: color 0.15s, background 0.15s, border-color 0.15s !important;
       }
-      ::-webkit-scrollbar-thumb {
-        background: #CBD5E1;
-        border-radius: 4px;
+
+      aside a:hover, div[class*="Sidebar"] a:hover {
+        color: var(--orange) !important;
+        background: var(--orange-dim) !important;
+        border-left-color: var(--orange-border) !important;
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #F97316;
+
+      a[aria-current="page"],
+      aside a[aria-current="page"],
+      div[class*="Sidebar"] a[aria-current="page"] {
+        color: var(--orange) !important;
+        background: var(--orange-dim) !important;
+        border-left: 2px solid var(--orange) !important;
+      }
+
+      aside svg, div[class*="Sidebar"] svg { opacity: 0.6; }
+      aside a:hover svg, div[class*="Sidebar"] a:hover svg,
+      a[aria-current="page"] svg { opacity: 1; color: var(--orange) !important; fill: var(--orange) !important; }
+
+      /* ── Main area ── */
+      main, div[class*="MainArea"], div[class*="Content"] {
+        background-color: var(--bg) !important;
+      }
+
+      main h1, main h2, div[class*="MainArea"] h1, div[class*="MainArea"] h2 {
+        color: var(--text) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.12em !important;
+        font-size: 0.8rem !important;
+      }
+
+      /* ── Collection cards ── */
+      a[class*="Card"],
+      div[class*="Card"],
+      li[class*="Card"],
+      [class*="ListItem"],
+      [class*="EntryCard"] {
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 0 !important;
+        transition: border-color 0.2s, background 0.2s !important;
+      }
+
+      a[class*="Card"]:hover,
+      div[class*="Card"]:hover,
+      li[class*="Card"]:hover,
+      [class*="ListItem"]:hover {
+        background: var(--bg-elevated) !important;
+        border-color: var(--orange-border) !important;
+      }
+
+      [class*="Card"] span, [class*="Card"] p,
+      [class*="Card"] h2, [class*="Card"] h3 {
+        color: var(--text) !important;
+        font-size: 0.75rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+      }
+
+      [class*="Card"] [class*="description"], [class*="Card"] small {
+        color: var(--text-muted) !important;
+        font-size: 0.65rem !important;
+        text-transform: none !important;
+      }
+
+      /* ── Form editor ── */
+      div[class*="EditorComponent"],
+      div[class*="ControlPanel"],
+      div[class*="Editor"] {
+        background: var(--bg) !important;
+      }
+
+      label, [class*="Label"], [class*="FieldLabel"] {
+        color: var(--text-muted) !important;
+        font-size: 0.65rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.12em !important;
+        margin-bottom: 4px !important;
+      }
+
+      label abbr, [class*="required"] { color: var(--orange) !important; }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="number"],
+      input[type="search"],
+      input:not([type]),
+      textarea,
+      select,
+      div[role="textbox"],
+      [contenteditable="true"],
+      [class*="Input"],
+      [class*="input"] {
+        background: var(--bg-input) !important;
+        color: var(--text) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 0 !important;
+        font-size: 0.8rem !important;
+        padding: 8px 10px !important;
+        transition: border-color 0.15s, box-shadow 0.15s !important;
+      }
+
+      input:focus, input:focus-visible,
+      textarea:focus, textarea:focus-visible,
+      div[role="textbox"]:focus,
+      select:focus, [contenteditable="true"]:focus {
+        border-color: var(--orange) !important;
+        box-shadow: 0 0 0 2px var(--orange-glow) !important;
+        outline: none !important;
+      }
+
+      select option { background: var(--bg-card) !important; color: var(--text) !important; }
+      ::placeholder { color: var(--text-dim) !important; opacity: 1 !important; }
+
+      /* ── Buttons ── */
+      button {
+        border-radius: 0 !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase !important;
+        cursor: pointer !important;
+        transition: background 0.15s, color 0.15s, border-color 0.15s !important;
+      }
+
+      button[class*="primary"],
+      button[class*="Primary"],
+      button[type="submit"],
+      [class*="SaveButton"],
+      [class*="PublishButton"] {
+        background: var(--orange) !important;
+        color: #000 !important;
+        border: none !important;
+        font-weight: 700 !important;
+        padding: 8px 20px !important;
+      }
+
+      button[class*="primary"]:hover,
+      button[type="submit"]:hover,
+      [class*="SaveButton"]:hover { background: #ea6a00 !important; }
+
+      button:not([class*="primary"]):not([class*="Primary"]):not([type="submit"]) {
+        background: transparent !important;
+        color: var(--text-muted) !important;
+        border: 1px solid var(--border) !important;
+        padding: 7px 14px !important;
+      }
+
+      button:not([class*="primary"]):not([class*="Primary"]):not([type="submit"]):hover {
+        color: var(--orange) !important;
+        border-color: var(--orange-border) !important;
+        background: var(--orange-dim) !important;
+      }
+
+      button[class*="danger"], button[class*="delete"] {
+        color: #ef4444 !important;
+        border-color: rgba(239, 68, 68, 0.25) !important;
+      }
+
+      /* ── Toolbar ── */
+      [class*="Toolbar"], [class*="ActionBar"], [class*="TopBar"] {
+        background: #0d0d0d !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+
+      [class*="Toolbar"] button { border: none !important; background: transparent !important; color: var(--text-muted) !important; }
+      [class*="Toolbar"] button:hover { color: var(--orange) !important; background: var(--orange-dim) !important; }
+
+      /* ── Status badges ── */
+      [class*="Badge"], [class*="Status"], [class*="Tag"] {
+        border-radius: 0 !important;
+        font-size: 0.6rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+      }
+
+      [class*="published"], [class*="saved"] {
+        background: rgba(34, 197, 94, 0.1) !important;
+        color: #22c55e !important;
+        border: 1px solid rgba(34,197,94,0.2) !important;
+      }
+
+      /* ── Modals / dialogs ── */
+      [class*="Modal"], [class*="Dialog"], [role="dialog"] {
+        background: var(--bg-card) !important;
+        border: 1px solid var(--orange-border) !important;
+        border-radius: 0 !important;
+        box-shadow: 0 0 40px rgba(0,0,0,0.8) !important;
+      }
+
+      [class*="Modal"] h2, [role="dialog"] h2 {
+        text-transform: uppercase !important;
+        letter-spacing: 0.12em !important;
+        font-size: 0.8rem !important;
+        color: var(--text) !important;
+      }
+
+      [class*="Backdrop"], [class*="backdrop"] {
+        background: rgba(0,0,0,0.85) !important;
+        backdrop-filter: blur(4px) !important;
+      }
+
+      /* ── Toasts ── */
+      [class*="Notification"], [class*="Toast"], [class*="Alert"] {
+        background: var(--bg-elevated) !important;
+        border-left: 3px solid var(--orange) !important;
+        border-radius: 0 !important;
+        color: var(--text) !important;
+      }
+
+      /* ── Images ── */
+      [class*="ImagePreview"], [class*="MediaPreview"] {
+        background: var(--bg-elevated) !important;
+        border: 1px solid var(--border) !important;
+      }
+
+      img {
+        max-width: 100% !important;
+        max-height: 300px !important;
+        object-fit: contain !important;
+      }
+
+      [class*="UploadButton"], [class*="ChooseButton"], [class*="MediaButton"] {
+        background: var(--orange-dim) !important;
+        color: var(--orange) !important;
+        border: 1px dashed var(--orange-border) !important;
+      }
+
+      /* ── List widget ── */
+      [class*="ListItem"], [class*="ArrayItem"] {
+        background: var(--bg-elevated) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 0 !important;
+        margin-bottom: 8px !important;
+      }
+
+      [class*="ListItem"]:hover, [class*="ArrayItem"]:hover {
+        border-color: var(--orange-border) !important;
+      }
+
+      [class*="AddButton"], button[class*="add"] {
+        background: transparent !important;
+        color: var(--orange) !important;
+        border: 1px dashed var(--orange-border) !important;
+        width: 100% !important;
+        padding: 10px !important;
+      }
+
+      /* ── Tabs ── */
+      [role="tablist"] { border-bottom: 1px solid var(--border) !important; }
+
+      [role="tab"] {
+        color: var(--text-muted) !important;
+        font-size: 0.68rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+        border-bottom: 2px solid transparent !important;
+        padding: 8px 16px !important;
+        background: transparent !important;
+        border-top: none !important; border-left: none !important; border-right: none !important;
+      }
+
+      [role="tab"]:hover { color: var(--orange) !important; }
+      [role="tab"][aria-selected="true"] { color: var(--orange) !important; border-bottom-color: var(--orange) !important; }
+
+      /* ── Dropdowns ── */
+      [role="menu"], [role="listbox"], [class*="Dropdown"] {
+        background: var(--bg-elevated) !important;
+        border: 1px solid var(--orange-border) !important;
+        border-radius: 0 !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important;
+      }
+
+      [role="menuitem"], [role="option"], [class*="DropdownItem"] {
+        color: var(--text-muted) !important;
+        font-size: 0.72rem !important;
+        padding: 8px 14px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.06em !important;
+      }
+
+      [role="menuitem"]:hover, [role="option"]:hover { background: var(--orange-dim) !important; color: var(--orange) !important; }
+
+      /* ── Login screen ── */
+      [class*="Login"] button, [class*="auth-"] button {
+        background: var(--orange) !important;
+        color: #000 !important;
+        border: none !important;
+        font-weight: 700 !important;
+        width: 100% !important;
+        padding: 12px !important;
+      }
+
+      /* ── Markdown editor ── */
+      [class*="MarkdownEditor"], [class*="RichText"], .CodeMirror {
+        background: var(--bg-input) !important;
+        color: var(--text) !important;
+        border: 1px solid var(--border) !important;
+      }
+
+      .CodeMirror-gutters {
+        background: var(--bg-elevated) !important;
+        border-right: 1px solid var(--border) !important;
+      }
+
+      /* ── Dividers ── */
+      hr, [class*="Divider"] {
+        border-color: var(--border) !important;
+        border-top-width: 1px !important;
+        margin: 12px 0 !important;
       }
     </style>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
     <script>
-      // Register custom stylesheet for the right-hand preview pane iframe
       CMS.registerPreviewStyle("preview.css");
     </script>
   </body>
