@@ -1,17 +1,13 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
-import { useRef } from 'react';
-import VariableProximity from '@/components/VariableProximity/VariableProximity';
 
 import content from '@/content/testimonials.json';
 
 const TESTIMONIALS = content.items;
 
 export default function TransformationsSection() {
-  const containerRef = useRef(null);
-
   return (
-    <section ref={containerRef} id="transformations" className="relative py-16 sm:py-24 md:py-32">
+    <section id="transformations" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
@@ -19,16 +15,8 @@ export default function TransformationsSection() {
           <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
             {content.label}
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
-            <VariableProximity
-              label={content.title}
-              className="text-foreground"
-              fromFontVariationSettings="'wght' 400, 'opsz' 9"
-              toFontVariationSettings="'wght' 1000, 'opsz' 40"
-              containerRef={containerRef}
-              radius={100}
-              falloff='linear'
-            />
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
+            {content.title}
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-center">
             {content.description}

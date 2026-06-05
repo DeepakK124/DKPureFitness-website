@@ -12,8 +12,41 @@ const iconMap = {
   "DAILY ACCESS": Clock
 };
 
-import VariableProximity from '@/components/VariableProximity/VariableProximity';
 import Magnet from '@/components/Magnet/Magnet';
+
+function ScrambleText({ text }) {
+  const [displayText, setDisplayText] = useState('');
+  const CHARS = '!<>-_\\\\/[]{}—=+*^?#________';
+
+  useEffect(() => {
+    let iteration = 0;
+    const maxIterations = text.length;
+
+    const interval = setInterval(() => {
+      setDisplayText((prev) =>
+        text
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) {
+              return text[index];
+            }
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          })
+          .join('')
+      );
+
+      if (iteration >= maxIterations) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <>{displayText}</>;
+}
 
 const stats = content.stats.map(s => ({
   icon: iconMap[s.label] || Zap,
@@ -48,10 +81,8 @@ function AnimatedCounter({ value }) {
 }
 
 export default function HeroSection() {
-  const containerRef = useRef(null);
-
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-end overflow-hidden">
+    <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -99,38 +130,13 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.9] mb-4 sm:mb-6">
+            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
             
-            <VariableProximity
-              label={content.title_part1}
-              className="text-foreground"
-              fromFontVariationSettings="'wght' 400, 'opsz' 9"
-              toFontVariationSettings="'wght' 1000, 'opsz' 40"
-              containerRef={containerRef}
-              radius={100}
-              falloff='linear'
-            />
+            <ScrambleText text={content.title_part1} />
             <br />
-            <span className="text-primary">
-              <VariableProximity
-                label={content.title_highlight}
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                containerRef={containerRef}
-                radius={100}
-                falloff='linear'
-              />
-            </span>
+            <span className="text-primary"><ScrambleText text={content.title_highlight} /></span>
             <br />
-            <VariableProximity
-              label={content.title_part2}
-              className="text-foreground"
-              fromFontVariationSettings="'wght' 400, 'opsz' 9"
-              toFontVariationSettings="'wght' 1000, 'opsz' 40"
-              containerRef={containerRef}
-              radius={100}
-              falloff='linear'
-            />
+            <ScrambleText text={content.title_part2} />
           </motion.h1>
 
           <motion.p

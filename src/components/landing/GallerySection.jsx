@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import VariableProximity from '@/components/VariableProximity/VariableProximity';
 
 
 import content from '@/content/gallery.json';
@@ -70,7 +69,7 @@ export default function GallerySection() {
   }, [trackWidth]);
 
   return (
-    <section ref={containerRef} id="gallery" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
+    <section id="gallery" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
@@ -79,16 +78,8 @@ export default function GallerySection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center md:text-left">
               {content.label}
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl uppercase leading-[0.95] mb-4 sm:mb-6 text-center md:text-left">
-              <VariableProximity
-                label={content.title}
-                className="text-foreground"
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                containerRef={containerRef}
-                radius={100}
-                falloff='linear'
-              />
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center md:text-left">
+              {content.title}
             </h2>
           </div>
           

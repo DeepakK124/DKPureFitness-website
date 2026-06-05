@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dumbbell, ChevronDown, ChevronUp } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
-import VariableProximity from '@/components/VariableProximity/VariableProximity';
+import { useState, useEffect } from 'react';
 
 import content from '@/content/equipment.json';
 
@@ -24,7 +23,6 @@ const categoryColor = {
 export default function EquipmentSection() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -41,7 +39,7 @@ export default function EquipmentSection() {
   const hasMore = EQUIPMENT.length > initialLimit;
 
   return (
-    <section ref={containerRef} id="equipment" className="relative py-16 sm:py-24 md:py-32">
+    <section id="equipment" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
@@ -50,16 +48,8 @@ export default function EquipmentSection() {
             <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               {content.label}
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl uppercase leading-[0.95] mb-4 sm:mb-6">
-              <VariableProximity
-                label={content.title}
-                className="text-foreground"
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                containerRef={containerRef}
-                radius={100}
-                falloff='linear'
-              />
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
+              {content.title}
             </h2>
           </div>
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">

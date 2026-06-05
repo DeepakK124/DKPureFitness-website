@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { Dumbbell, Activity, Music, HeartPulse, Youtube } from 'lucide-react';
-import VariableProximity from '@/components/VariableProximity/VariableProximity';
 
 import content from '@/content/about.json';
 
@@ -21,10 +19,8 @@ const HIGHLIGHTS = content.highlights.map(h => ({
 const GALLERY = content.gallery;
 
 export default function AboutSection() {
-  const containerRef = useRef(null);
-
   return (
-    <section ref={containerRef} id="about" className="relative py-16 sm:py-24 md:py-32">
+    <section id="about" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
@@ -43,17 +39,9 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl uppercase leading-[0.95] mb-4 sm:mb-6"
+            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6"
           >
-            <VariableProximity
-              label={content.title}
-              className="text-foreground"
-              fromFontVariationSettings="'wght' 400, 'opsz' 9"
-              toFontVariationSettings="'wght' 1000, 'opsz' 40"
-              containerRef={containerRef}
-              radius={100}
-              falloff='linear'
-            />
+            {content.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
