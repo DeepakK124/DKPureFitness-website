@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
@@ -11,6 +11,40 @@ const iconMap = {
   "ACTIVE MEMBERS": Users,
   "DAILY ACCESS": Clock
 };
+
+function ScrambleText({ text }) {
+  const [displayText, setDisplayText] = useState('');
+  const CHARS = '!<>-_\\\\/[]{}—=+*^?#________';
+
+  useEffect(() => {
+    let iteration = 0;
+    const maxIterations = text.length;
+
+    const interval = setInterval(() => {
+      setDisplayText((prev) =>
+        text
+          .split('')
+          .map((char, index) => {
+            if (index < iteration) {
+              return text[index];
+            }
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          })
+          .join('')
+      );
+
+      if (iteration >= maxIterations) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <>{displayText}</>;
+}
 
 const stats = content.stats.map(s => ({
   icon: iconMap[s.label] || Zap,
@@ -96,11 +130,11 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.4 }}
             className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
             
-            {content.title_part1}
+            <ScrambleText text={content.title_part1} />
             <br />
-            <span className="text-primary">{content.title_highlight}</span>
+            <span className="text-primary"><ScrambleText text={content.title_highlight} /></span>
             <br />
-            {content.title_part2}
+            <ScrambleText text={content.title_part2} />
           </motion.h1>
 
           <motion.p
@@ -120,13 +154,13 @@ export default function HeroSection() {
             
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-2 sm:px-8 sm:py-3 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
               {content.cta1_text}
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-2 sm:px-8 sm:py-3 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
               {content.cta2_text}
             </a>
