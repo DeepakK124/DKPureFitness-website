@@ -36,6 +36,8 @@ export default async function handler(req, res) {
     const host = req.headers.host;
     const targetOrigin = `${protocol}://${host}`;
 
+    const message = `authorization:github:success:{"token":"${accessToken}","provider":"github"}`;
+
     const script = `
       <!DOCTYPE html>
       <html>
@@ -44,12 +46,17 @@ export default async function handler(req, res) {
         <p>Authentication successful! Returning to CMS...</p>
         <script>
           (function() {
-            if (!window.opener) {
-              document.body.innerHTML = '<p>Error: window.opener is blocked or missing. Please ensure popups are allowed and try a different browser.</p>';
-              return;
+            var message = ${JSON.stringify(message)};
+            // BroadcastChannel works across same-origin contexts even when
+            // window.opener is null (GitHub sets COOP: same-origin which severs it)
+            try {
+              var bc = new BroadcastChannel('decap-cms-auth');
+              bc.postMessage(message);
+            } catch(e) {}
+            // Also try window.opener for browsers/configs where it's still intact
+            if (window.opener && !window.opener.closed) {
+              try { window.opener.postMessage(message, "*"); } catch(e) {}
             }
-            const message = 'authorization:github:success:{"token":"${accessToken}","provider":"github"}';
-            window.opener.postMessage(message, "*");
             window.close();
           })();
         </script>
