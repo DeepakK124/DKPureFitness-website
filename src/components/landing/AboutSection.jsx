@@ -43,7 +43,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3"
+            className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3"
           >
             01 — About Us
           </motion.span>

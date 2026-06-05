@@ -32,13 +32,13 @@ export default function TransformationsSection() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
         <div className="mb-10 sm:mb-16 md:mb-20">
-          <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
+          <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
             02 — Proof of Performance
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
             Real Results. <br />Real Members.
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-center">
             Every before-and-after at DK Pure Fitness represents weeks of sweat, 
             consistency, and expert coaching. No filters. No shortcuts. These are 
             your future neighbors, colleagues, and friends — and they trained 

@@ -51,10 +51,10 @@ export default function ReviewsSection() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-14">
         <div>
-          <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
+          <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3 text-center">
             06 — Community Voice
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6 text-center">
             What Our Members Say<br />— 
           </h2>
         </div>

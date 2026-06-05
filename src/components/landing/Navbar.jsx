@@ -64,7 +64,7 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`relative font-mono text-xs tracking-widest transition-colors duration-300 py-2 ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                  className={`relative font-mono text-xs tracking-widest transition-colors duration-300 py-2 ${isActive ? 'text-[#F97316]' : 'text-muted-foreground hover:text-foreground'}`}
                 >
                   {link.label}
                   

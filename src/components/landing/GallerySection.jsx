@@ -86,7 +86,7 @@ export default function GallerySection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 mb-8 sm:mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
           <div className="flex-1">
-            <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase block mb-3">
+            <span className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3">
               05 — The Arena
             </span>
             <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95]">
