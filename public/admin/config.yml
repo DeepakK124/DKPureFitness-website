@@ -2,7 +2,7 @@ backend:
   name: github
   repo: sxm-0410/Gym-Website
   branch: main
-  base_url: ""
+  base_url: "https://gym-website-ten-rho.vercel.app"
   auth_endpoint: "api/auth"
 
 # local_backend: true

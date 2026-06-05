@@ -44,7 +44,7 @@ The CMS dashboard needs to know the name of your GitHub repository so it knows w
      name: github
      repo: your-github-username/your-gym-repo-name
      branch: main # Change this to 'main' or 'master' depending on your default branch
-     base_url: ""
+     base_url: "https://your-custom-domain.com" # Must be the exact live domain!
      auth_endpoint: "api/auth"
    ```
 4. Push this code change to GitHub.
