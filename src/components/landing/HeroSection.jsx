@@ -154,13 +154,13 @@ export default function HeroSection() {
             
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-6 py-2 sm:px-8 sm:py-3 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 bg-primary text-primary-foreground font-mono text-xs sm:text-sm tracking-widest hover:bg-primary/80 transition-all duration-300">
               
               {content.cta1_text}
             </a>
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-6 py-2 sm:px-8 sm:py-3 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              className="inline-flex items-center justify-center px-6 py-1.5 sm:px-8 sm:py-2 border border-primary text-primary font-mono text-xs sm:text-sm tracking-widest hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               
               {content.cta2_text}
             </a>
