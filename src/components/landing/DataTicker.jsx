@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import content from '@/content/ticker.json';
 
-const TICKER_ITEMS = content.map(item => ({
+const TICKER_ITEMS = content.items.map(item => ({
   icon: Icons[item.icon] || Icons.Dumbbell,
   text: item.text
 }));
