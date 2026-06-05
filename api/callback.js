@@ -49,7 +49,7 @@ export default async function handler(req, res) {
               return;
             }
             const message = 'authorization:github:success:{"token":"${accessToken}","provider":"github"}';
-            window.opener.postMessage(message, "${targetOrigin}");
+            window.opener.postMessage(message, "*");
             window.close();
           })();
         </script>
