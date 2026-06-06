@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Dumbbell, Activity, HeartPulse, Youtube, Leaf } from 'lucide-react';
 
 import content from '@/content/about.json';
@@ -21,13 +21,16 @@ const GALLERY = content.gallery;
 
 export default function AboutSection() {
   const [[currentIndex, direction], setPage] = useState([0, 1]);
+  const [slideshowReady, setSlideshowReady] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
     const timer = setInterval(() => {
       setPage([((currentIndex + 1) % GALLERY.length), 1]);
     }, 4000);
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [currentIndex, shouldReduceMotion]);
 
   return (
     <section id="about" className="relative py-16 sm:py-24 md:py-32">
@@ -38,6 +41,10 @@ export default function AboutSection() {
 
           {/* Left: Slideshow */}
           <div className="w-full lg:w-1/2 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden border border-border group bg-muted/20 flex-shrink-0">
+            {/* Skeleton — shown until first image fires onLoad */}
+            {!slideshowReady && (
+              <div className="absolute inset-0 bg-muted animate-pulse z-0" />
+            )}
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 key={currentIndex}
@@ -52,7 +59,12 @@ export default function AboutSection() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }
+                }
+                onLoad={() => setSlideshowReady(true)}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </AnimatePresence>

@@ -22,7 +22,11 @@
       "Bash(sips -z 1620 2160 -s format jpeg -s formatOptions 85 \"outside 2.HEIC\" --out \"outside 2.jpeg\")",
       "Bash(sips -z 1620 2160 -s format jpeg -s formatOptions 85 \"outside 3.HEIC\" --out \"outside 3.jpeg\")",
       "Bash(sips -z 2160 1620 -s format jpeg -s formatOptions 85 \"IMG_7463.HEIC\" --out \"IMG_7463.jpeg\")",
-      "Bash(sips -g pixelWidth -g pixelHeight \"inside 1.jpeg\" \"inside 4.jpeg\" \"inside 5.jpeg\" \"inside 6.jpeg\" \"inside 7.jpeg\" \"insdie 2.jpeg\" \"insdie 3.jpeg\")"
+      "Bash(sips -g pixelWidth -g pixelHeight \"inside 1.jpeg\" \"inside 4.jpeg\" \"inside 5.jpeg\" \"inside 6.jpeg\" \"inside 7.jpeg\" \"insdie 2.jpeg\" \"insdie 3.jpeg\")",
+      "Bash(ls -la fix-gallery.js)",
+      "Bash(ls fix-gallery.js)",
+      "Bash(npm run *)",
+      "Bash(npm install *)"
     ]
   }
 }

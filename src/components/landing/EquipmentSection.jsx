@@ -1,12 +1,10 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Dumbbell, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import content from '@/content/equipment.json';
 
 const EQUIPMENT = content.items;
-
-const CATEGORIES = [...new Set(EQUIPMENT.map(e => e.category))];
 
 const categoryColor = {
   'Free Weights': '#F97316',
@@ -23,6 +21,7 @@ const categoryColor = {
 export default function EquipmentSection() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -57,15 +56,18 @@ export default function EquipmentSection() {
           </p>
         </div>
 
-        <motion.div layout className="flex flex-wrap justify-center gap-2 sm:gap-3">
+        <motion.div
+          layout={!shouldReduceMotion}
+          className="flex flex-wrap justify-center gap-2 sm:gap-3"
+        >
           <AnimatePresence>
-            {displayedEquipment.map((item, idx) => (
+            {displayedEquipment.map((item) => (
               <motion.div
-                layout
+                layout={!shouldReduceMotion}
                 key={item.name}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={shouldReduceMotion ? {} : { opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.5625rem)] group flex items-start gap-3 bg-card border border-border hover:border-primary/25 transition-colors duration-300 p-3 sm:p-4 shadow-sm"
               >

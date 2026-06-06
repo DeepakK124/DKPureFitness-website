@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate, useInView, useReducedMotion } from 'framer-motion';
 import { ChevronDown, Zap, Users, Clock } from 'lucide-react';
 
 import content from '@/content/hero.json';
@@ -23,23 +23,26 @@ const stats = content.stats.map(s => ({
 }));
 
 function AnimatedCounter({ value }) {
-  // Extract number and suffix (e.g. "125+" -> 125 and "+")
   const numericMatch = value.match(/(\d+)(.*)/);
   if (!numericMatch) return <span>{value}</span>;
-  
+
   const target = parseInt(numericMatch[1], 10);
   const suffix = numericMatch[2];
-  
+
+  const shouldReduceMotion = useReducedMotion();
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
-      animate(count, target, { duration: 2, ease: "easeOut" });
+    if (!isInView) return;
+    if (shouldReduceMotion) {
+      count.set(target);
+      return;
     }
-  }, [isInView, count, target]);
+    animate(count, target, { duration: 2, ease: "easeOut" });
+  }, [isInView, count, target, shouldReduceMotion]);
 
   return (
     <span ref={ref}>
@@ -49,6 +52,8 @@ function AnimatedCounter({ value }) {
 }
 
 export default function HeroSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background */}
@@ -173,9 +178,9 @@ export default function HeroSection() {
           
           <span className="font-mono text-[10px] tracking-widest text-muted-foreground">SCROLL</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}>
-            
+            animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
+            transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 1.5 }}>
+
             <ChevronDown className="w-4 h-4 text-primary" />
           </motion.div>
         </motion.div>

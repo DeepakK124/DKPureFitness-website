@@ -27,22 +27,22 @@
   ],
   "gallery": [
     {
-      "src": "/DKPF Pics/outside 1.jpeg",
+      "src": "/gallery-images/outside-1.jpeg",
       "alt": "Open-air outdoor training area at DK Pure Fitness gym surrounded by nature, Hyderabad",
       "span": "col-span-2 row-span-2"
     },
     {
-      "src": "/DKPF Pics/outside 2.jpeg",
+      "src": "/gallery-images/outside-2.jpeg",
       "alt": "Nature-embedded open-air workout space at DK Pure Fitness near Kuntloor",
       "span": "col-span-1 row-span-1"
     },
     {
-      "src": "/DKPF Pics/yoga session.webp",
+      "src": "/gallery-images/yoga-session.webp",
       "alt": "Open-air yoga session surrounded by greenery at DK Pure Fitness Hyderabad",
       "span": "col-span-1 row-span-1"
     },
     {
-      "src": "/DKPF Pics/outside lawn.webp",
+      "src": "/gallery-images/outside-lawn.webp",
       "alt": "Lush green lawn training zone at DK Pure Fitness gym near Kuntloor Hyderabad",
       "span": "col-span-2 row-span-1"
     }

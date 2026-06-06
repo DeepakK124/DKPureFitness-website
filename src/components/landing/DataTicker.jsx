@@ -1,4 +1,5 @@
 import * as Icons from 'lucide-react';
+import { useReducedMotion } from 'framer-motion';
 import content from '@/content/ticker.json';
 
 const TICKER_ITEMS = content.items.map(item => ({
@@ -22,10 +23,11 @@ function TickerSet() {
 }
 
 export default function DataTicker() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="w-full bg-primary py-4 sm:py-5 overflow-hidden flex items-center border-y border-border relative z-20">
-      {/* Two identical sets — translateX(-50%) lands exactly at the start of the second copy */}
-      <div className="flex animate-ticker will-change-transform">
+      <div className={`flex will-change-transform ${shouldReduceMotion ? '' : 'animate-ticker'}`}>
         <TickerSet />
         <TickerSet />
       </div>

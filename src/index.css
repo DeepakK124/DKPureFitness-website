@@ -119,6 +119,13 @@ html {
   color: #FFFFFF;
 }
 
+/* Respect reduced-motion preference for CSS animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation-play-state: paused;
+  }
+}
+
 /* Custom thin scrollbar (for gallery) */
 .scrollbar-thin::-webkit-scrollbar {
   height: 3px;

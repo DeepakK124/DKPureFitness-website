@@ -1,7 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-
 
 import content from '@/content/gallery.json';
 
@@ -16,12 +15,28 @@ const SHAPE_MAP = {
 
 const TRIPLED = [...GALLERY_ITEMS, ...GALLERY_ITEMS, ...GALLERY_ITEMS];
 
+function GalleryImg({ src, alt, className }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <div className="absolute inset-0">
+      {!loaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+      />
+    </div>
+  );
+}
+
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
   const scrollRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Calculate total track width for one set of items + gaps
-  const gap = 16; // gap-4
+  const gap = 16;
   const totalMobileWidth = GALLERY_ITEMS.reduce((acc, item) => acc + (SHAPE_MAP[item.shape || 'Landscape'].mWidth) + gap, 0);
   const totalDesktopWidth = GALLERY_ITEMS.reduce((acc, item) => acc + (SHAPE_MAP[item.shape || 'Landscape'].dWidth) + gap, 0);
 
@@ -38,35 +53,33 @@ export default function GallerySection() {
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el || trackWidth === 0) return;
+    if (!el || trackWidth === 0 || shouldReduceMotion) return;
 
-    // Initialize to middle track to allow scrolling left or right
     if (el.scrollLeft === 0) {
       el.scrollLeft = trackWidth;
     }
 
     let animationFrameId;
     let lastTime = performance.now();
-    const speed = 0.05; // Pixels per millisecond
+    const speed = 0.05;
 
     const animate = (currentTime) => {
       const delta = currentTime - lastTime;
       el.scrollLeft -= delta * speed;
-      
-      // Handle bounds for infinite scroll in both directions
+
       if (el.scrollLeft <= 0) {
         el.scrollLeft += trackWidth;
       } else if (el.scrollLeft >= trackWidth * 2) {
         el.scrollLeft -= trackWidth;
       }
-      
+
       lastTime = currentTime;
       animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [trackWidth]);
+  }, [trackWidth, shouldReduceMotion]);
 
   return (
     <section id="gallery" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">
@@ -82,7 +95,6 @@ export default function GallerySection() {
               {content.title}
             </h2>
           </div>
-          
           <div className="flex flex-col gap-4 md:items-end">
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl text-center md:text-right">
               {content.description}
@@ -92,41 +104,37 @@ export default function GallerySection() {
       </div>
 
       {/* Endless Scroll Container */}
-      <div 
-        className="relative overflow-x-auto [&::-webkit-scrollbar]:hidden" 
-        style={{ scrollbarWidth: 'none' }}
+      <div
+        className="relative overflow-x-auto [&::-webkit-scrollbar]:hidden"
+        style={{ scrollbarWidth: 'none', willChange: 'scroll-position' }}
         ref={scrollRef}
       >
-        <div 
-          className="flex gap-4 w-max"
-        >
+        <div className="flex gap-4 w-max will-change-transform">
           {TRIPLED.map((column, colIdx) => (
             <div key={colIdx} className={`flex-none h-[300px] sm:h-[380px] md:h-[550px] ${SHAPE_MAP[column.shape || 'Landscape'].css}`}>
               {column.type === 'wide' ? (
-                <div 
+                <div
                   onClick={() => setSelectedImage(column)}
                   className="w-full h-full relative overflow-hidden group/item cursor-pointer border border-border hover:border-primary/30 transition-colors duration-500"
                 >
-                  <img
+                  <GalleryImg
                     src={column.src}
                     alt={column.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
+                    className="transition-transform duration-700 group-hover/item:scale-105"
                   />
                 </div>
               ) : (
                 <div className="flex flex-col gap-4 h-full w-full">
                   {column.images.map((img, imgIdx) => (
-                    <div 
+                    <div
                       key={imgIdx}
                       onClick={() => setSelectedImage(img)}
                       className="flex-1 relative overflow-hidden group/item cursor-pointer border border-border hover:border-primary/30 transition-colors duration-500"
                     >
-                      <img
+                      <GalleryImg
                         src={img.src}
                         alt={img.alt}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105"
+                        className="transition-transform duration-700 group-hover/item:scale-105"
                       />
                     </div>
                   ))}
@@ -154,14 +162,12 @@ export default function GallerySection() {
               className="relative max-w-7xl max-h-full"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button - Top Left Outside */}
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-12 left-0 md:-left-12 p-2 text-muted-foreground hover:text-primary transition-colors bg-secondary/50 md:bg-transparent rounded-full md:rounded-none"
               >
                 <X className="w-8 h-8" />
               </button>
-
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
