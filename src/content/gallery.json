@@ -5,7 +5,7 @@
   "items": [
     {
       "type": "wide",
-      "src": "/DKPF Pics/outside lawn.webp",
+      "src": "/gallery-images/outside-lawn.webp",
       "alt": "Outside lawn and functional training area at DK Pure Fitness gym Hyderabad",
       "shape": "Landscape"
     },
@@ -13,11 +13,11 @@
       "type": "stacked",
       "images": [
         {
-          "src": "/DKPF Pics/yoga session.webp",
+          "src": "/gallery-images/yoga-session.webp",
           "alt": "Yoga and stretching session at DK Pure Fitness fitness center Hyderabad"
         },
         {
-          "src": "/DKPF Pics/outside lawn 1.webp",
+          "src": "/gallery-images/outside-lawn-1.webp",
           "alt": "Outdoor training zone at DK Pure Fitness gym near Kuntloor"
         }
       ],
@@ -28,11 +28,11 @@
       "type": "stacked",
       "images": [
         {
-          "src": "/DKPF Pics/trophy.webp",
+          "src": "/gallery-images/trophy.webp",
           "alt": "Success and achievements at DK Pure Fitness Hyderabad"
         },
         {
-          "src": "/DKPF Pics/flag.webp",
+          "src": "/gallery-images/flag.webp",
           "alt": "DK Pure Fitness gym flag representing strength and discipline"
         }
       ],
@@ -40,19 +40,19 @@
     },
     {
       "type": "wide",
-      "src": "/DKPF Pics/unnamed.webp",
+      "src": "/gallery-images/unnamed.webp",
       "alt": "Wide angle view of commercial-grade equipment at DK Pure Fitness gym Hyderabad",
       "shape": "Ultra Wide"
     },
     {
       "type": "wide",
-      "src": "/DKPF Pics/Squat Rack.jpeg",
+      "src": "/gallery-images/squat-rack.jpeg",
       "alt": "Premium squat rack and weight training area at DK Pure Fitness gym near Peddamberpet",
       "shape": "Landscape"
     },
     {
       "type": "wide",
-      "src": "/DKPF Pics/inside 1.jpeg",
+      "src": "/gallery-images/inside-1.jpeg",
       "alt": "Gym floor with modern training equipment at DK Pure Fitness, Hyderabad",
       "shape": "Landscape"
     },
@@ -60,11 +60,11 @@
       "type": "stacked",
       "images": [
         {
-          "src": "/DKPF Pics/insdie 2.jpeg",
+          "src": "/gallery-images/insdie-2.jpeg",
           "alt": "Cardio equipment area inside DK Pure Fitness gym near Kuntloor, Hyderabad"
         },
         {
-          "src": "/DKPF Pics/insdie 3.jpeg",
+          "src": "/gallery-images/insdie-3.jpeg",
           "alt": "Strength training machines at DK Pure Fitness gym near Peddamberpet, Hyderabad"
         }
       ],
@@ -72,7 +72,7 @@
     },
     {
       "type": "wide",
-      "src": "/DKPF Pics/inside 4.jpeg",
+      "src": "/gallery-images/inside-4.jpeg",
       "alt": "Professional gym facility at DK Pure Fitness fitness center, Hyderabad",
       "shape": "Landscape"
     },
@@ -80,11 +80,11 @@
       "type": "stacked",
       "images": [
         {
-          "src": "/DKPF Pics/inside 5.jpeg",
+          "src": "/gallery-images/inside-5.jpeg",
           "alt": "Cable and weight machines at DK Pure Fitness gym, Laxma Reddy Palem Colony, Hyderabad"
         },
         {
-          "src": "/DKPF Pics/inside 6.jpeg",
+          "src": "/gallery-images/inside-6.jpeg",
           "alt": "Free weights and barbell section at DK Pure Fitness gym near Kuntloor, Hyderabad"
         }
       ],
@@ -92,7 +92,7 @@
     },
     {
       "type": "wide",
-      "src": "/DKPF Pics/inside 7.jpeg",
+      "src": "/gallery-images/inside-7.jpeg",
       "alt": "Full facility view of DK Pure Fitness gym, Hyderabad",
       "shape": "Landscape"
     }
