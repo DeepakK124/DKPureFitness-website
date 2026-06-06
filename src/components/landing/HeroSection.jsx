@@ -14,54 +14,7 @@ const iconMap = {
 
 import Magnet from '@/components/Magnet/Magnet';
 
-function ScrambleText({ text }) {
-  const [displayText, setDisplayText] = useState(text);
-  
-  useEffect(() => {
-    let frame;
-    let progress = 0;
-    const durationFrames = 200; // Roughly 3.3 seconds at 60fps
-    const chars = '!<>-_\\\\/[]{}—=+*^?#________';
-    
-    // Each character gets a random threshold between 0.1 and 1.0 for when it settles
-    // This creates a period of pure scramble before characters randomly lock in
-    const settleThresholds = text.split('').map(() => 0.1 + Math.random() * 0.9);
-    
-    // Start with all scrambled (preserve spaces)
-    setDisplayText(text.replace(/./g, (char) => char === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)]));
 
-    const animateScramble = () => {
-      setDisplayText((prev) =>
-        text
-          .split('')
-          .map((char, index) => {
-            if (char === ' ') return ' ';
-            
-            // If the current progress has passed this character's random threshold, it settles
-            if (progress >= settleThresholds[index]) {
-              return text[index];
-            }
-            return chars[Math.floor(Math.random() * chars.length)];
-          })
-          .join('')
-      );
-
-      if (progress < 1) {
-        progress += 1 / durationFrames;
-        frame = requestAnimationFrame(animateScramble);
-      } else {
-        // Guarantee the final text is correct
-        setDisplayText(text);
-      }
-    };
-
-    frame = requestAnimationFrame(animateScramble);
-
-    return () => cancelAnimationFrame(frame);
-  }, [text]);
-
-  return <>{displayText}</>;
-}
 
 const stats = content.stats.map(s => ({
   icon: iconMap[s.label] || Zap,
@@ -109,23 +62,6 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
       </div>
 
-      {/* Split watermark text */}
-      <motion.span
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 0.1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-8 left-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
-        
-        {content.watermark1}
-      </motion.span>
-      <motion.span
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 0.1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute bottom-36 sm:bottom-24 right-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
-        
-        {content.watermark2}
-      </motion.span>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 pb-20 sm:pb-28 md:pb-24 pt-28 sm:pt-32">
@@ -147,11 +83,11 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.4 }}
             className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-foreground uppercase leading-[0.9] mb-4 sm:mb-6">
             
-            <ScrambleText text={content.title_part1} />
+            {content.title_part1}
             <br />
-            <span className="text-primary"><ScrambleText text={content.title_highlight} /></span>
+            <span className="text-primary">{content.title_highlight}</span>
             <br />
-            <ScrambleText text={content.title_part2} />
+            {content.title_part2}
           </motion.h1>
 
           <motion.p

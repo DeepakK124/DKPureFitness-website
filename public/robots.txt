@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://dkpurefitness.com/sitemap.xml
-Host: https://dkpurefitness.com
+Sitemap: https://dkpurefitness.in/sitemap.xml
+Host: https://dkpurefitness.in

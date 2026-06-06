@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Dumbbell, Activity, Music, HeartPulse, Youtube } from 'lucide-react';
 
 import content from '@/content/about.json';
@@ -19,92 +20,107 @@ const HIGHLIGHTS = content.highlights.map(h => ({
 const GALLERY = content.gallery;
 
 export default function AboutSection() {
+  const [[currentIndex, direction], setPage] = useState([0, 1]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPage([((currentIndex + 1) % GALLERY.length), 1]);
+    }, 4000); // Slide every 4 seconds
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
   return (
     <section id="about" className="relative py-16 sm:py-24 md:py-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
-        {/* Header */}
-        <div className="mb-8 sm:mb-12 md:mb-16 max-w-3xl">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3"
-          >
-            {content.label}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6"
-          >
-            {content.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed"
-          >
-            {content.description}
-          </motion.p>
-          <motion.div
-             initial={{ opacity: 0, y: 15 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.3 }}
-             className="mt-4 sm:mt-6 flex items-start gap-3 text-xs sm:text-sm text-muted-foreground bg-card border border-border p-3 sm:p-4 max-w-2xl shadow-sm"
-          >
-            <Youtube className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong>{content.youtube_callout_strong}</strong> {content.youtube_callout_text} <a href={content.youtube_link_url} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">{content.youtube_link_text}</a>.
-            </p>
-          </motion.div>
-        </div>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center mb-10 sm:mb-16 md:mb-20">
+          {/* Left: Slideshow */}
+          <div className="w-full lg:w-1/2 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden border border-border group bg-muted/20 flex-shrink-0">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                key={currentIndex}
+                src={GALLERY[currentIndex].src}
+                alt={GALLERY[currentIndex].alt}
+                custom={direction}
+                variants={{
+                  enter: (dir) => ({
+                    x: dir > 0 ? "100%" : "-100%",
+                  }),
+                  center: {
+                    zIndex: 1,
+                    x: 0,
+                  },
+                  exit: (dir) => ({
+                    zIndex: 0,
+                    x: dir < 0 ? "100%" : "-100%",
+                  }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
 
-        {/* Asymmetric Gallery Mosaic with Mask Unveil Animation */}
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 mb-10 sm:mb-16 md:mb-20"
-        >
-          {GALLERY.map((img, idx) => (
-            <motion.div
-              key={idx}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              className={`${img.span} relative overflow-hidden border border-border group`}
+            {/* Navigation Dots */}
+            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
+              {GALLERY.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setPage([idx, idx > currentIndex ? 1 : -1])}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-primary w-6 sm:w-8' : 'bg-white/50 hover:bg-white/80 w-1.5 sm:w-2'}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Header Content */}
+          <div className="w-full lg:w-1/2 max-w-3xl">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="font-mono text-xs tracking-[0.3em] text-[#F97316] uppercase block mb-3"
             >
-              <div className="relative w-full h-full min-h-[140px] sm:min-h-[180px] md:min-h-[240px]">
-                {/* The Unveil Mask */}
-                <motion.div 
-                  variants={{
-                    hidden: { top: 0 },
-                    visible: { top: "100%" }
-                  }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.15 }}
-                  className="absolute inset-0 bg-primary z-10"
-                />
-                
-                {/* The Image (Scale down to 1) */}
-                <motion.img
-                  variants={{
-                    hidden: { scale: 1.2 },
-                    visible: { scale: 1 }
-                  }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: idx * 0.15 }}
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
-              </div>
+              {content.label}
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground uppercase leading-[0.95] mb-4 sm:mb-6"
+            >
+              {content.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed mb-6"
+            >
+              {content.description}
+            </motion.p>
+            <motion.div
+               initial={{ opacity: 0, y: 15 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.3 }}
+               className="flex items-start gap-3 text-xs sm:text-sm text-muted-foreground bg-card border border-border p-3 sm:p-4 max-w-2xl shadow-sm"
+            >
+              <Youtube className="w-5 h-5 text-[#F97316] flex-shrink-0 mt-0.5" />
+              <p className="leading-relaxed">
+                <strong>{content.youtube_callout_strong}</strong> {content.youtube_callout_text} <a href={content.youtube_link_url} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">{content.youtube_link_text}</a>.
+              </p>
             </motion.div>
-          ))}
+          </div>
         </div>
 
         {/* Highlights Strip */}

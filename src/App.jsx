@@ -6,27 +6,14 @@ import PageNotFound from './lib/PageNotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 
-const AdminRedirect = () => {
-  window.location.href = '/admin/index.html';
-  return null;
-};
-
-const AuthenticatedApp = () => {
-  // Render the main app routes
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/admin" element={<AdminRedirect />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
-  );
-};
-
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <AuthenticatedApp />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
       <Toaster />
       <Analytics />
       <SpeedInsights />
