@@ -101,7 +101,7 @@ export default function GallerySection() {
           className="flex gap-4 w-max"
         >
           {TRIPLED.map((column, colIdx) => (
-            <div key={colIdx} className={`flex-none h-[220px] sm:h-[280px] md:h-[550px] ${SHAPE_MAP[column.shape || 'Landscape'].css}`}>
+            <div key={colIdx} className={`flex-none h-[300px] sm:h-[380px] md:h-[550px] ${SHAPE_MAP[column.shape || 'Landscape'].css}`}>
               {column.type === 'wide' ? (
                 <div 
                   onClick={() => setSelectedImage(column)}

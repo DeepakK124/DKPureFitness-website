@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { Star } from 'lucide-react';
 
 import content from '@/content/reviews.json';
@@ -29,7 +30,16 @@ function ReviewCard({ review }) {
 }
 
 export default function ReviewsSection() {
-  const trackWidth = REVIEWS.length * (320 + 16); // card width + gap
+  // card widths match Tailwind classes: w-56 / sm:w-64 / md:w-80
+  // gap matches: gap-4 (16px) / sm:gap-6 (24px)
+  const [trackWidth, setTrackWidth] = useState(REVIEWS.length * (320 + 16));
+
+  useEffect(() => {
+    const w = window.innerWidth;
+    const cardW = w < 640 ? 224 : w < 768 ? 256 : 320;
+    const gap = w < 640 ? 16 : 24;
+    setTrackWidth(REVIEWS.length * (cardW + gap));
+  }, []);
 
   return (
     <section id="reviews" className="relative py-16 sm:py-24 md:py-32 overflow-hidden">

@@ -23,7 +23,7 @@ export default function TransformationsSection() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 gap-4 md:gap-6">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center md:grid md:grid-cols-3 gap-4 md:gap-6">
           {TESTIMONIALS.map((t, idx) => (
             <motion.div
               key={t.id}
@@ -31,30 +31,30 @@ export default function TransformationsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="w-[calc(50%-0.5rem)] md:w-auto relative bg-card border border-border p-4 md:p-10 group hover:border-primary/20 transition-all duration-500 shadow-sm"
+              className="w-full sm:w-[calc(50%-0.5rem)] md:w-auto relative bg-card border border-border p-5 md:p-10 group hover:border-primary/20 transition-all duration-500 shadow-sm"
             >
               {/* Quote icon */}
               <Quote className="w-5 h-5 md:w-8 md:h-8 text-primary mb-3 md:mb-6" />
 
               {/* Transformation tag */}
               {t.transformation && (
-                <span className="inline-block font-mono text-[8px] md:text-[10px] tracking-widest text-primary border border-primary/20 px-2 py-0.5 md:px-3 md:py-1 mb-3 md:mb-6 leading-tight">
+                <span className="inline-block font-mono text-[9px] md:text-[10px] tracking-widest text-primary border border-primary/20 px-2 py-0.5 md:px-3 md:py-1 mb-3 md:mb-6 leading-tight">
                   {t.transformation.toUpperCase()}
                 </span>
               )}
 
-              <p className="text-foreground/90 text-[10px] md:text-base leading-relaxed mb-4 md:mb-8">
+              <p className="text-foreground/90 text-sm md:text-base leading-relaxed mb-4 md:mb-8">
                 "{t.quote}"
               </p>
 
               <div className="flex flex-wrap items-center justify-between pt-3 md:pt-6 border-t border-border gap-2">
-                <span className="font-display text-[10px] md:text-sm text-foreground uppercase">
+                <span className="font-display text-xs md:text-sm text-foreground uppercase">
                   {t.member_name}
                 </span>
                 {t.rating && (
                   <div className="flex gap-0.5 md:gap-1">
                     {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="w-2.5 h-2.5 md:w-3 md:h-3 fill-primary text-primary" />
+                      <Star key={i} className="w-3 h-3 md:w-3 md:h-3 fill-primary text-primary" />
                     ))}
                   </div>
                 )}

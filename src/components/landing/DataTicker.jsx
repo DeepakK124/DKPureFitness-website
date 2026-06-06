@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import content from '@/content/ticker.json';
 
@@ -7,24 +6,29 @@ const TICKER_ITEMS = content.items.map(item => ({
   text: item.text
 }));
 
+function TickerSet() {
+  return (
+    <div className="flex items-center flex-shrink-0">
+      {TICKER_ITEMS.map((item, i) => (
+        <div key={i} className="flex items-center gap-3 sm:gap-5 px-5 sm:px-8">
+          <span className="font-display text-lg sm:text-2xl text-primary-foreground uppercase tracking-wider whitespace-nowrap">
+            {item.text}
+          </span>
+          <span className="text-primary-foreground/30 text-lg sm:text-2xl select-none">•</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function DataTicker() {
   return (
-    <div className="w-full bg-primary py-4 sm:py-6 overflow-hidden flex items-center border-y border-border relative z-20">
-      <motion.div
-        className="flex gap-8 sm:gap-16 whitespace-nowrap"
-        animate={{ x: [0, -1000] }}
-        transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
-      >
-        {/* We repeat the array more times to ensure it fills the wide screen during scrolling */}
-        {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-          <div key={i} className="flex items-center gap-4 sm:gap-6 flex-shrink-0">
-            <span className="font-display text-xl sm:text-3xl text-primary-foreground uppercase tracking-wider">
-              {item.text}
-            </span>
-            <span className="text-primary-foreground/30 text-xl sm:text-3xl mx-2">•</span>
-          </div>
-        ))}
-      </motion.div>
+    <div className="w-full bg-primary py-4 sm:py-5 overflow-hidden flex items-center border-y border-border relative z-20">
+      {/* Two identical sets — translateX(-50%) lands exactly at the start of the second copy */}
+      <div className="flex animate-ticker will-change-transform">
+        <TickerSet />
+        <TickerSet />
+      </div>
     </div>
   );
 }

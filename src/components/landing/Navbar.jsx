@@ -117,10 +117,10 @@ export default function Navbar() {
           className="fixed inset-0 z-[60] bg-background flex flex-col">
           
             <div className="flex items-center justify-between px-6 h-16">
-              <img 
-                src="/logo.png" 
-                alt="DK Pure Fitness" 
-                className="h-20 w-auto object-contain" 
+              <img
+                src="/logo.png"
+                alt="DK Pure Fitness"
+                className="h-12 w-auto object-contain"
               />
               <button onClick={() => setMenuOpen(false)} className="text-foreground p-2">
                 <X className="w-6 h-6" />

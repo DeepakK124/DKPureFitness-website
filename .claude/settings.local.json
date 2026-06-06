@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls api/)",
+      "Bash(grep -rn \"decap\\\\|netlify-cms\\\\|unpkg\\\\.com\\\\|OAUTH\\\\|logo-cms\\\\|BroadcastChannel\\\\|/admin/index\" src/ index.html vercel.json public/)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(grep -E '\\\\.\\(html|jsx|tsx|js|ts|json\\)$')",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

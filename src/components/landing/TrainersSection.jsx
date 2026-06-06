@@ -35,16 +35,20 @@ export default function TrainersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              onClick={() => setSelectedTrainer(trainer)}
-              className="w-[calc(50%-0.5rem)] sm:w-[220px] md:w-[260px] flex-shrink-0 group relative bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col shadow-sm cursor-pointer"
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.innerWidth < 768) {
+                  setSelectedTrainer(trainer);
+                }
+              }}
+              className="w-full max-w-sm md:max-w-5xl flex-shrink-0 group relative bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden flex flex-col md:flex-row shadow-sm cursor-pointer md:cursor-default md:min-h-[400px]"
             >
               {/* Image */}
-              <div className="relative aspect-[4/5] overflow-hidden flex-shrink-0">
+              <div className="relative aspect-[4/5] md:aspect-auto md:w-[360px] lg:w-[440px] overflow-hidden flex-shrink-0">
                 <img
                   src={trainer.image_url}
                   alt={`Personal trainer ${trainer.name} at DK Pure Fitness gym Hyderabad`}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Scanning line effect on hover */}
@@ -54,25 +58,40 @@ export default function TrainersSection() {
               </div>
 
               {/* Info */}
-              <div className="p-3 md:p-4 flex flex-col flex-grow">
-                <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
-                  <h3 className="font-display text-xs sm:text-sm text-foreground uppercase">
+              <div className="p-4 md:p-8 lg:p-12 flex flex-col flex-grow justify-center">
+                <div className="flex flex-wrap items-center gap-2 md:gap-4 mb-2 md:mb-4">
+                  <h3 className="font-display text-xl sm:text-2xl md:text-4xl text-foreground uppercase">
                     {trainer.name}
                   </h3>
                   {idx === 0 && (
-                    <span className="font-mono text-[8px] md:text-[9px] tracking-widest text-primary-foreground bg-primary px-1 md:px-1.5 py-0.5 flex-shrink-0">
+                    <span className="font-mono text-[10px] md:text-sm tracking-widest text-primary-foreground bg-primary px-2 py-1 md:px-3 md:py-1.5 flex-shrink-0">
                       OWNER
                     </span>
                   )}
                 </div>
-                <p className="font-mono text-[9px] md:text-[10px] tracking-widest text-primary mb-2 md:mb-3 leading-tight">
+                <p className="font-mono text-xs md:text-base tracking-widest text-primary mb-4 md:mb-6 leading-tight">
                   {trainer.specialty.toUpperCase()}
                 </p>
 
-                <div className="flex flex-col flex-grow justify-end">
-                  <p className="text-[8px] md:text-[10px] text-muted-foreground/70 mt-1 italic group-hover:text-primary transition-colors">
-                    Click for details
-                  </p>
+                {/* Bio text (visible only on md and up) */}
+                <p className="hidden md:block text-muted-foreground text-sm md:text-base leading-relaxed mb-8 max-w-3xl">
+                  {trainer.bio}
+                </p>
+
+                <div className="hidden md:flex border-t border-border pt-6 mt-auto">
+                  <a
+                    href={trainer.social_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs tracking-widest text-primary hover:text-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-foreground transition-all uppercase inline-block"
+                  >
+                    Visit Profile
+                  </a>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-border/50 md:hidden flex items-center justify-between">
+                  <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">Tap for bio</span>
+                  <span className="text-primary text-base leading-none">→</span>
                 </div>
               </div>
             </motion.div>
