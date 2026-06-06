@@ -1,48 +1,49 @@
 {
   "label": "01 — About Us",
-  "title": "Not Your Typical Gym.",
-  "description": "Since 2023, we have helped hundreds of members achieve their fitness goals through expert coaching, modern equipment, and a supportive community. Whether you’re a beginner or an experienced athlete, our team is committed to helping you become stronger, healthier, and more confident.",
+  "title": "Where Nature Meets Discipline.",
+  "description": "DK Pure Fitness isn't built inside four walls. Since 2023, we've carved our training space into a natural, open-air setting — where sunlight, fresh air, and greenery are part of every session. Our members train harder, recover faster, and keep coming back because the environment itself gives you energy that no AC unit ever could.",
+  "environment_badges": ["Open-Air Training", "Natural Ventilation", "Surrounded by Greenery"],
   "youtube_callout_strong": "Beyond the gym:",
-  "youtube_callout_text": "We're also highly active in the local sports community! Watch our gym's team compete in local cricket tournaments on this",
+  "youtube_callout_text": "We're deeply rooted in the local community. Watch our team compete in cricket tournaments on our",
   "youtube_link_text": "YouTube channel",
   "youtube_link_url": "https://www.youtube.com/@Sports_ct",
   "highlights": [
     {
+      "title": "OPEN-AIR TRAINING",
+      "description": "Train under open skies with natural light and fresh air. No recycled air, no four walls — just you, your goals, and the outdoors."
+    },
+    {
       "title": "WEIGHT TRAINING",
-      "description": "Build functional strength and power with our extensive range of free weights and modern machines."
-    },
-    {
-      "title": "BODYBUILDING",
-      "description": "Sculpt and define your physique with targeted equipment and expert guidance from our trainers."
-    },
-    {
-      "title": "ZUMBA",
-      "description": "Burn calories and have fun with our high-energy, rhythmic dance workouts led by certified instructors."
+      "description": "Build real strength with our full range of free weights and machines, all inside a naturally ventilated space that keeps your energy high."
     },
     {
       "title": "YOGA",
-      "description": "Improve flexibility, balance, and core strength in our calming open-air stretching and yoga sessions."
+      "description": "Morning yoga sessions held in the open-air lawn. Breathing exercises hit differently when you're actually breathing fresh air."
+    },
+    {
+      "title": "BODYBUILDING",
+      "description": "Serious results in a serious environment. Our equipment, expert trainers, and natural setting push your physique further, session after session."
     }
   ],
   "gallery": [
     {
-      "src": "/DKPF Pics/outside lawn.webp",
-      "alt": "Open-air lawn training area at DK Pure Fitness gym Hyderabad",
+      "src": "/DKPF Pics/outside 1.jpeg",
+      "alt": "Open-air outdoor training area at DK Pure Fitness gym surrounded by nature, Hyderabad",
       "span": "col-span-2 row-span-2"
     },
     {
-      "src": "/DKPF Pics/outside lawn 1.webp",
-      "alt": "Nature-surrounded outdoor workout space near Kuntloor Hyderabad",
+      "src": "/DKPF Pics/outside 2.jpeg",
+      "alt": "Nature-embedded open-air workout space at DK Pure Fitness near Kuntloor",
       "span": "col-span-1 row-span-1"
     },
     {
       "src": "/DKPF Pics/yoga session.webp",
-      "alt": "Yoga session in the open-air area of DK Pure Fitness",
+      "alt": "Open-air yoga session surrounded by greenery at DK Pure Fitness Hyderabad",
       "span": "col-span-1 row-span-1"
     },
     {
-      "src": "/DKPF Pics/unnamed.webp",
-      "alt": "Spacious gym interior with natural ventilation in Hyderabad",
+      "src": "/DKPF Pics/outside lawn.webp",
+      "alt": "Lush green lawn training zone at DK Pure Fitness gym near Kuntloor Hyderabad",
       "span": "col-span-2 row-span-1"
     }
   ]
