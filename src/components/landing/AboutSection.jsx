@@ -168,7 +168,7 @@ export default function AboutSection() {
         </div>
 
         {/* Highlights Strip */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
           {HIGHLIGHTS.map((item, idx) => (
             <motion.div
               key={item.title}
@@ -182,9 +182,9 @@ export default function AboutSection() {
                 idx === HIGHLIGHTS.length - 1 ? 'lg:border-r-0' : ''
               } hover:bg-card transition-colors duration-500`}
             >
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 flex items-center justify-center bg-primary/10 border border-primary/20 group-hover:border-primary/40 transition-colors flex-shrink-0">
-                  <item.icon className="w-4 h-4 text-primary" />
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="w-12 h-12 flex items-center justify-center bg-primary/10 border border-primary/20 group-hover:border-primary/40 transition-colors flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-display text-sm text-foreground uppercase mb-2 group-hover:text-primary transition-colors">

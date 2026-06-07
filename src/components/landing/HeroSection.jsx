@@ -70,23 +70,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent" />
       </div>
 
-      {/* Split watermark text */}
-      <motion.span
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 0.1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-8 left-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
-        
-        {content.watermark1}
-      </motion.span>
-      <motion.span
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 0.1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-        className="absolute bottom-36 sm:bottom-24 right-8 font-display text-[5rem] sm:text-[8rem] md:text-[14rem] leading-none text-primary select-none pointer-events-none">
-        
-        {content.watermark2}
-      </motion.span>
+
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 pb-20 sm:pb-28 md:pb-24 pt-28 sm:pt-32">

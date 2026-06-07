@@ -1,10 +1,14 @@
 {
   "label": "01 — About Us",
   "title": "Where Nature Meets Discipline.",
-  "description": "DK Pure Fitness isn't built inside four walls. Since 2023, we've carved our training space into a natural, open-air setting — where sunlight, fresh air, and greenery are part of every session. Our members train harder, recover faster, and keep coming back because the environment itself gives you energy that no AC unit ever could.",
-  "environment_badges": ["Open-Air Training", "Natural Ventilation", "Surrounded by Greenery"],
+  "description": "DK Pure Fitness isn't built inside four walls. Since 2023, we've carved our training space into a natural, open-air setting where sunlight, fresh air, and greenery are part of every session. Our members train harder, recover faster, and keep coming back because the environment itself gives you energy that no AC unit ever could.",
+  "environment_badges": [
+    "Open-Air Training",
+    "Natural Ventilation",
+    "Surrounded by Greenery"
+  ],
   "youtube_callout_strong": "Beyond the gym:",
-  "youtube_callout_text": "We're deeply rooted in the local community. Watch our team compete in cricket tournaments on our",
+  "youtube_callout_text": "We're deeply rooted in the local community. Watch our team compete in cricket tournaments on this",
   "youtube_link_text": "YouTube channel",
   "youtube_link_url": "https://www.youtube.com/@Sports_ct",
   "highlights": [
@@ -19,10 +23,6 @@
     {
       "title": "YOGA",
       "description": "Morning yoga sessions held in the open-air lawn. Breathing exercises hit differently when you're actually breathing fresh air."
-    },
-    {
-      "title": "BODYBUILDING",
-      "description": "Serious results in a serious environment. Our equipment, expert trainers, and natural setting push your physique further, session after session."
     }
   ],
   "gallery": [
